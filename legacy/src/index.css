@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #004de6;
+  --color-brand-sky: #00b3ff;
+  --color-brand-dark: #0f172a;
+  --color-whatsapp: #25D366;
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Archivo", sans-serif;
+}
+
+@layer base {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+}
+
+@utility text-gradient {
+  background: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-sky));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility hero-bg {
+  background-color: #f8fafc;
+  background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+  background-size: 20px 20px;
+}
