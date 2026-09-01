@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <motion.nav 
       className={`fixed top-0 w-full z-[100] transition-all duration-300 ${
-        isScrolled 
+        isScrolled || mobileMenuOpen
           ? 'bg-bg-dark/95 backdrop-blur-lg shadow-[0_0_15px_rgba(0,0,0,0.5)] border-b border-slate-800 py-2 sm:py-3' 
           : 'bg-transparent py-3 sm:py-5'
       }`}
@@ -67,10 +67,10 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center -mr-2">
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2.5 transition-colors ${
+              className={`p-2 transition-colors ${
                 useWhiteText ? 'text-white hover:text-brand-sky' : 'text-white hover:text-brand-blue'
               }`}
             >
@@ -82,7 +82,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-bg-dark border-b border-slate-800 absolute w-full left-0 mt-2 sm:mt-3">
+        <div className="md:hidden bg-bg-dark/95 backdrop-blur-lg border-b border-slate-800 absolute top-full w-full left-0">
           <div className="px-3 sm:px-4 pt-2 pb-4 sm:pb-6 space-y-1">
             {navLinks.map((link) => (
               <Link

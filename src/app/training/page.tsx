@@ -125,7 +125,7 @@ export default function TrainingPage() {
                 <div className="text-xs text-slate-400 font-bold uppercase tracking-wider">Careers</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-brand-blue mb-1 font-heading">98%</div>
+                <div className="text-3xl font-bold text-brand-blue mb-1 font-heading">100%</div>
                 <div className="text-xs text-slate-400 font-bold uppercase tracking-wider">Pass Rate</div>
               </div>
             </div>

@@ -82,7 +82,7 @@ const Training = () => {
               </div>
               <div>
                 <p className="text-xs text-slate-400 font-sans font-bold uppercase tracking-wider">Success Rate</p>
-                <p className="text-3xl font-bold font-heading text-white">98%</p>
+                <p className="text-3xl font-bold font-heading text-white">100%</p>
               </div>
             </div>
           </motion.div>

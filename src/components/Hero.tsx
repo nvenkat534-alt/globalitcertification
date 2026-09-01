@@ -22,7 +22,7 @@ const Banner1 = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col justify-center gap-4 pt-16 pb-0 px-3 sm:px-6 lg:px-12 relative z-10 max-w-7xl mx-auto">
+    <div className="w-full h-full flex flex-col justify-center gap-4 pt-28 md:pt-32 pb-0 px-3 sm:px-6 lg:px-12 relative z-10 max-w-7xl mx-auto">
       <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-7 mt-0 lg:mt-0">
         
         {/* Left Column */}
@@ -86,24 +86,24 @@ const Banner1 = () => {
 
         {/* Right Column - Cards */}
         <div className="w-full lg:w-1/2 relative z-20 flex justify-center lg:justify-end px-2 sm:px-0">
-          <div className="grid grid-cols-2 gap-2 sm:gap-3 max-w-[460px] w-full">
+          <div className="grid grid-cols-2 gap-1.5 sm:gap-3 max-w-[420px] sm:max-w-[460px] w-full">
             {certCards.map((card, i) => (
-              <Link href={card.href} key={i} className="group relative rounded-lg sm:rounded-xl overflow-hidden bg-bg-card/80 border border-brand-blue/30 backdrop-blur-md p-2 sm:p-4 flex flex-col items-center justify-center aspect-[5/3] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,108,255,0.35)] cursor-pointer hover:border-brand-sky/50">
+              <Link href={card.href} key={i} className="group relative rounded-lg sm:rounded-xl overflow-hidden bg-bg-card/80 border border-brand-blue/30 backdrop-blur-md p-1.5 sm:p-4 flex flex-col items-center justify-center aspect-[4.8/2.8] sm:aspect-[5/3] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,108,255,0.35)] cursor-pointer hover:border-brand-sky/50">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 {card.img ? (
-                  <div className="h-10 w-full mb-1.5 flex items-center justify-center relative z-10">
-                    <img src={card.img} alt={card.name} className="max-h-full max-w-[80%] object-contain transition-all duration-300" onError={(e) => {
+                  <div className="h-7 sm:h-10 w-full mb-1 sm:mb-1.5 flex items-center justify-center relative z-10">
+                    <img src={card.img} alt={card.name} className="max-h-full max-w-[75%] sm:max-w-[80%] object-contain transition-all duration-300" onError={(e) => {
                       e.currentTarget.style.display = 'none';
                       e.currentTarget.nextElementSibling?.classList.remove('hidden');
                     }} />
-                    <span className="hidden text-sm font-bold text-white text-center">{card.name}</span>
+                    <span className="hidden text-xs sm:text-sm font-bold text-white text-center">{card.name}</span>
                   </div>
                 ) : (
-                  <div className="h-10 w-full mb-1.5 flex items-center justify-center relative z-10">
-                    <span className="text-lg font-bold text-brand-sky">{card.name}</span>
+                  <div className="h-7 sm:h-10 w-full mb-1 sm:mb-1.5 flex items-center justify-center relative z-10">
+                    <span className="text-sm sm:text-lg font-bold text-brand-sky">{card.name}</span>
                   </div>
                 )}
-                <span className="text-[11px] font-medium text-slate-300 relative z-10">{card.subtitle}</span>
+                <span className="text-[9px] sm:text-[11px] font-medium text-slate-300 relative z-10">{card.subtitle}</span>
               </Link>
             ))}
           </div>
@@ -111,13 +111,13 @@ const Banner1 = () => {
       </div>
 
       {/* Marquee Section */}
-      <div className="w-full flex flex-col items-center relative z-20 pt-0 pb-0 px-3 sm:px-0">
-        <p className="text-center text-slate-300 font-sans text-[7px] sm:text-[9px] font-bold tracking-[0.16em] uppercase mb-4 sm:mb-6">
+      <div className="w-full flex flex-col items-center relative z-20 pt-0 pb-0 px-3 sm:px-0 -mt-1 sm:-mt-0.5 md:mt-0">
+        <p className="text-center text-slate-300 font-sans text-[7px] sm:text-[9px] font-bold tracking-[0.16em] uppercase mb-2 sm:mb-4 md:mb-6">
           Trusted by professionals from top companies
         </p>
 
         <div className="w-full overflow-hidden bg-transparent">
-          <div className="animate-marquee flex w-max items-center gap-6 sm:gap-12 md:gap-16 lg:gap-20 whitespace-nowrap py-1">
+          <div className="animate-marquee flex w-max items-center gap-5 sm:gap-12 md:gap-16 lg:gap-20 whitespace-nowrap py-1">
             {[...marqueeLogos, ...marqueeLogos, ...marqueeLogos, ...marqueeLogos].map((company, index) => (
               <div key={`${company.name}-${index}`} className="flex items-center justify-center shrink-0 opacity-80">
                 <img
@@ -151,7 +151,7 @@ const Banner2 = () => {
   const marqueeLogos = [...companyLogos, ...companyLogos, ...companyLogos, ...companyLogos];
 
   return (
-    <div className="w-full h-full flex flex-col justify-center pt-16 md:pt-32 pb-12 overflow-hidden relative">
+    <div className="w-full h-full flex flex-col justify-center pt-28 md:pt-36 pb-12 overflow-hidden relative">
       {/* Marquee Background (Poping) */}
       <div className="absolute inset-0 z-0 overflow-hidden opacity-20 pointer-events-none flex flex-col justify-around -rotate-6 scale-125">
         {[...Array(5)].map((_, rowIndex) => (
