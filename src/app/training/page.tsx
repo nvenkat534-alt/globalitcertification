@@ -82,7 +82,7 @@ function TimelineNode({ item, index, isLast, progress }: { item: any, index: num
   const shadow = useTransform(progress, inShadow, outShadow);
 
   return (
-    <div className={`relative pl-10 ${!isLast ? 'pb-16' : 'pb-4'}`}>
+    <div className={`relative pl-8 md:pl-10 ${!isLast ? 'pb-8 md:pb-16' : 'pb-2 md:pb-4'}`}>
       {/* The background gray track */}
       <div className="absolute left-0 top-0 bottom-0 w-1 bg-slate-200"></div>
       
@@ -94,21 +94,21 @@ function TimelineNode({ item, index, isLast, progress }: { item: any, index: num
       
       {/* Glowing Node */}
       <motion.div 
-        className="absolute -left-[22px] top-0 w-10 h-10 rounded-full bg-white border-4 flex items-center justify-center z-10"
+        className="absolute -left-[18px] md:-left-[22px] top-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white border-4 flex items-center justify-center z-10"
         style={{ borderColor: nodeBorderColor, boxShadow: shadow }}
       >
         <motion.i 
-          className={`fas ${item.icon} text-sm`} 
+          className={`fas ${item.icon} text-[10px] md:text-sm`} 
           style={{ color: iconColor }}
         />
       </motion.div>
       
       {/* Content */}
       <motion.div style={{ opacity, scale, originX: 0 }}>
-        <h3 className="font-bold font-heading text-2xl mb-3 text-brand-dark pt-1">
+        <h3 className="font-bold font-heading text-xl md:text-2xl mb-1 md:mb-3 text-brand-dark pt-1">
           {item.title}
         </h3>
-        <p className="text-slate-500 text-lg leading-relaxed">{item.desc}</p>
+        <p className="text-slate-500 text-[15px] md:text-lg leading-snug md:leading-relaxed">{item.desc}</p>
       </motion.div>
     </div>
   );
@@ -161,22 +161,22 @@ export default function TrainingPage() {
       {/* 3. Interactive Split Layout (Scroll-locked timeline sequence) */}
       <div ref={container} className="relative h-[200vh] bg-slate-50">
         {/* Sticky inner container */}
-        <div className="sticky top-0 h-screen w-full flex items-center overflow-hidden">
+        <div className="sticky top-0 h-[100dvh] w-full flex items-center justify-center overflow-hidden py-10 md:py-0">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="flex flex-col md:flex-row items-center gap-16 md:gap-24">
+            <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-24 mt-8 md:mt-0">
               
               {/* Left text */}
               <div className="w-full md:w-1/2">
-                <h2 className="text-4xl md:text-6xl font-heading font-bold text-brand-dark mb-6 tracking-tight">
-                  Zero Distractions. <br/>
+                <h2 className="text-3xl sm:text-4xl md:text-6xl font-heading font-bold text-brand-dark mb-4 tracking-tight">
+                  Zero Distractions. <br className="hidden md:block" />
                   <span className="text-brand-blue">Total Focus.</span>
                 </h2>
-                <p className="text-xl text-slate-500 font-sans leading-relaxed mb-8">
+                <p className="text-base sm:text-lg md:text-xl text-slate-500 font-sans leading-relaxed mb-6">
                   Our flagship personalized mentorship program pairs you directly with certified professionals who live and breathe the tech you are learning. They don't just teach the syllabus—they teach the industry.
                 </p>
                 <a 
                   href="https://wa.me/919205531284"
-                  className="inline-flex items-center space-x-3 bg-brand-dark text-white px-8 py-4 rounded-full font-bold hover:bg-brand-blue transition-colors shadow-xl"
+                  className="inline-flex items-center space-x-3 bg-brand-dark text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold hover:bg-brand-blue transition-colors shadow-xl text-sm md:text-base"
                 >
                   <span>Match with a Mentor</span>
                   <i className="fas fa-arrow-right"></i>

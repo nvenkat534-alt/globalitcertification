@@ -125,12 +125,15 @@ export default function ProviderPage() {
                               <h4 className="font-bold text-slate-800 text-[1.05rem] leading-snug group-hover:text-brand-blue transition-colors duration-300">{v.name}</h4>
                               
                               {hasPrices && (
-                                <div className="mt-3 flex items-center justify-between bg-white px-4 py-2.5 rounded-lg border border-slate-200 shadow-sm">
-                                  <div>
-                                    <span className="block text-slate-400 line-through decoration-slate-300 text-[10px] mb-0.5">{v.original}</span>
-                                    <span className="text-slate-500 font-bold uppercase tracking-wider text-[10px]">Our Price</span>
+                                <div className="mt-3 flex items-center justify-between bg-brand-blue/5 px-4 py-3 rounded-lg border border-brand-blue/20 shadow-sm">
+                                  <div className="flex flex-col">
+                                    <div className="flex items-center space-x-2 mb-1">
+                                      <span className="text-slate-500 line-through decoration-red-500/70 text-xs font-semibold">{v.original}</span>
+                                      <span className="bg-red-100 text-red-600 text-[9px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">Discounted</span>
+                                    </div>
+                                    <span className="text-brand-dark font-bold uppercase tracking-wider text-[11px]">Our Price</span>
                                   </div>
-                                  <span className="text-lg font-extrabold text-[#25D366]">{v.discounted}</span>
+                                  <span className="text-xl font-extrabold text-brand-blue">{v.discounted}</span>
                                 </div>
                               )}
                             </div>

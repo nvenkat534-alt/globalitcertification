@@ -17,7 +17,7 @@ export default function TrustBar() {
         <p className="text-center text-slate-400 font-sans text-sm font-semibold tracking-widest uppercase mb-8">
           Authorized Training & Vouchers For
         </p>
-        <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20">
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-20">
           {logos.map((logo, i) => (
             <motion.div
               key={i}

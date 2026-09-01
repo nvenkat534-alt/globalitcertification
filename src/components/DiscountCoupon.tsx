@@ -33,9 +33,9 @@ const DiscountCoupon = () => {
           whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
-          className="bg-white/10 backdrop-blur-md py-4 px-8 rounded-2xl inline-block border border-white/20 mb-10"
+          className="bg-white/10 backdrop-blur-md py-4 px-4 md:px-8 rounded-2xl inline-block border border-white/20 mb-10 w-full md:w-auto"
         >
-          <p className="text-lg font-medium text-white font-sans">
+          <p className="text-base md:text-lg font-medium text-white font-sans leading-relaxed">
             AWS | Azure | Google Cloud | Microsoft | Cisco | CompTIA | Oracle & More
           </p>
         </motion.div>

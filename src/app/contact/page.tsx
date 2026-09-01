@@ -20,81 +20,81 @@ export default function ContactPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           
           {/* Contact Information */}
-          <div className="space-y-8">
-            <h2 className="text-3xl font-bold font-heading text-brand-dark">Get In Touch</h2>
+          <div className="space-y-8 lg:pr-8 pt-4">
+            <h2 className="text-3xl lg:text-4xl font-bold font-heading text-brand-dark tracking-tight">Get In Touch</h2>
             <p className="text-slate-600 text-lg leading-relaxed">
-              Reach out to our experts directly on WhatsApp for the fastest response and best deals on exam vouchers.
+              Reach out to our experts directly for the fastest response and best deals on exam vouchers.
             </p>
             
-            <div className="space-y-6 mt-8">
-              <a href="https://wa.me/919205531284" className="flex items-center p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-[#25D366] hover:shadow-md transition-all group">
-                <div className="w-14 h-14 bg-[#25D366]/10 rounded-xl flex items-center justify-center mr-6 group-hover:bg-[#25D366] transition-colors">
-                  <i className="fab fa-whatsapp text-2xl text-[#25D366] group-hover:text-white transition-colors"></i>
+            <div className="space-y-8 mt-10">
+              <a href="https://wa.me/919205531284" className="flex items-start group">
+                <div className="mt-1 mr-5 text-[#25D366]">
+                  <i className="fab fa-whatsapp text-3xl transition-transform group-hover:scale-110"></i>
                 </div>
                 <div>
-                  <span className="block font-bold text-brand-dark text-lg">WhatsApp</span>
-                  <span className="text-slate-500">+91 92055 31284</span>
+                  <span className="block font-bold text-xl text-brand-dark group-hover:text-[#25D366] transition-colors">WhatsApp</span>
+                  <span className="text-slate-500 text-lg">+91 92055 31284</span>
                 </div>
               </a>
 
-              <a href="mailto:contact@globalcertification.com" className="flex items-center p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-brand-blue hover:shadow-md transition-all group">
-                <div className="w-14 h-14 bg-brand-blue/10 rounded-xl flex items-center justify-center mr-6 group-hover:bg-brand-blue transition-colors">
-                  <Mail className="text-brand-blue group-hover:text-white transition-colors" size={24} />
+              <a href="mailto:contact@globalcertification.com" className="flex items-start group">
+                <div className="mt-1 mr-5 text-brand-blue">
+                  <Mail size={32} className="transition-transform group-hover:scale-110" />
                 </div>
                 <div>
-                  <span className="block font-bold text-brand-dark text-lg">Email</span>
-                  <span className="text-slate-500">contact@globalcertification.com</span>
+                  <span className="block font-bold text-xl text-brand-dark group-hover:text-brand-blue transition-colors">Email</span>
+                  <span className="text-slate-500 text-lg">contact@globalcertification.com</span>
                 </div>
               </a>
 
-              <a href="https://instagram.com/global_certification" target="_blank" rel="noopener noreferrer" className="flex items-center p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-[#E1306C] hover:shadow-md transition-all group">
-                <div className="w-14 h-14 bg-[#E1306C]/10 rounded-xl flex items-center justify-center mr-6 group-hover:bg-[#E1306C] transition-colors">
-                  <i className="fab fa-instagram text-2xl text-[#E1306C] group-hover:text-white transition-colors"></i>
+              <a href="https://instagram.com/global_certification" target="_blank" rel="noopener noreferrer" className="flex items-start group">
+                <div className="mt-1 mr-5 text-[#E1306C]">
+                  <i className="fab fa-instagram text-3xl transition-transform group-hover:scale-110"></i>
                 </div>
                 <div>
-                  <span className="block font-bold text-brand-dark text-lg">Instagram</span>
-                  <span className="text-slate-500">@global_certification</span>
+                  <span className="block font-bold text-xl text-brand-dark group-hover:text-[#E1306C] transition-colors">Instagram</span>
+                  <span className="text-slate-500 text-lg">@global_certification</span>
                 </div>
               </a>
               
-              <div className="flex items-center p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-brand-sky hover:shadow-md transition-all group">
-                <div className="w-14 h-14 bg-brand-blue/10 rounded-xl flex items-center justify-center mr-6 group-hover:bg-brand-sky transition-colors">
-                  <MapPin className="text-brand-blue group-hover:text-white transition-colors" size={24} />
+              <div className="flex items-start">
+                <div className="mt-1 mr-5 text-brand-blue">
+                  <MapPin size={32} />
                 </div>
                 <div>
-                  <span className="block font-bold text-brand-dark text-lg">Location</span>
-                  <span className="text-slate-500">Benz Circle, Vijayawada</span>
+                  <span className="block font-bold text-xl text-brand-dark">Location</span>
+                  <span className="text-slate-500 text-lg">Benz Circle, Vijayawada</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl">
-            <h3 className="text-2xl font-bold font-heading text-brand-dark mb-6">Send us a Message</h3>
+          <div className="bg-white rounded-3xl p-8 lg:p-10 border border-slate-200 shadow-xl">
+            <h3 className="text-2xl font-bold font-heading text-brand-dark mb-8">Send us a Message</h3>
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-2">Your Name</label>
-                  <input type="text" id="name" className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition" placeholder="John Doe" />
+                  <input type="text" id="name" className="w-full px-4 py-3 bg-slate-50 rounded-xl border border-slate-200 focus:bg-white focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition" placeholder="John Doe" />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
-                  <input type="email" id="email" className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition" placeholder="john@example.com" />
+                  <input type="email" id="email" className="w-full px-4 py-3 bg-slate-50 rounded-xl border border-slate-200 focus:bg-white focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition" placeholder="john@example.com" />
                 </div>
               </div>
               
               <div>
                 <label htmlFor="subject" className="block text-sm font-semibold text-slate-700 mb-2">Subject</label>
-                <input type="text" id="subject" className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition" placeholder="Exam Voucher Inquiry" />
+                <input type="text" id="subject" className="w-full px-4 py-3 bg-slate-50 rounded-xl border border-slate-200 focus:bg-white focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition" placeholder="Exam Voucher Inquiry" />
               </div>
               
               <div>
                 <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-2">Message</label>
-                <textarea id="message" rows={5} className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition resize-none" placeholder="How can we help you?"></textarea>
+                <textarea id="message" rows={5} className="w-full px-4 py-3 bg-slate-50 rounded-xl border border-slate-200 focus:bg-white focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition resize-none" placeholder="How can we help you?"></textarea>
               </div>
               
               <button type="button" className="w-full bg-brand-dark text-white px-8 py-4 rounded-xl font-bold hover:bg-brand-blue transition-colors shadow-lg flex items-center justify-center space-x-2">

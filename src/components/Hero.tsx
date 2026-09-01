@@ -13,9 +13,7 @@ const Hero = () => {
 
   return (
     <section className="bg-slate-50 pt-32 pb-32 overflow-hidden relative border-b border-slate-200 min-h-[90vh] flex items-center">
-      {/* Unified Brand Background Elements */}
-      <div className="absolute top-0 right-0 -mr-32 -mt-32 w-[600px] h-[600px] bg-brand-blue opacity-10 rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 -ml-32 -mb-32 w-[500px] h-[500px] bg-brand-sky opacity-10 rounded-full blur-[100px] pointer-events-none"></div>
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="flex flex-col lg:flex-row items-center relative min-h-[600px]">
@@ -51,7 +49,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="lg:w-[110%] w-full h-[600px] lg:h-[900px] mt-12 lg:mt-0 relative lg:absolute lg:-right-[40%] lg:top-[55%] lg:-translate-y-1/2 z-10 pointer-events-auto"
+            className="lg:w-[110%] w-full h-[350px] lg:h-[900px] -mt-8 lg:mt-0 relative lg:absolute lg:-right-[38%] lg:top-[65%] lg:-translate-y-1/2 z-10 pointer-events-auto"
           >
             <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 6], fov: 45 }}>
               <ambientLight intensity={0.5} />

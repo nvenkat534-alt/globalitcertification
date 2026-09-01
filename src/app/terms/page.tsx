@@ -4,9 +4,8 @@ export default function TermsPage() {
   return (
     <main className="min-h-screen bg-slate-50 pt-32 pb-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-slate-200">
           <h1 className="text-4xl font-bold font-heading text-brand-dark mb-4">Terms and Conditions</h1>
-          <p className="text-slate-500 mb-10 pb-6 border-b border-slate-100">Last Updated: {new Date().toLocaleDateString()}</p>
+          <p className="text-slate-500 mb-10 pb-6 border-b border-slate-200">Last Updated: {new Date().toLocaleDateString()}</p>
           
           <div className="space-y-8 text-slate-600 font-sans leading-relaxed">
             <section>
@@ -51,7 +50,6 @@ export default function TermsPage() {
               </p>
             </section>
           </div>
-        </div>
       </div>
     </main>
   );

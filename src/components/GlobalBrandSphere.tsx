@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef } from 'react';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -10,6 +10,7 @@ interface Props {
 }
 
 export default function GlobalBrandSphere({ scrollYProgress, interactive = false }: Props) {
+  const { viewport } = useThree();
   const groupRef = useRef<THREE.Group>(null);
   const outerSphere = useRef<THREE.Mesh>(null);
   const innerSphere = useRef<THREE.Mesh>(null);
@@ -23,7 +24,6 @@ export default function GlobalBrandSphere({ scrollYProgress, interactive = false
       });
     }
   }, [scrollYProgress]);
-
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
     
@@ -40,9 +40,9 @@ export default function GlobalBrandSphere({ scrollYProgress, interactive = false
         outerSphere.current.rotation.y += r * Math.PI * 2;
         innerSphere.current.rotation.y += r * Math.PI * 2;
         
-        const scale = 1 + Math.sin(r * Math.PI) * 0.4;
-        outerSphere.current.scale.set(scale, scale, scale);
-        innerSphere.current.scale.set(scale, scale, scale);
+        const bulge = 1 + Math.sin(r * Math.PI) * 0.4;
+        outerSphere.current.scale.set(bulge, bulge, bulge);
+        innerSphere.current.scale.set(bulge, bulge, bulge);
       }
     }
 
@@ -57,9 +57,13 @@ export default function GlobalBrandSphere({ scrollYProgress, interactive = false
     }
   });
 
+  // Calculate a fully responsive base scale based on the 3D viewport width!
+  // On mobile (narrow viewport), this smoothly shrinks the object so it never overflows.
+  const baseScale = Math.min(1.6, viewport.width / 3.5);
+
   return (
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-      <group ref={groupRef} scale={1.6}>
+      <group ref={groupRef} scale={baseScale}>
         {/* Outer Tech Grid Sphere */}
         <mesh ref={outerSphere} castShadow receiveShadow>
           <icosahedronGeometry args={[1.2, 2]} />
@@ -84,13 +88,13 @@ export default function GlobalBrandSphere({ scrollYProgress, interactive = false
         </mesh>
 
         {/* Orbiting Particles/Satellites to represent global connections */}
-        {[...Array(3)].map((_, i) => (
+        {[...Array(5)].map((_, i) => (
           <mesh 
             key={i} 
             position={[
-              Math.sin((i / 3) * Math.PI * 2) * 1.5,
-              Math.cos((i / 3) * Math.PI * 2) * 1.0,
-              Math.sin((i / 3) * Math.PI) * 1.5
+              Math.sin((i / 5) * Math.PI * 2) * 1.5,
+              Math.cos((i / 5) * Math.PI * 2) * 1.0,
+              Math.sin((i / 5) * Math.PI) * 1.5
             ]}
           >
             <sphereGeometry args={[0.08, 16, 16]} />

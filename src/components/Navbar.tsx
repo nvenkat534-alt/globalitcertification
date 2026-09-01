@@ -21,18 +21,26 @@ const Navbar = () => {
     { name: 'Contact', path: '/contact' }
   ];
 
+  const darkHeroPages = ['/training', '/contact', '/certifications'];
+  const isDarkHero = darkHeroPages.includes(pathname) || pathname.startsWith('/certifications/');
+
+  const useWhiteText = !isScrolled && isDarkHero && !mobileMenuOpen;
+
   return (
     <motion.nav 
-      className={`fixed w-full z-[100] transition-colors duration-300 ${
-        isScrolled || pathname !== '/' ? 'bg-white/95 backdrop-blur-lg shadow-sm border-b border-slate-200 py-3' : 'bg-transparent py-5'
+      className={`fixed w-full z-[100] transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/95 backdrop-blur-lg shadow-sm border-b border-slate-200 py-3' 
+          : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           
           <Link href="/" className="flex items-center space-x-2 group">
-
-            <span className="font-heading font-extrabold text-2xl text-brand-dark tracking-tight">
+            <span className={`font-heading font-extrabold text-xl md:text-2xl tracking-tight transition-colors ${
+              useWhiteText ? 'text-white' : 'text-brand-dark'
+            }`}>
               Global <span className="text-brand-blue">IT</span> Certifications
             </span>
           </Link>
@@ -44,7 +52,11 @@ const Navbar = () => {
                 key={link.name} 
                 href={link.path}
                 className={`font-sans text-sm font-semibold transition-colors ${
-                  pathname === link.path ? 'text-brand-blue' : 'text-slate-600 hover:text-brand-blue'
+                  pathname === link.path 
+                    ? 'text-brand-blue' 
+                    : useWhiteText
+                      ? 'text-slate-300 hover:text-white'
+                      : 'text-slate-600 hover:text-brand-blue'
                 }`}
               >
                 {link.name}
@@ -59,7 +71,9 @@ const Navbar = () => {
           <div className="md:hidden">
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-brand-dark hover:text-brand-blue p-2"
+              className={`p-2 transition-colors ${
+                useWhiteText ? 'text-white hover:text-brand-sky' : 'text-brand-dark hover:text-brand-blue'
+              }`}
             >
               <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'} text-2xl`}></i>
             </button>
