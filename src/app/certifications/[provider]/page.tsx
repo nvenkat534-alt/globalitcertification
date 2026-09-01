@@ -51,7 +51,7 @@ export default function ProviderPage() {
               {data.desc}
             </p>
             <div className="flex gap-4">
-              <a href="https://wa.me/919205531284" className="bg-brand-blue text-white px-8 py-4 rounded-xl font-bold font-heading hover:bg-brand-sky transition shadow-lg flex items-center space-x-2">
+              <a href="https://wa.me/919205531284" className="bg-brand-blue text-white px-8 py-4 rounded-xl font-bold font-heading hover:bg-blue-700 transition shadow-sm flex items-center space-x-2">
                 <Phone size={20} />
                 <span>Talk to an Expert</span>
               </a>
@@ -142,11 +142,11 @@ export default function ProviderPage() {
                       })}
                     </div>
                     {hasPrices ? (
-                      <a href="https://wa.me/919205531284" className="mt-6 flex items-center justify-center w-full bg-[#25D366] text-white py-4 rounded-xl font-bold hover:bg-[#20bd5a] transition-colors shadow-lg shadow-[#25D366]/20">
+                      <a href="https://wa.me/919205531284" className="mt-6 flex items-center justify-center w-full bg-[#25D366] text-white py-4 rounded-xl font-bold hover:bg-[#20bd5a] transition-colors shadow-sm">
                         <i className="fab fa-whatsapp text-xl mr-2"></i> Get Discount on WhatsApp
                       </a>
                     ) : (
-                      <a href="https://wa.me/919205531284" className="mt-6 flex items-center justify-center w-full bg-brand-blue text-white py-4 rounded-xl font-bold hover:bg-[#3f38b8] transition-colors shadow-lg shadow-brand-blue/20">
+                      <a href="https://wa.me/919205531284" className="mt-6 flex items-center justify-center w-full bg-brand-blue text-white py-4 rounded-xl font-bold hover:bg-[#3f38b8] transition-colors shadow-sm">
                         <i className="fab fa-whatsapp text-xl mr-2"></i> Inquire on WhatsApp
                       </a>
                     )}

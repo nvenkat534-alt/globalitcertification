@@ -27,6 +27,20 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          
+          {/* Floating WhatsApp Widget */}
+          <a 
+            href="https://wa.me/919205531284" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fixed bottom-6 right-6 z-[100] bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-md hover:scale-110 hover:bg-[#20bd5a] transition-all duration-300 group"
+          >
+            <i className="fab fa-whatsapp text-3xl"></i>
+            {/* Tooltip */}
+            <span className="absolute right-full mr-4 bg-white text-slate-800 text-sm font-semibold px-3 py-2 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap hidden sm:block border border-slate-100">
+              Chat with us!
+            </span>
+          </a>
         </SmoothScroll>
       </body>
     </html>

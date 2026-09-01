@@ -46,11 +46,11 @@ const FAQ = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="border border-slate-200 rounded-2xl overflow-hidden"
+              className="border-b border-slate-200 overflow-hidden"
             >
               <button 
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between p-6 text-left bg-slate-50 hover:bg-slate-100 transition-colors"
+                className="w-full flex items-center justify-between py-6 text-left hover:text-brand-blue transition-colors"
               >
                 <span className="font-bold text-brand-dark font-heading text-lg pr-8">{faq.q}</span>
                 <ChevronDown 

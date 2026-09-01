@@ -9,13 +9,13 @@ const OtherCertifications = () => {
         
         <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto mb-12">
           {['Google Cloud', 'Cisco', 'CompTIA', 'Oracle', 'Salesforce', 'VMware', 'IBM', 'PMI (PMP, ACP)', 'ISACA', 'ITIL', 'Fortinet', 'AIGP', 'Claude Certifications'].map((tag) => (
-            <span key={tag} className="px-5 py-2 bg-white shadow-sm border border-slate-200 rounded-xl text-brand-dark font-medium font-sans hover:border-brand-blue hover:text-brand-blue transition cursor-pointer">
+            <span key={tag} className="px-5 py-2 text-brand-dark font-medium font-sans hover:text-brand-blue transition cursor-pointer">
               {tag}
             </span>
           ))}
         </div>
         
-        <div className="bg-brand-blue/5 border border-brand-blue/20 rounded-3xl p-10 max-w-3xl mx-auto backdrop-blur-sm">
+        <div className="p-10 max-w-3xl mx-auto">
           <p className="text-brand-dark font-bold font-heading text-lg mb-6">Contact us on WhatsApp to check availability, pricing and offers for these certifications.</p>
           <a href="https://wa.me/919205531284" className="inline-block bg-brand-blue text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition shadow-md font-heading">
             <i className="fab fa-whatsapp mr-2"></i> Get a Quote on WhatsApp

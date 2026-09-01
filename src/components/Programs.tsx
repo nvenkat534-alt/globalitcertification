@@ -65,7 +65,7 @@ const Programs = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: i * 0.1, duration: 0.8, type: "spring", bounce: 0.4 }}
               style={{ transformStyle: "preserve-3d" }}
-              className={`bg-white rounded-3xl p-8 border-2 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col h-full ${prog.color}`}
+              className="p-8 transition-all duration-300 flex flex-col h-full hover:-translate-y-2"
             >
               <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${prog.iconColor}`}>
                 {prog.icon}

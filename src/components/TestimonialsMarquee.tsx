@@ -53,7 +53,7 @@ export default function TestimonialsMarquee() {
           {duplicatedTestimonials.map((testimonial, i) => (
             <div 
               key={i} 
-              className="w-80 md:w-96 shrink-0 bg-white p-8 rounded-3xl border border-slate-200 shadow-xl flex flex-col justify-between hover:border-brand-blue/30 transition-colors"
+              className="w-80 md:w-96 shrink-0 p-8 flex flex-col justify-between hover:scale-105 transition-transform"
             >
               <div>
                 <StarRating rating={testimonial.rating} />

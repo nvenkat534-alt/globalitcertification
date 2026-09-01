@@ -21,7 +21,7 @@ const Navbar = () => {
     { name: 'Contact', path: '/contact' }
   ];
 
-  const darkHeroPages = ['/training', '/contact', '/certifications'];
+  const darkHeroPages = ['/contact'];
   const isDarkHero = darkHeroPages.includes(pathname) || pathname.startsWith('/certifications/');
 
   const useWhiteText = !isScrolled && isDarkHero && !mobileMenuOpen;

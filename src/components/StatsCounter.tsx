@@ -20,36 +20,37 @@ const Counter = ({ from = 0, to, duration = 2 }: { from?: number, to: number, du
 
 export default function StatsCounter() {
   return (
-    <div className="w-full bg-slate-50 py-16 relative z-20 border-t border-slate-200">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="w-full bg-white pt-16 md:pt-20 pb-8 md:pb-10 relative z-20 border-b border-slate-200">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="bg-white rounded-[2rem] shadow-2xl border border-slate-100 p-12 relative overflow-hidden"
+          className="px-2 md:px-6 relative overflow-hidden"
         >
-          {/* Decorative glow */}
-          <div className="absolute -top-20 -right-20 w-64 h-64 bg-brand-sky/20 rounded-full blur-[80px]"></div>
+          <div className="absolute top-0 right-1/2 w-64 h-64 bg-brand-sky/10 rounded-full blur-[80px] pointer-events-none"></div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-slate-100 relative z-10">
-            <div>
-              <h3 className="text-5xl md:text-7xl font-bold text-brand-blue mb-4 font-heading tracking-tighter">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-slate-200 relative z-10 pt-2 md:pt-6">
+            <div className="flex flex-col items-center py-4 md:py-0">
+              <h3 className="text-4xl md:text-5xl font-bold text-brand-blue mb-2 font-heading tracking-tight">
                 <Counter to={50} />+
               </h3>
-              <p className="text-slate-500 font-sans font-bold uppercase tracking-widest text-sm">Certified Instructors</p>
+              <p className="text-slate-500 font-sans text-sm font-bold uppercase tracking-wider">Certified Instructors</p>
             </div>
-            <div>
-              <h3 className="text-5xl md:text-7xl font-bold text-brand-blue mb-4 font-heading tracking-tighter">
+            
+            <div className="flex flex-col items-center py-4 md:py-0">
+              <h3 className="text-4xl md:text-5xl font-bold text-brand-blue mb-2 font-heading tracking-tight">
                 <Counter to={10} />k+
               </h3>
-              <p className="text-slate-500 font-sans font-bold uppercase tracking-widest text-sm">Careers Advanced</p>
+              <p className="text-slate-500 font-sans text-sm font-bold uppercase tracking-wider">Careers Advanced</p>
             </div>
-            <div>
-              <h3 className="text-5xl md:text-7xl font-bold text-brand-blue mb-4 font-heading tracking-tighter">
+            
+            <div className="flex flex-col items-center py-4 md:py-0">
+              <h3 className="text-4xl md:text-5xl font-bold text-brand-blue mb-2 font-heading tracking-tight">
                 <Counter to={98} />%
               </h3>
-              <p className="text-slate-500 font-sans font-bold uppercase tracking-widest text-sm">First-Attempt Pass Rate</p>
+              <p className="text-slate-500 font-sans text-sm font-bold uppercase tracking-wider">First-Attempt Pass Rate</p>
             </div>
           </div>
         </motion.div>
