@@ -4,52 +4,49 @@ import { motion } from 'framer-motion';
 
 const DiscountCoupon = () => {
   return (
-    <section className="py-20 bg-brand-blue relative overflow-hidden">
-      {/* Background patterns */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" style={{ perspective: 1000 }}>
-        <motion.h2 
-          initial={{ opacity: 0, rotateX: 30, y: 30 }}
-          whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, type: "spring" }}
-          className="text-3xl md:text-5xl font-bold mb-6 font-heading text-white"
-        >
-          Discount Coupons Available for Global Certifications
-        </motion.h2>
+    <section className="py-24 bg-white relative border-y border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto font-sans"
-        >
-          Get exclusive discounts on globally recognised certification exams. Save big on your certification journey.
-        </motion.p>
-        
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8, rotateY: 30 }}
-          whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
-          className="bg-white/10 backdrop-blur-md py-4 px-4 md:px-8 rounded-2xl inline-block border border-white/20 mb-10 w-full md:w-auto"
-        >
-          <p className="text-base md:text-lg font-medium text-white font-sans leading-relaxed">
-            AWS | Azure | Google Cloud | Microsoft | Cisco | CompTIA | Oracle & More
+        <div className="max-w-4xl mx-auto text-center md:text-left">
+          
+          <div className="inline-block px-4 py-2 bg-brand-blue/10 rounded-full text-sm font-bold text-brand-blue mb-6 font-heading tracking-widest uppercase">
+            Limited Time Offers
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-heading text-brand-dark leading-tight">
+            Unlock Massive Savings on <br className="hidden md:block" />
+            <span className="text-brand-blue">Global Certifications</span>
+          </h2>
+          
+          <p className="text-xl text-slate-600 mb-10 font-sans leading-relaxed">
+            Don't pay full price for your IT certifications. We offer exclusive discounted vouchers for AWS, Azure, Google Cloud, Salesforce, Cisco, and more.
           </p>
-        </motion.div>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <a href="https://wa.me/919205531284" className="inline-block bg-white text-brand-blue px-10 py-4 rounded-xl font-bold text-xl hover:bg-slate-50 transition shadow-xl transform hover:-translate-y-1 font-heading">
-            <i className="fas fa-tag mr-2"></i> Get Discount on WhatsApp
-          </a>
-        </motion.div>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-6">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
+              <span className="bg-slate-100 text-slate-600 text-sm font-semibold px-4 py-2 rounded-lg">AWS</span>
+              <span className="bg-slate-100 text-slate-600 text-sm font-semibold px-4 py-2 rounded-lg">Azure</span>
+              <span className="bg-slate-100 text-slate-600 text-sm font-semibold px-4 py-2 rounded-lg">GCP</span>
+              <span className="bg-slate-100 text-slate-600 text-sm font-semibold px-4 py-2 rounded-lg">Salesforce</span>
+              <span className="bg-brand-sky/10 text-brand-sky text-sm font-semibold px-4 py-2 rounded-lg">+ Many More</span>
+            </div>
+            
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <a href="https://wa.me/919205531284" className="inline-flex items-center bg-brand-blue text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-brand-sky transition-colors">
+                <i className="fab fa-whatsapp text-xl mr-2"></i>
+                Claim Discount
+                <i className="fas fa-arrow-right ml-2 text-xs"></i>
+              </a>
+            </motion.div>
+          </div>
+
+        </div>
+
       </div>
     </section>
   );

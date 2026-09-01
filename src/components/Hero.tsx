@@ -51,9 +51,9 @@ const Hero = () => {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="lg:w-[110%] w-full h-[350px] lg:h-[900px] -mt-8 lg:mt-0 relative lg:absolute lg:-right-[38%] lg:top-[65%] lg:-translate-y-1/2 z-10 pointer-events-auto"
           >
-            <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 6], fov: 45 }}>
+            <Canvas dpr={[1, 2]} camera={{ position: [0, 0, 6], fov: 45 }}>
               <ambientLight intensity={0.5} />
-              <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={2} castShadow />
+              <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={2} />
               <Environment preset="city" />
               <GlobalBrandSphere interactive />
             </Canvas>

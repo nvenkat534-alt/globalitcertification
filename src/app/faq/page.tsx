@@ -16,7 +16,7 @@ export default function FAQPage() {
             Our experts are online and ready to help you map out your certification journey.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://wa.me/919205531284" className="bg-[#25D366] text-white px-8 py-4 rounded-full font-bold hover:bg-[#20bd5a] transition shadow-lg shadow-[#25D366]/30 flex items-center justify-center">
+            <a href="https://wa.me/919205531284" className="bg-brand-blue text-white px-8 py-4 rounded-full font-bold hover:bg-brand-sky transition shadow-lg shadow-brand-blue/30 flex items-center justify-center">
               <i className="fab fa-whatsapp mr-2 text-xl"></i> Chat on WhatsApp
             </a>
             <Link href="/contact" className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-full font-bold hover:bg-white/20 transition flex items-center justify-center">

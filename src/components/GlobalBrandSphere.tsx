@@ -65,7 +65,7 @@ export default function GlobalBrandSphere({ scrollYProgress, interactive = false
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
       <group ref={groupRef} scale={baseScale}>
         {/* Outer Tech Grid Sphere */}
-        <mesh ref={outerSphere} castShadow receiveShadow>
+        <mesh ref={outerSphere}>
           <icosahedronGeometry args={[1.2, 2]} />
           <meshStandardMaterial 
             color="#818cf8" 
