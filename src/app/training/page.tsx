@@ -13,13 +13,13 @@ function TimelineNode({ item, index, isLast, progress }: { item: { icon: string;
     inScale = [0, 0.33, 0.43];
     outScale = [1.05, 1.05, 1];
     inColor = [0, 0.1];
-    outBorderColor = ["#4f46e5", "#4f46e5"];
-    outIconColor = ["#4f46e5", "#4f46e5"];
+    outBorderColor = ["#5b6cff", "#5b6cff"];
+    outIconColor = ["#5b6cff", "#5b6cff"];
     inShadow = [0, 0.33, 0.43];
     outShadow = [
-      "0px 0px 20px rgba(37,99,235,0.4)",
-      "0px 0px 20px rgba(37,99,235,0.4)",
-      "0px 0px 0px rgba(37,99,235,0)"
+      "0px 0px 20px rgba(91,108,255,0.4)",
+      "0px 0px 20px rgba(91,108,255,0.4)",
+      "0px 0px 0px rgba(91,108,255,0)"
     ];
     inLine = [0, 0.33];
     outLine = [0, 1];
@@ -29,14 +29,14 @@ function TimelineNode({ item, index, isLast, progress }: { item: { icon: string;
     inScale = [0.23, 0.33, 0.66, 0.76];
     outScale = [1, 1.05, 1.05, 1];
     inColor = [0.28, 0.43];
-    outBorderColor = ["#e2e8f0", "#4f46e5"];
-    outIconColor = ["#94a3b8", "#4f46e5"];
+    outBorderColor = ["#e2e8f0", "#5b6cff"];
+    outIconColor = ["#94a3b8", "#5b6cff"];
     inShadow = [0.33, 0.43, 0.66, 0.76];
     outShadow = [
-      "0px 0px 0px rgba(37,99,235,0)",
-      "0px 0px 20px rgba(37,99,235,0.4)",
-      "0px 0px 20px rgba(37,99,235,0.4)",
-      "0px 0px 0px rgba(37,99,235,0)"
+      "0px 0px 0px rgba(91,108,255,0)",
+      "0px 0px 20px rgba(91,108,255,0.4)",
+      "0px 0px 20px rgba(91,108,255,0.4)",
+      "0px 0px 0px rgba(91,108,255,0)"
     ];
     inLine = [0.33, 0.66];
     outLine = [0, 1];
@@ -46,13 +46,13 @@ function TimelineNode({ item, index, isLast, progress }: { item: { icon: string;
     inScale = [0.56, 0.66, 1];
     outScale = [1, 1.05, 1.05];
     inColor = [0.61, 0.76];
-    outBorderColor = ["#e2e8f0", "#4f46e5"];
-    outIconColor = ["#94a3b8", "#4f46e5"];
+    outBorderColor = ["#e2e8f0", "#5b6cff"];
+    outIconColor = ["#94a3b8", "#5b6cff"];
     inShadow = [0.66, 0.76, 1];
     outShadow = [
-      "0px 0px 0px rgba(37,99,235,0)",
-      "0px 0px 20px rgba(37,99,235,0.4)",
-      "0px 0px 20px rgba(37,99,235,0.4)"
+      "0px 0px 0px rgba(91,108,255,0)",
+      "0px 0px 20px rgba(91,108,255,0.4)",
+      "0px 0px 20px rgba(91,108,255,0.4)"
     ];
     inLine = [0.66, 0.999, 1];
     outLine = [0, 1, 1];
@@ -73,7 +73,7 @@ function TimelineNode({ item, index, isLast, progress }: { item: { icon: string;
         style={{ scaleY: lineScaleY }}
       />
       <motion.div
-        className="absolute -left-[18px] md:-left-[22px] top-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-bg-dark border-4 flex items-center justify-center z-10"
+        className="absolute -left-[14px] md:-left-[18px] top-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-bg-dark border-4 flex items-center justify-center z-10"
         style={{ borderColor: nodeBorderColor, boxShadow: shadow }}
       >
         <motion.i
@@ -139,7 +139,7 @@ export default function TrainingPage() {
                   { name: "AWS", url: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
                   { name: "Microsoft", url: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" },
                   { name: "Salesforce", url: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" },
-                  { name: "Google Cloud", url: "https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" },
+                  { name: "Google Cloud", url: "https://www.google.com/favicon.ico" },
                   { name: "Cisco", url: "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" }
                 ].map((provider, i) => (
                   <div

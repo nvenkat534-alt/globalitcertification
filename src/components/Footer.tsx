@@ -9,11 +9,11 @@ const Footer = () => {
       {/* Subtle Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-brand-blue rounded-full blur-[120px] opacity-20 pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center md:text-left">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-10 md:mb-16">
           
           {/* Brand & Intro */}
-          <div className="space-y-4 md:space-y-6">
+          <div className="space-y-4 md:space-y-6 flex flex-col items-center md:items-start">
             <Link href="/" className="inline-block">
               <span className="text-2xl font-bold text-white block font-heading tracking-tight">
                 Global <span className="text-brand-sky">IT</span> Certifications
@@ -100,21 +100,21 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-bold font-heading mb-6 uppercase tracking-wider text-sm">Get in Touch</h3>
             <ul className="space-y-4 md:space-y-5 text-sm font-sans">
-              <li className="flex items-start">
+              <li className="flex items-start justify-center md:justify-start text-left">
                 <Phone className="text-brand-sky mt-1 mr-4 flex-shrink-0" size={18} />
                 <div>
                   <span className="block font-semibold text-slate-300">WhatsApp / Phone</span>
                   <a href="https://wa.me/9392828155" className="text-slate-400 hover:text-white transition">+91 93928 28155</a>
                 </div>
               </li>
-              <li className="flex items-start">
+              <li className="flex items-start justify-center md:justify-start text-left">
                 <Mail className="text-brand-sky mt-1 mr-4 flex-shrink-0" size={18} />
                 <div>
                   <span className="block font-semibold text-slate-300">Email</span>
                   <a href="mailto:contact@globalcertification.com" className="text-slate-400 hover:text-white transition">contact@globalcertification.com</a>
                 </div>
               </li>
-              <li className="flex items-start">
+              <li className="flex items-start justify-center md:justify-start text-left">
                 <MapPin className="text-brand-sky mt-1 mr-4 flex-shrink-0" size={18} />
                 <div>
                   <span className="block font-semibold text-slate-300">Location</span>

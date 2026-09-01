@@ -49,7 +49,7 @@ const CertificationsPage = () => {
                   { name: "AWS", url: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
                   { name: "Microsoft", url: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" },
                   { name: "Salesforce", url: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" },
-                  { name: "Google Cloud", url: "https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" },
+                  { name: "Google Cloud", url: "https://www.google.com/favicon.ico" },
                   { name: "Cisco", url: "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" }
                 ].map((provider, i) => (
                   <div
@@ -86,7 +86,7 @@ const CertificationsPage = () => {
             {[
               { name: 'AWS', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg', link: '/certifications/aws' },
               { name: 'Microsoft Azure', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg', link: '/certifications/microsoft' },
-              { name: 'Google Cloud', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg', link: '/certifications/google-cloud' },
+              { name: 'Google Cloud', iconUrl: 'https://www.google.com/favicon.ico', link: '/certifications/google-cloud' },
               { name: 'Cisco', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg', link: '/certifications/cisco' },
               { name: 'CompTIA', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/comptia.svg', link: '/certifications/comptia' },
               { name: 'Oracle', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg', link: '/certifications/oracle' },
@@ -94,9 +94,9 @@ const CertificationsPage = () => {
               { name: 'VMware', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Vmware.svg', link: '/certifications/vmware' },
               { name: 'Red Hat', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d8/Red_Hat_logo.svg', link: '/certifications/red-hat' },
               { name: 'IBM', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg', link: '/certifications/ibm' },
-              { name: 'PMI', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Project_Management_Institute_Logo.svg', icon: 'fas fa-project-diagram', link: '/certifications/pmi' },
-              { name: 'ISACA & Fortinet', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/Fortinet_logo.svg', link: '/certifications/isaca-fortinet' },
-              { name: 'Palo Alto Networks', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/90/Palo_Alto_Networks_logo.svg', link: '/certifications/palo-alto' },
+              { name: 'PMI', iconUrl: '', icon: 'fas fa-project-diagram', link: '/certifications/pmi' },
+              { name: 'ISACA & Fortinet', iconUrl: '', icon: 'fas fa-shield-alt', link: '/certifications/isaca-fortinet' },
+              { name: 'Palo Alto Networks', iconUrl: '', icon: 'fas fa-network-wired', link: '/certifications/palo-alto' },
               { name: 'ITIL', iconUrl: '', icon: 'fas fa-cogs', link: '/certifications/itil' },
               { name: 'AIGP', iconUrl: '', icon: 'fas fa-robot', link: '/certifications/aigp' },
               { name: 'Claude Certifications', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/78/Anthropic_logo.svg', link: '/certifications/claude' }
