@@ -5,26 +5,25 @@ import FadeIn from './FadeIn';
 
 const Certifications = () => {
   const topCerts = [
-    { name: 'AWS', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/amazonaws.svg', link: '/certifications/aws' },
-    { name: 'Microsoft Azure', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftazure.svg', link: '/certifications/microsoft' },
-    { name: 'Google Cloud', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlecloud.svg', link: '/certifications/google-cloud' },
-    { name: 'Cisco', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/cisco.svg', link: '/certifications/cisco' },
+    { name: 'AWS', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg', link: '/certifications/aws' },
+    { name: 'Microsoft Azure', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg', link: '/certifications/microsoft' },
+    { name: 'Google Cloud', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg', link: '/certifications/google-cloud', isLarge: true },
+    { name: 'Cisco', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg', link: '/certifications/cisco' },
     { name: 'CompTIA', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/comptia.svg', link: '/certifications/comptia' },
-    { name: 'Oracle', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/oracle.svg', link: '/certifications/oracle' },
-    { name: 'Salesforce', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/salesforce.svg', link: '/certifications/salesforce' },
-    { name: 'VMware', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/vmware.svg', link: '/certifications/vmware' },
-    { name: 'IBM', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/ibm.svg', link: '/certifications/ibm' },
-    { name: 'Red Hat', iconUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/redhat.svg', link: '/certifications/red-hat' }
+    { name: 'Oracle', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg', link: '/certifications/oracle' },
+    { name: 'Salesforce', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg', link: '/certifications/salesforce' },
+    { name: 'VMware', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Vmware.svg', link: '/certifications/vmware' },
+    { name: 'IBM', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg', link: '/certifications/ibm' }
   ];
 
   return (
-    <section id="certifications" className="pt-14 pb-10 bg-white relative z-10">
+    <section id="certifications" className="pt-14 pb-10 bg-[#020b16] relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn className="text-center mb-10">
-          <h2 className="text-4xl font-bold text-brand-dark mb-4 font-heading">
-            Top <span className="text-brand-blue">Certifications</span> We Offer
+          <h2 className="text-4xl font-bold text-white mb-4 font-heading">
+            Top <span className="text-[#5b6cff]">Certifications</span> We Offer
           </h2>
-          <p className="text-lg text-slate-500 font-sans max-w-2xl mx-auto">
+          <p className="text-lg text-slate-400 font-sans max-w-2xl mx-auto">
             Advance your career with globally recognised certifications
           </p>
         </FadeIn>
@@ -32,24 +31,26 @@ const Certifications = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8">
           {topCerts.map((cert, index) => (
             <FadeIn key={index} delay={(index % 5) * 50}>
-              <Link href={cert.link} className="group p-6 flex flex-col items-center text-center transition-transform hover:scale-105">
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 transition-colors ${cert.isMore ? 'bg-brand-blue text-white shadow-md shadow-brand-blue/30' : 'bg-slate-50 group-hover:bg-brand-blue/10'}`}>
+              <Link href={cert.link} className="group flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-1">
+                <div className="w-24 h-24 rounded-2xl bg-white shadow-[0_0_25px_rgba(16,24,40,0.18)] border border-slate-200/80 flex items-center justify-center mb-4 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(91,108,255,0.25)] group-hover:border-[#5b6cff]/40">
                   {cert.iconUrl ? (
-                    <img src={cert.iconUrl} alt={cert.name} className="w-8 h-8 object-contain opacity-70 group-hover:opacity-100 transition-opacity" style={!cert.isMore ? { filter: 'brightness(0) saturate(100%) invert(31%) sepia(87%) saturate(2891%) hue-rotate(233deg) brightness(98%) contrast(92%)' } : {}} />
+                    <img src={cert.iconUrl} alt={cert.name} className={`object-contain transition-transform duration-300 group-hover:scale-105 ${cert.isLarge ? 'w-16 h-16' : 'w-12 h-12'}`} />
                   ) : (
-                    <i className={`${cert.icon} text-2xl ${cert.isMore ? 'text-white' : 'text-brand-blue'}`}></i>
+                    <i className={`${cert.icon} text-2xl text-[#5b6cff]`}></i>
                   )}
                 </div>
-                <h3 className="text-[15px] font-bold text-brand-dark font-heading group-hover:text-brand-blue transition-colors">{cert.name}</h3>
+                <h3 className="text-[15px] font-bold text-white font-heading group-hover:text-[#5b6cff] transition-colors">{cert.name}</h3>
               </Link>
             </FadeIn>
           ))}
-        </div>
-        
-        <div className="text-center mt-4">
-          <Link href="/certifications" className="inline-flex items-center text-brand-blue font-bold font-sans hover:underline">
-            View All Certification Paths <i className="fas fa-arrow-right ml-2 text-sm"></i>
-          </Link>
+          <FadeIn delay={450}>
+            <Link href="/certifications" className="group flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-1">
+              <div className="w-24 h-24 rounded-2xl bg-white shadow-[0_0_25px_rgba(16,24,40,0.18)] border border-slate-200/80 flex items-center justify-center mb-4 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(91,108,255,0.25)] group-hover:border-[#5b6cff]/40">
+                <i className="fas fa-arrow-right text-2xl text-[#5b6cff]"></i>
+              </div>
+              <h3 className="text-[15px] font-bold text-white font-heading group-hover:text-[#5b6cff] transition-colors">More</h3>
+            </Link>
+          </FadeIn>
         </div>
       </div>
     </section>

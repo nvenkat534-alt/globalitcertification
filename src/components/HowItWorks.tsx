@@ -19,10 +19,10 @@ export default function HowItWorks() {
   const pathLength = useTransform(scrollYProgress, [0.2, 0.8], [0, 1]);
 
   return (
-    <section ref={containerRef} className="py-32 bg-white relative overflow-hidden">
+    <section ref={containerRef} className="py-32 bg-bg-dark relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading text-brand-dark tracking-tight">The Proven Path to Certification</h2>
+          <h2 className="text-4xl md:text-5xl font-bold font-heading text-white tracking-tight">The Proven Path to Certification</h2>
         </div>
 
         <div className="relative">
@@ -47,13 +47,13 @@ export default function HowItWorks() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, delay: i * 0.2, type: "spring", bounce: 0.4 }}
                 style={{ perspective: 1000 }}
-                className="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-xl relative group hover:border-brand-blue/30 transition-colors"
+                className="bg-bg-dark p-8 rounded-3xl border border-slate-800 shadow-xl relative group hover:border-brand-blue/30 transition-colors"
               >
-                <div className="w-16 h-16 bg-brand-dark rounded-2xl flex items-center justify-center text-white text-2xl font-bold font-heading mb-6 group-hover:bg-brand-blue transition-colors shadow-lg shadow-brand-blue/20">
+                <div className="w-16 h-16 bg-bg-dark rounded-2xl flex items-center justify-center text-white text-2xl font-bold font-heading mb-6 group-hover:bg-brand-blue transition-colors shadow-[0_0_30px_rgba(0,0,0,0.7)] shadow-brand-blue/20">
                   {step.num}
                 </div>
-                <h3 className="text-xl font-bold text-brand-dark font-heading mb-3">{step.title}</h3>
-                <p className="text-slate-600 font-sans leading-relaxed">{step.desc}</p>
+                <h3 className="text-xl font-bold text-white font-heading mb-3">{step.title}</h3>
+                <p className="text-slate-400 font-sans leading-relaxed">{step.desc}</p>
               </motion.div>
             ))}
           </div>

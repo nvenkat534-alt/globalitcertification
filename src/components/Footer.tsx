@@ -4,7 +4,7 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-brand-dark relative overflow-hidden text-slate-300 pt-12 md:pt-20 pb-8 md:pb-10 border-t border-brand-blue/30">
+    <footer className="bg-bg-dark relative overflow-hidden text-slate-300 pt-12 md:pt-20 pb-8 md:pb-10 border-t border-brand-blue/30">
       
       {/* Subtle Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-brand-blue rounded-full blur-[120px] opacity-20 pointer-events-none"></div>
@@ -25,13 +25,13 @@ const Footer = () => {
             
             {/* Social Icons */}
             <div className="flex space-x-4 pt-2">
-              <a href="https://instagram.com/global_certification" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#E1306C] hover:text-white transition-all shadow-lg hover:-translate-y-1">
+              <a href="https://instagram.com/global_certification" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#E1306C] hover:text-white transition-all hover:-translate-y-1">
                 <i className="fab fa-instagram text-lg"></i>
               </a>
-              <a href="https://wa.me/919205531284" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#25D366] hover:text-white transition-all shadow-lg hover:-translate-y-1">
+              <a href="https://wa.me/9392828155" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#25D366] hover:text-white transition-all hover:-translate-y-1">
                 <i className="fab fa-whatsapp text-lg"></i>
               </a>
-              <a href="mailto:contact@globalcertification.com" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-blue hover:text-white transition-all shadow-lg hover:-translate-y-1">
+              <a href="mailto:contact@globalcertification.com" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-blue hover:text-white transition-all hover:-translate-y-1">
                 <Mail size={18} />
               </a>
             </div>
@@ -104,7 +104,7 @@ const Footer = () => {
                 <Phone className="text-brand-sky mt-1 mr-4 flex-shrink-0" size={18} />
                 <div>
                   <span className="block font-semibold text-slate-300">WhatsApp / Phone</span>
-                  <a href="https://wa.me/919205531284" className="text-slate-400 hover:text-white transition">+91 92055 31284</a>
+                  <a href="https://wa.me/9392828155" className="text-slate-400 hover:text-white transition">+91 93928 28155</a>
                 </div>
               </li>
               <li className="flex items-start">
@@ -127,7 +127,7 @@ const Footer = () => {
         </div>
         
         {/* Copyright Bar */}
-        <div className="border-t border-slate-800 pt-8 mt-12 text-center md:text-left text-sm text-slate-500 font-sans flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-slate-800 pt-8 mt-12 text-center md:text-left text-sm text-slate-400 font-sans flex flex-col md:flex-row justify-between items-center">
           <p>&copy; {new Date().getFullYear()} Global IT Certifications. All rights reserved.</p>
           <div className="mt-4 md:mt-0 flex space-x-6 text-xs">
             <Link href="/privacy" className="hover:text-slate-300 transition">Privacy Policy</Link>

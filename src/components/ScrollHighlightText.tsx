@@ -9,7 +9,7 @@ interface Props {
 const Word = ({ children, progress, range }: { children: React.ReactNode, progress: any, range: number[] }) => {
   const opacity = useTransform(progress, range, [0.2, 1]);
   return (
-    <motion.span style={{ opacity }} className="inline-block mr-[0.25em] text-brand-dark">
+    <motion.span style={{ opacity }} className="inline-block mr-[0.25em] text-white">
       {children}
     </motion.span>
   );
@@ -25,7 +25,7 @@ export default function ScrollHighlightText({ text }: Props) {
   const words = text.split(" ");
 
   return (
-    <section className="bg-slate-50 py-32 overflow-hidden border-t border-slate-200">
+    <section className="bg-bg-dark py-32 overflow-hidden border-t border-slate-800">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
         <p 
           ref={container} 

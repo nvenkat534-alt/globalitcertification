@@ -21,10 +21,10 @@ export default function ProviderPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main className="min-h-screen bg-bg-dark">
       
       {/* Hero */}
-      <div className="bg-brand-dark pt-32 pb-24 relative overflow-hidden">
+      <div className="bg-bg-dark pt-32 pb-24 relative overflow-hidden">
         
         {/* 3D Background Element */}
         <div className="absolute top-0 right-0 w-full md:w-1/2 h-full opacity-30 pointer-events-auto z-0">
@@ -51,7 +51,7 @@ export default function ProviderPage() {
               {data.desc}
             </p>
             <div className="flex gap-4">
-              <a href="https://wa.me/919205531284" className="bg-brand-blue text-white px-8 py-4 rounded-xl font-bold font-heading hover:bg-blue-700 transition shadow-sm flex items-center space-x-2">
+              <a href="https://wa.me/9392828155" className="bg-brand-blue text-white px-8 py-4 rounded-xl font-bold font-heading hover:bg-blue-700 transition shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center space-x-2">
                 <Phone size={20} />
                 <span>Talk to an Expert</span>
               </a>
@@ -66,12 +66,12 @@ export default function ProviderPage() {
           <div className="lg:col-span-2 space-y-16">
             {/* Modules */}
             <div>
-              <h2 className="text-3xl font-bold text-brand-dark mb-6 font-heading">What You Will Learn</h2>
+              <h2 className="text-3xl font-bold text-white mb-6 font-heading">What You Will Learn</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {data.modules.map((mod: string, i: number) => (
-                  <div key={i} className="flex items-start space-x-3 bg-white p-4 rounded-xl border border-slate-200">
+                  <div key={i} className="flex items-start space-x-3 bg-bg-dark p-4 rounded-xl border border-slate-800">
                     <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-0.5" size={20} />
-                    <span className="font-medium text-slate-700">{mod}</span>
+                    <span className="font-medium text-slate-300">{mod}</span>
                   </div>
                 ))}
               </div>
@@ -79,10 +79,10 @@ export default function ProviderPage() {
 
             {/* Careers */}
             <div>
-              <h2 className="text-3xl font-bold text-brand-dark mb-6 font-heading">Career Opportunities</h2>
+              <h2 className="text-3xl font-bold text-white mb-6 font-heading">Career Opportunities</h2>
               <div className="flex flex-wrap gap-3">
                 {data.careers.map((career: string, i: number) => (
-                  <span key={i} className="bg-slate-200 text-slate-700 px-4 py-2 rounded-full font-semibold text-sm">
+                  <span key={i} className="bg-slate-200 text-slate-300 px-4 py-2 rounded-full font-semibold text-sm">
                     {career}
                   </span>
                 ))}
@@ -90,12 +90,12 @@ export default function ProviderPage() {
             </div>
             {/* Eligibility */}
             <div>
-              <h2 className="text-3xl font-bold text-brand-dark mb-6 font-heading">Who Is This For?</h2>
+              <h2 className="text-3xl font-bold text-white mb-6 font-heading">Who Is This For?</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {data.eligibility.map((el: string, i: number) => (
-                  <div key={i} className="flex items-start space-x-3 bg-white p-4 rounded-xl border border-slate-200">
+                  <div key={i} className="flex items-start space-x-3 bg-bg-dark p-4 rounded-xl border border-slate-800">
                     <CheckCircle2 className="text-brand-blue flex-shrink-0 mt-0.5" size={20} />
-                    <span className="font-medium text-slate-700">{el}</span>
+                    <span className="font-medium text-slate-300">{el}</span>
                   </div>
                 ))}
               </div>
@@ -110,28 +110,28 @@ export default function ProviderPage() {
                 
                 return (
                   <>
-                    <h3 className="text-xl font-bold font-heading text-brand-dark mb-5 flex items-center">
+                    <h3 className="text-xl font-bold font-heading text-white mb-5 flex items-center">
                       <Award className="text-brand-blue mr-3" size={24} />
                       {hasPrices ? "Discounted Vouchers" : "Available Certifications"}
                     </h3>
-                    <div className="border-t border-slate-200">
+                    <div className="border-t border-slate-800">
                       {data.vouchers.map((v: any, i: number) => {
                         return (
-                          <div key={i} className="py-4 border-b border-slate-200 flex items-start group">
+                          <div key={i} className="py-4 border-b border-slate-800 flex items-start group">
                             <div className="mt-0.5 mr-4 shrink-0 w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
                               <CheckCircle2 size={16} />
                             </div>
                             <div className="flex flex-col justify-center flex-grow">
-                              <h4 className="font-bold text-slate-800 text-[1.05rem] leading-snug group-hover:text-brand-blue transition-colors duration-300">{v.name}</h4>
+                              <h4 className="font-bold text-slate-200 text-[1.05rem] leading-snug group-hover:text-brand-blue transition-colors duration-300">{v.name}</h4>
                               
                               {hasPrices && (
-                                <div className="mt-3 flex items-center justify-between bg-brand-blue/5 px-4 py-3 rounded-lg border border-brand-blue/20 shadow-sm">
+                                <div className="mt-3 flex items-center justify-between bg-brand-blue/5 px-4 py-3 rounded-lg border border-brand-blue/20 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                                   <div className="flex flex-col">
                                     <div className="flex items-center space-x-2 mb-1">
-                                      <span className="text-slate-500 line-through decoration-red-500/70 text-xs font-semibold">{v.original}</span>
+                                      <span className="text-slate-400 line-through decoration-red-500/70 text-xs font-semibold">{v.original}</span>
                                       <span className="bg-red-100 text-red-600 text-[9px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">Discounted</span>
                                     </div>
-                                    <span className="text-brand-dark font-bold uppercase tracking-wider text-[11px]">Our Price</span>
+                                    <span className="text-white font-bold uppercase tracking-wider text-[11px]">Our Price</span>
                                   </div>
                                   <span className="text-xl font-extrabold text-brand-blue">{v.discounted}</span>
                                 </div>
@@ -142,11 +142,11 @@ export default function ProviderPage() {
                       })}
                     </div>
                     {hasPrices ? (
-                      <a href="https://wa.me/919205531284" className="mt-6 flex items-center justify-center w-full bg-[#25D366] text-white py-4 rounded-xl font-bold hover:bg-[#20bd5a] transition-colors shadow-sm">
+                      <a href="https://wa.me/9392828155" className="mt-6 flex items-center justify-center w-full bg-[#25D366] text-white py-4 rounded-xl font-bold hover:bg-[#20bd5a] transition-colors shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                         <i className="fab fa-whatsapp text-xl mr-2"></i> Get Discount on WhatsApp
                       </a>
                     ) : (
-                      <a href="https://wa.me/919205531284" className="mt-6 flex items-center justify-center w-full bg-brand-blue text-white py-4 rounded-xl font-bold hover:bg-[#3f38b8] transition-colors shadow-sm">
+                      <a href="https://wa.me/9392828155" className="mt-6 flex items-center justify-center w-full bg-brand-blue text-white py-4 rounded-xl font-bold hover:bg-[#3f38b8] transition-colors shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                         <i className="fab fa-whatsapp text-xl mr-2"></i> Inquire on WhatsApp
                       </a>
                     )}

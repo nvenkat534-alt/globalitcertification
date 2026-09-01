@@ -24,11 +24,13 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 bg-slate-50 relative">
+    <section className="py-24 bg-bg-dark relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-heading text-brand-dark mb-4">Student Success Stories</h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">Hear from our students who successfully transformed their careers through our personalized training programs.</p>
+        <div className="border-t border-slate-800/50 mb-16 pt-12">
+          <div className="text-center">
+            <h2 className="text-4xl md:text-5xl font-bold font-heading text-white mb-4">Student Success Stories</h2>
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">Hear from our students who successfully transformed their careers through our personalized training programs.</p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -40,14 +42,14 @@ const Testimonials = () => {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.2, duration: 0.8, type: "spring", bounce: 0.3 }}
               style={{ transformStyle: "preserve-3d", perspective: 1200 }}
-              className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-lg transition-all"
+              className="bg-bg-dark p-8 rounded-3xl shadow-[0_0_15px_rgba(0,0,0,0.5)] border border-slate-800/50 hover:shadow-[0_0_30px_rgba(0,0,0,0.7)] transition-all"
             >
               <div className="flex space-x-1 text-yellow-400 mb-6">
                 {[...Array(5)].map((_, j) => <Star key={j} size={18} fill="currentColor" />)}
               </div>
-              <p className="text-slate-700 italic leading-relaxed mb-6">"{t.quote}"</p>
+              <p className="text-slate-300 italic leading-relaxed mb-6">"{t.quote}"</p>
               <div>
-                <h4 className="font-bold text-brand-dark font-heading">{t.name}</h4>
+                <h4 className="font-bold text-white font-heading">{t.name}</h4>
                 <p className="text-sm text-brand-blue font-medium">{t.cert}</p>
               </div>
             </motion.div>

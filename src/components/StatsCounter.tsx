@@ -20,37 +20,35 @@ const Counter = ({ from = 0, to, duration = 2 }: { from?: number, to: number, du
 
 export default function StatsCounter() {
   return (
-    <div className="w-full bg-white pt-16 md:pt-20 pb-8 md:pb-10 relative z-20 border-b border-slate-200">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="w-full bg-[#020b16] pt-10 pb-10 relative z-20 border-t border-b border-slate-800/80">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="px-2 md:px-6 relative overflow-hidden"
+          className="relative overflow-hidden"
         >
-          <div className="absolute top-0 right-1/2 w-64 h-64 bg-brand-sky/10 rounded-full blur-[80px] pointer-events-none"></div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-slate-200 relative z-10 pt-2 md:pt-6">
-            <div className="flex flex-col items-center py-4 md:py-0">
-              <h3 className="text-4xl md:text-5xl font-bold text-brand-blue mb-2 font-heading tracking-tight">
+          <div className="grid grid-cols-1 md:grid-cols-3 text-center relative z-10">
+            <div className="flex flex-col items-center justify-center py-4 md:py-0 md:px-8 md:border-r md:border-slate-700/80">
+              <h3 className="text-5xl md:text-6xl font-bold text-[#5b6cff] mb-3 font-heading tracking-tight leading-none">
                 <Counter to={50} />+
               </h3>
-              <p className="text-slate-500 font-sans text-sm font-bold uppercase tracking-wider">Certified Instructors</p>
+              <p className="text-white font-sans text-base md:text-lg font-bold uppercase tracking-[0.08em]">Certified Instructors</p>
             </div>
             
-            <div className="flex flex-col items-center py-4 md:py-0">
-              <h3 className="text-4xl md:text-5xl font-bold text-brand-blue mb-2 font-heading tracking-tight">
+            <div className="flex flex-col items-center justify-center py-4 md:py-0 md:px-8 md:border-r md:border-slate-700/80">
+              <h3 className="text-5xl md:text-6xl font-bold text-[#5b6cff] mb-3 font-heading tracking-tight leading-none">
                 <Counter to={10} />k+
               </h3>
-              <p className="text-slate-500 font-sans text-sm font-bold uppercase tracking-wider">Careers Advanced</p>
+              <p className="text-white font-sans text-base md:text-lg font-bold uppercase tracking-[0.08em]">Careers Advanced</p>
             </div>
             
-            <div className="flex flex-col items-center py-4 md:py-0">
-              <h3 className="text-4xl md:text-5xl font-bold text-brand-blue mb-2 font-heading tracking-tight">
+            <div className="flex flex-col items-center justify-center py-4 md:py-0 md:px-8">
+              <h3 className="text-5xl md:text-6xl font-bold text-[#5b6cff] mb-3 font-heading tracking-tight leading-none">
                 <Counter to={98} />%
               </h3>
-              <p className="text-slate-500 font-sans text-sm font-bold uppercase tracking-wider">First-Attempt Pass Rate</p>
+              <p className="text-white font-sans text-base md:text-lg font-bold uppercase tracking-[0.08em]">First-Attempt Pass Rate</p>
             </div>
           </div>
         </motion.div>

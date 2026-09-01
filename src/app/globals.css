@@ -1,19 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-blue: #4f46e5;
-  --color-brand-sky: #818cf8;
-  --color-brand-dark: #0f172a;
+  --color-brand-blue: #5b6cff;
+  --color-brand-sky: #5b6cff;
+  --color-brand-dark: #0b1424;
+  --color-brand-pink: #5b6cff;
   --color-whatsapp: #25D366;
+  --color-bg-dark: #020b16;
   --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-heading: "Plus Jakarta Sans", sans-serif;
   
-  --animate-marquee: marquee 25s linear infinite;
-  --animate-marquee2: marquee2 25s linear infinite;
+  --animate-marquee: marquee 22s linear infinite;
+  --animate-marquee2: marquee2 22s linear infinite;
 
   @keyframes marquee {
     0% { transform: translateX(0%); }
-    100% { transform: translateX(-100%); }
+    100% { transform: translateX(-33.333%); }
   }
   @keyframes marquee2 {
     0% { transform: translateX(100%); }
@@ -35,6 +37,8 @@
 
   body {
     overflow-x: clip;
+    background-color: var(--color-bg-dark);
+    color: #f8fafc;
   }
 }
 
@@ -55,7 +59,7 @@
 }
 
 @utility hero-bg {
-  background-color: #f8fafc;
-  background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+  background-color: var(--color-bg-dark);
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
   background-size: 20px 20px;
 }

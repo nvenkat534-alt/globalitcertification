@@ -19,7 +19,7 @@ export default function CenterpieceScroll() {
   const canvasY = useTransform(scrollYProgress, [0, 1], ["0%", "200%"]);
 
   return (
-    <section ref={container} className="relative w-full bg-slate-100 border-y border-slate-200">
+    <section ref={container} className="relative w-full bg-slate-800 border-y border-slate-800">
       
       {/* 100vh absolute wrapper that translates down to fake sticky positioning */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -43,10 +43,10 @@ export default function CenterpieceScroll() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
             transition={{ duration: 0.5 }}
-            className="max-w-md bg-white/90 backdrop-blur-xl p-8 rounded-3xl border border-white shadow-2xl pointer-events-auto"
+            className="max-w-md bg-bg-dark/90 backdrop-blur-xl p-8 rounded-3xl border border-white shadow-2xl pointer-events-auto"
           >
             <h2 className="text-brand-blue font-bold font-heading uppercase tracking-widest text-sm mb-2">The Standard</h2>
-            <p className="text-4xl font-bold font-heading text-brand-dark leading-tight">Globally Recognized Credential</p>
+            <p className="text-4xl font-bold font-heading text-white leading-tight">Globally Recognized Credential</p>
           </motion.div>
         </div>
         
@@ -57,10 +57,10 @@ export default function CenterpieceScroll() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
             transition={{ duration: 0.5 }}
-            className="max-w-md bg-white/90 backdrop-blur-xl p-8 rounded-3xl border border-white shadow-2xl pointer-events-auto"
+            className="max-w-md bg-bg-dark/90 backdrop-blur-xl p-8 rounded-3xl border border-white shadow-2xl pointer-events-auto"
           >
             <h2 className="text-brand-blue font-bold font-heading uppercase tracking-widest text-sm mb-2">The Process</h2>
-            <p className="text-4xl font-bold font-heading text-brand-dark leading-tight">Rigorous Exam Simulation</p>
+            <p className="text-4xl font-bold font-heading text-white leading-tight">Rigorous Exam Simulation</p>
           </motion.div>
         </div>
         
@@ -71,10 +71,10 @@ export default function CenterpieceScroll() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
             transition={{ duration: 0.5 }}
-            className="max-w-md bg-white/90 backdrop-blur-xl p-8 rounded-3xl border border-white shadow-2xl pointer-events-auto"
+            className="max-w-md bg-bg-dark/90 backdrop-blur-xl p-8 rounded-3xl border border-white shadow-2xl pointer-events-auto"
           >
             <h2 className="text-[#25D366] font-bold font-heading uppercase tracking-widest text-sm mb-2">The Result</h2>
-            <p className="text-4xl font-bold font-heading text-brand-dark leading-tight">Your Career <br/>Accelerated.</p>
+            <p className="text-4xl font-bold font-heading text-white leading-tight">Your Career <br/>Accelerated.</p>
           </motion.div>
         </div>
 

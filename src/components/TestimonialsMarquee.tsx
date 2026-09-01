@@ -30,20 +30,20 @@ export default function TestimonialsMarquee() {
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   return (
-    <section className="bg-slate-50 pt-4 pb-24 overflow-hidden border-b border-slate-200 relative">
+    <section className="bg-bg-dark pt-4 pb-24 overflow-hidden border-b border-slate-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold font-heading text-brand-dark tracking-tight mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold font-heading text-white tracking-tight mb-4">
           Success Stories
         </h2>
-        <p className="text-slate-500 font-sans text-lg">Don't just take our word for it.</p>
+        <p className="text-slate-400 font-sans text-lg">Don't just take our word for it.</p>
       </div>
 
       {/* Marquee Container */}
       <div className="relative flex group py-4">
         
         {/* Left/Right Fade Gradients */}
-        <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-[#020617] to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[#020617] to-transparent z-10 pointer-events-none"></div>
 
         <motion.div 
           className="flex gap-8 px-4 w-max"
@@ -57,14 +57,14 @@ export default function TestimonialsMarquee() {
             >
               <div>
                 <StarRating rating={testimonial.rating} />
-                <p className="text-slate-700 font-sans leading-relaxed text-lg mb-8">
+                <p className="text-slate-300 font-sans leading-relaxed text-lg mb-8">
                   "{testimonial.text}"
                 </p>
               </div>
               <div>
-                <h4 className="text-brand-dark font-bold font-heading text-lg">Anonymous</h4>
+                <h4 className="text-white font-bold font-heading text-lg">Anonymous</h4>
                 <p className="text-brand-blue text-sm font-sans font-semibold mb-1">{testimonial.cert}</p>
-                <p className="text-slate-500 text-xs font-sans font-medium uppercase tracking-wider">{testimonial.role}</p>
+                <p className="text-slate-400 text-xs font-sans font-medium uppercase tracking-wider">{testimonial.role}</p>
               </div>
             </div>
           ))}

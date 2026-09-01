@@ -30,7 +30,7 @@ const Navbar = () => {
     <motion.nav 
       className={`fixed w-full z-[100] transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-lg shadow-sm border-b border-slate-200 py-3' 
+          ? 'bg-bg-dark/95 backdrop-blur-lg shadow-[0_0_15px_rgba(0,0,0,0.5)] border-b border-slate-800 py-3' 
           : 'bg-transparent py-5'
       }`}
     >
@@ -39,7 +39,7 @@ const Navbar = () => {
           
           <Link href="/" className="flex items-center space-x-2 group">
             <span className={`font-heading font-extrabold text-xl md:text-2xl tracking-tight transition-colors ${
-              useWhiteText ? 'text-white' : 'text-brand-dark'
+              useWhiteText ? 'text-white' : 'text-white'
             }`}>
               Global <span className="text-brand-blue">IT</span> Certifications
             </span>
@@ -56,13 +56,13 @@ const Navbar = () => {
                     ? 'text-brand-blue' 
                     : useWhiteText
                       ? 'text-slate-300 hover:text-white'
-                      : 'text-slate-600 hover:text-brand-blue'
+                      : 'text-slate-400 hover:text-brand-blue'
                 }`}
               >
                 {link.name}
               </Link>
             ))}
-            <a href="https://wa.me/919205531284" className="bg-brand-blue text-white px-5 py-2.5 rounded-full font-heading font-semibold text-sm hover:bg-blue-700 transition shadow-sm hover:shadow flex items-center">
+            <a href="https://wa.me/9392828155" className="bg-brand-blue text-white px-5 py-2.5 rounded-full font-heading font-semibold text-sm hover:bg-blue-700 transition flex items-center">
               <i className="fab fa-whatsapp mr-2 text-lg"></i> Contact Expert
             </a>
           </div>
@@ -72,7 +72,7 @@ const Navbar = () => {
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={`p-2 transition-colors ${
-                useWhiteText ? 'text-white hover:text-brand-sky' : 'text-brand-dark hover:text-brand-blue'
+                useWhiteText ? 'text-white hover:text-brand-sky' : 'text-white hover:text-brand-blue'
               }`}
             >
               <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'} text-2xl`}></i>
@@ -83,7 +83,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 shadow-lg absolute w-full left-0 mt-3">
+        <div className="md:hidden bg-bg-dark border-b border-slate-800 absolute w-full left-0 mt-3">
           <div className="px-4 pt-2 pb-6 space-y-1">
             {navLinks.map((link) => (
               <Link
@@ -91,14 +91,14 @@ const Navbar = () => {
                 href={link.path}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-3 py-3 rounded-md font-sans font-medium ${
-                  pathname === link.path ? 'bg-brand-blue/10 text-brand-blue' : 'text-slate-600 hover:bg-slate-50 hover:text-brand-blue'
+                  pathname === link.path ? 'bg-brand-blue/10 text-brand-blue' : 'text-slate-400 hover:bg-bg-dark hover:text-brand-blue'
                 }`}
               >
                 {link.name}
               </Link>
             ))}
             <a 
-              href="https://wa.me/919205531284" 
+              href="https://wa.me/9392828155" 
               className="block mt-4 px-3 py-3 bg-brand-blue text-white rounded-md font-heading font-semibold text-center"
             >
               <i className="fab fa-whatsapp mr-2"></i> Contact Expert

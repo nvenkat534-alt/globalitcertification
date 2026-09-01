@@ -31,7 +31,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-20 bg-slate-50 border-t border-slate-200">
+    <section className="py-20 bg-bg-dark border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
           
@@ -40,11 +40,11 @@ const WhyChooseUs = () => {
             <div className="inline-block px-4 py-2 bg-brand-blue/10 rounded-full text-xs font-bold text-brand-blue mb-6 uppercase tracking-widest border border-brand-blue/20">
               OUR PROMISE
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-brand-dark mb-6 font-heading leading-tight tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-heading leading-tight tracking-tight">
               Why Choose <br className="hidden lg:block"/>
               <span className="text-brand-blue">GlobalIT</span> Certifications?
             </h2>
-            <p className="text-lg text-slate-600 font-sans leading-relaxed">
+            <p className="text-lg text-slate-400 font-sans leading-relaxed">
               We're committed to your success with the best training, support, and guarantees in the industry. Your career growth is our absolute priority.
             </p>
           </div>
@@ -54,12 +54,12 @@ const WhyChooseUs = () => {
             {features.map((feature, i) => (
               <FadeIn key={i} delay={i * 100}>
                 <div className="flex gap-5 items-start group cursor-default">
-                  <div className="shrink-0 w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center mt-1 group-hover:bg-brand-blue transition-colors duration-300 shadow-sm border border-brand-blue/20">
+                  <div className="shrink-0 w-8 h-8 rounded-full bg-brand-blue/10 flex items-center justify-center mt-1 group-hover:bg-brand-blue transition-colors duration-300 shadow-[0_0_15px_rgba(0,0,0,0.5)] border border-brand-blue/20">
                     <i className="fas fa-check text-brand-blue text-sm group-hover:text-white transition-colors duration-300"></i>
                   </div>
                   <div>
-                    <h3 className="font-bold text-brand-dark text-[22px] mb-2 font-heading group-hover:text-brand-blue transition-colors duration-300">{feature.title}</h3>
-                    <p className="text-slate-600 text-[17px] leading-relaxed">{feature.desc}</p>
+                    <h3 className="font-bold text-white text-[22px] mb-2 font-heading group-hover:text-brand-blue transition-colors duration-300">{feature.title}</h3>
+                    <p className="text-slate-400 text-[17px] leading-relaxed">{feature.desc}</p>
                   </div>
                 </div>
               </FadeIn>

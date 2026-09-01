@@ -22,7 +22,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
       </head>
-      <body className="font-sans antialiased bg-slate-50 text-slate-900">
+      <body className="font-sans antialiased bg-bg-dark text-white">
         <SmoothScroll>
           <Navbar />
           {children}
@@ -30,14 +30,14 @@ export default function RootLayout({
           
           {/* Floating WhatsApp Widget */}
           <a 
-            href="https://wa.me/919205531284" 
+            href="https://wa.me/9392828155" 
             target="_blank"
             rel="noopener noreferrer"
             className="fixed bottom-6 right-6 z-[100] bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-md hover:scale-110 hover:bg-[#20bd5a] transition-all duration-300 group"
           >
             <i className="fab fa-whatsapp text-3xl"></i>
             {/* Tooltip */}
-            <span className="absolute right-full mr-4 bg-white text-slate-800 text-sm font-semibold px-3 py-2 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap hidden sm:block border border-slate-100">
+            <span className="absolute right-full mr-4 bg-slate-900 text-white text-sm font-semibold px-3 py-2 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.6)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap hidden sm:block border border-slate-800">
               Chat with us!
             </span>
           </a>
