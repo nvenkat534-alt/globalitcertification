@@ -23,13 +23,13 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           
           {/* Contact Information */}
-          <div className="space-y-8 lg:pr-8 pt-4">
+          <div className="space-y-8 lg:pr-8 pt-4 text-center lg:text-left">
             <h2 className="text-3xl lg:text-4xl font-bold font-heading text-white tracking-tight">Get In Touch</h2>
             <p className="text-slate-400 text-lg leading-relaxed">
               Reach out to our experts directly for the fastest response and best deals on exam vouchers.
             </p>
             
-            <div className="space-y-8 mt-10">
+            <div className="space-y-8 mt-10 inline-flex flex-col text-left">
               <a href="https://wa.me/9392828155" className="flex items-start group">
                 <div className="mt-1 mr-5 text-[#25D366]">
                   <i className="fab fa-whatsapp text-3xl transition-transform group-hover:scale-110"></i>
@@ -44,7 +44,7 @@ export default function ContactPage() {
                 <div className="mt-1 mr-5 text-brand-blue">
                   <Mail size={32} className="transition-transform group-hover:scale-110" />
                 </div>
-                <div>
+                <div className="break-all sm:break-normal">
                   <span className="block font-bold text-xl text-white group-hover:text-brand-blue transition-colors">Email</span>
                   <span className="text-slate-400 text-lg">contact@globalcertification.com</span>
                 </div>

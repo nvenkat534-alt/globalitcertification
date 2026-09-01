@@ -9,7 +9,7 @@ const CertificationsPage = () => {
     <div className="bg-bg-dark min-h-screen pb-20">
       
       {/* Hero Banner */}
-      <div className="bg-bg-dark pt-56 pb-20 border-b border-slate-800 relative overflow-hidden flex items-center justify-center min-h-[75vh]">
+      <div className="bg-bg-dark pt-32 md:pt-56 pb-20 border-b border-slate-800 relative overflow-hidden flex items-center justify-center min-h-[75vh]">
         {/* Background grids/elements */}
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-brand-blue/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-brand-sky/10 rounded-full blur-[100px] pointer-events-none z-0"></div>

@@ -99,22 +99,22 @@ const Footer = () => {
           {/* Contact Details */}
           <div>
             <h3 className="text-white font-bold font-heading mb-6 uppercase tracking-wider text-sm">Get in Touch</h3>
-            <ul className="space-y-4 md:space-y-5 text-sm font-sans">
-              <li className="flex items-start justify-center md:justify-start text-left">
+            <ul className="space-y-4 md:space-y-5 text-sm font-sans inline-flex flex-col text-left">
+              <li className="flex items-start">
                 <Phone className="text-brand-sky mt-1 mr-4 flex-shrink-0" size={18} />
                 <div>
                   <span className="block font-semibold text-slate-300">WhatsApp / Phone</span>
                   <a href="https://wa.me/9392828155" className="text-slate-400 hover:text-white transition">+91 93928 28155</a>
                 </div>
               </li>
-              <li className="flex items-start justify-center md:justify-start text-left">
+              <li className="flex items-start">
                 <Mail className="text-brand-sky mt-1 mr-4 flex-shrink-0" size={18} />
-                <div>
+                <div className="break-all sm:break-normal">
                   <span className="block font-semibold text-slate-300">Email</span>
                   <a href="mailto:contact@globalcertification.com" className="text-slate-400 hover:text-white transition">contact@globalcertification.com</a>
                 </div>
               </li>
-              <li className="flex items-start justify-center md:justify-start text-left">
+              <li className="flex items-start">
                 <MapPin className="text-brand-sky mt-1 mr-4 flex-shrink-0" size={18} />
                 <div>
                   <span className="block font-semibold text-slate-300">Location</span>

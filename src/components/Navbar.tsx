@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <motion.nav 
-      className={`fixed w-full z-[100] transition-all duration-300 ${
+      className={`fixed top-0 w-full z-[100] transition-all duration-300 ${
         isScrolled 
           ? 'bg-bg-dark/95 backdrop-blur-lg shadow-[0_0_15px_rgba(0,0,0,0.5)] border-b border-slate-800 py-2 sm:py-3' 
           : 'bg-transparent py-3 sm:py-5'
@@ -41,7 +41,7 @@ const Navbar = () => {
             <span className={`font-heading font-extrabold text-base sm:text-xl md:text-2xl tracking-tight transition-colors ${
               useWhiteText ? 'text-white' : 'text-white'
             }`}>
-              Global <span className="text-brand-blue">IT</span> Certs</span>
+              Global <span className="text-brand-blue">IT</span> Certifications</span>
           </Link>
 
           {/* Desktop Nav */}

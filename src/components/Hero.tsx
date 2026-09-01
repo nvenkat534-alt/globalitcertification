@@ -21,12 +21,12 @@ const Banner1 = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col justify-center gap-4 pt-4 pb-0 px-3 sm:px-6 lg:px-12 relative z-10 max-w-7xl mx-auto">
+    <div className="w-full h-full flex flex-col justify-center gap-4 pt-16 pb-0 px-3 sm:px-6 lg:px-12 relative z-10 max-w-7xl mx-auto">
       <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-7 mt-0 lg:mt-0">
         
         {/* Left Column */}
         <div className="w-full lg:w-1/2 flex flex-col items-start text-left relative z-20">
-          <div className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 border border-brand-blue/40 rounded-full text-[8px] sm:text-[10px] font-bold text-slate-300 mb-2 sm:mb-4 tracking-widest uppercase bg-brand-blue/30">
+          <div className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 border border-brand-blue/40 rounded-full text-[8px] sm:text-[10px] font-bold text-slate-300 mb-2 sm:mb-4 tracking-widest uppercase bg-bg-dark">
             THE GLOBAL STANDARD IN IT CERTIFICATIONS
           </div>
           
@@ -150,7 +150,7 @@ const Banner2 = () => {
   const marqueeLogos = [...companyLogos, ...companyLogos, ...companyLogos, ...companyLogos];
 
   return (
-    <div className="w-full h-full flex flex-col justify-center pt-32 pb-12 overflow-hidden relative">
+    <div className="w-full h-full flex flex-col justify-center pt-16 md:pt-32 pb-12 overflow-hidden relative">
       {/* Marquee Background (Poping) */}
       <div className="absolute inset-0 z-0 overflow-hidden opacity-20 pointer-events-none flex flex-col justify-around -rotate-6 scale-125">
         {[...Array(5)].map((_, rowIndex) => (
@@ -199,7 +199,7 @@ const Banner2 = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mb-4">
         <div className="flex flex-col items-center justify-center w-full mt-4 lg:mt-0 max-w-4xl mx-auto text-center">
           
-          <div className="inline-block px-4 py-1.5 bg-brand-blue/30 border border-brand-blue/40 rounded-full text-[10px] font-bold text-brand-sky mb-4 font-heading tracking-widest uppercase shadow-[0_0_15px_rgba(91,108,255,0.3)]">
+          <div className="inline-block px-4 py-1.5 bg-bg-dark border border-brand-blue/40 rounded-full text-[10px] font-bold text-brand-sky mb-4 font-heading tracking-widest uppercase shadow-[0_0_15px_rgba(91,108,255,0.3)]">
             The Global Standard in IT Certifications
           </div>
           
@@ -260,7 +260,7 @@ const Hero = () => {
   const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
 
   return (
-    <section className="bg-bg-dark overflow-hidden relative flex flex-col min-h-screen pt-8">
+    <section className="bg-bg-dark overflow-hidden relative flex flex-col min-h-screen">
       {/* Global Background Elements */}
       <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-brand-blue/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-brand-sky/10 rounded-full blur-[150px] pointer-events-none z-0"></div>

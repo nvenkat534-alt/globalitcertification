@@ -102,7 +102,7 @@ export default function TrainingPage() {
     <div className="bg-bg-dark min-h-screen pb-20">
 
       {/* Hero Banner */}
-      <div className="bg-bg-dark pt-56 pb-20 border-b border-slate-800 relative overflow-hidden flex items-center justify-center min-h-[75vh]">
+      <div className="bg-bg-dark pt-32 md:pt-56 pb-20 border-b border-slate-800 relative overflow-hidden flex items-center justify-center min-h-[75vh]">
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-brand-blue/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-brand-sky/10 rounded-full blur-[100px] pointer-events-none z-0"></div>
 
@@ -163,9 +163,9 @@ export default function TrainingPage() {
 
       {/* Interactive Split Layout (Scroll-locked timeline sequence) */}
       <div ref={container} className="relative h-[200vh] bg-bg-dark">
-        <div className="sticky top-0 h-[100dvh] w-full flex items-center justify-center overflow-hidden py-10 md:py-0">
+        <div className="sticky top-[60px] md:top-0 min-h-[100dvh] w-full flex items-start md:items-center justify-center overflow-hidden pt-12 md:pt-0 pb-20 md:pb-0">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-24 mt-8 md:mt-0">
+            <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-24 mt-4 md:mt-0">
 
               <div className="w-full md:w-1/2">
                 <h2 className="text-3xl sm:text-4xl md:text-6xl font-heading font-bold text-white mb-4 tracking-tight">
