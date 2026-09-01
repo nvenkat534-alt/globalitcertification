@@ -22,64 +22,64 @@ const Banner1 = () => {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col justify-center gap-4 pt-28 md:pt-32 pb-0 px-3 sm:px-6 lg:px-12 relative z-10 max-w-7xl mx-auto">
+    <div className="w-full h-full flex flex-col justify-center gap-3 sm:gap-4 pt-20 sm:pt-28 md:pt-32 pb-4 sm:pb-0 px-3 sm:px-6 lg:px-12 relative z-10 max-w-7xl mx-auto">
       <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-7 mt-0 lg:mt-0">
         
         {/* Left Column */}
         <div className="w-full lg:w-1/2 flex flex-col items-start text-left relative z-20">
-          <div className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 border border-brand-blue/40 rounded-full text-[8px] sm:text-[10px] font-bold text-slate-300 mb-2 sm:mb-4 tracking-widest uppercase bg-bg-dark">
+          <div className="inline-block px-3 py-1 sm:px-4 sm:py-1.5 border border-brand-blue/40 rounded-full text-[7px] sm:text-[10px] font-bold text-slate-300 mb-1.5 sm:mb-4 tracking-widest uppercase bg-bg-dark">
             THE GLOBAL STANDARD IN IT CERTIFICATIONS
           </div>
           
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 leading-tight sm:leading-[0.96] font-heading text-white tracking-tight">
+          <h1 className="text-[1.65rem] sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-1.5 sm:mb-4 leading-[1.05] sm:leading-[0.96] font-heading text-white tracking-tight">
             Get Certified.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-blue">100% First Attempt Pass.</span>
           </h1>
           
-          <div className="flex items-center space-x-3 text-base sm:text-xl text-slate-300 mb-4 sm:mb-6 font-semibold">
-            <div className="w-5 sm:w-6 h-5 sm:h-6 rounded-full bg-brand-blue flex items-center justify-center flex-shrink-0">
-              <i className="fas fa-check text-white text-[10px] sm:text-xs"></i>
+          <div className="flex items-center space-x-2 sm:space-x-3 text-[0.8rem] sm:text-xl text-slate-300 mb-2.5 sm:mb-6 font-semibold">
+            <div className="w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-brand-blue flex items-center justify-center flex-shrink-0">
+              <i className="fas fa-check text-white text-[8px] sm:text-xs"></i>
             </div>
-            <p className="text-base sm:text-xl">Learn from Experts. Practice Smart. Pass with Confidence.</p>
+            <p className="text-[0.8rem] sm:text-xl">Learn from Experts. Practice Smart. Pass with Confidence.</p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-10 w-full max-w-2xl">
-            <div className="flex items-center space-x-3">
-              <i className="fas fa-globe text-brand-sky text-2xl sm:text-3xl w-8 sm:w-10"></i>
+          <div className="grid grid-cols-2 gap-2 sm:gap-6 mb-3 sm:mb-10 w-full max-w-2xl">
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <i className="fas fa-globe text-brand-sky text-xl sm:text-3xl w-7 sm:w-10"></i>
               <div className="flex flex-col text-left">
-                <span className="font-bold text-white text-sm sm:text-base">Globally Recognised</span>
-                <span className="text-xs sm:text-sm text-slate-400">Top Vendor Certifications</span>
+                <span className="font-bold text-white text-[0.72rem] sm:text-base">Globally Recognised</span>
+                <span className="text-[0.62rem] sm:text-sm text-slate-400">Top Vendor Certifications</span>
               </div>
             </div>
-            <div className="flex items-center space-x-3">
-              <i className="fas fa-chalkboard-teacher text-brand-sky text-2xl sm:text-3xl w-8 sm:w-10"></i>
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <i className="fas fa-chalkboard-teacher text-brand-sky text-xl sm:text-3xl w-7 sm:w-10"></i>
               <div className="flex flex-col text-left">
-                <span className="font-bold text-white text-sm sm:text-base">Expert-Led Training</span>
-                <span className="text-xs sm:text-sm text-slate-400">Hands-on & Practical</span>
+                <span className="font-bold text-white text-[0.72rem] sm:text-base">Expert-Led Training</span>
+                <span className="text-[0.62rem] sm:text-sm text-slate-400">Hands-on & Practical</span>
               </div>
             </div>
-            <div className="flex items-center space-x-3">
-              <i className="fas fa-ticket-alt text-brand-sky text-2xl sm:text-3xl w-8 sm:w-10"></i>
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <i className="fas fa-ticket-alt text-brand-sky text-xl sm:text-3xl w-7 sm:w-10"></i>
               <div className="flex flex-col text-left">
-                <span className="font-bold text-white text-sm sm:text-base">Exam Vouchers</span>
-                <span className="text-xs sm:text-sm text-slate-400">Included</span>
+                <span className="font-bold text-white text-[0.72rem] sm:text-base">Exam Vouchers</span>
+                <span className="text-[0.62rem] sm:text-sm text-slate-400">Included</span>
               </div>
             </div>
-            <div className="flex items-center space-x-3">
-              <i className="fas fa-shield-alt text-brand-sky text-2xl sm:text-3xl w-8 sm:w-10"></i>
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <i className="fas fa-shield-alt text-brand-sky text-xl sm:text-3xl w-7 sm:w-10"></i>
               <div className="flex flex-col text-left">
-                <span className="font-bold text-white text-sm sm:text-base">Success Guarantee</span>
-                <span className="text-xs sm:text-sm text-slate-400">Pay After You Pass</span>
+                <span className="font-bold text-white text-[0.72rem] sm:text-base">Success Guarantee</span>
+                <span className="text-[0.62rem] sm:text-sm text-slate-400">Pay After You Pass</span>
               </div>
             </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
-            <a href="/certifications" className="bg-brand-blue text-white px-6 sm:px-10 py-2.5 sm:py-3.5 rounded-xl font-heading font-bold text-base sm:text-lg hover:bg-blue-600 transition flex items-center justify-center whitespace-nowrap shadow-md shadow-brand-blue/10 hover:shadow-brand-blue/20 hover:-translate-y-1">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4 w-full sm:w-auto">
+            <a href="/certifications" className="bg-brand-blue text-white px-5 sm:px-10 py-2.5 sm:py-3.5 rounded-xl font-heading font-bold text-sm sm:text-lg hover:bg-blue-600 transition flex items-center justify-center whitespace-nowrap shadow-md shadow-brand-blue/10 hover:shadow-brand-blue/20 hover:-translate-y-1">
               Explore Certifications <i className="fas fa-arrow-right ml-2 text-sm"></i>
             </a>
-            <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="bg-whatsapp text-white px-6 sm:px-10 py-2.5 sm:py-3.5 rounded-xl font-heading font-bold text-base sm:text-lg hover:bg-whatsapp-dark transition flex items-center justify-center whitespace-nowrap shadow-md shadow-green-900/10 hover:shadow-green-900/20 hover:-translate-y-1">
-              <i className="fab fa-whatsapp mr-2 text-white text-lg sm:text-xl"></i> <span>Chat with an Expert</span>
+            <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="bg-whatsapp text-white px-5 sm:px-10 py-2.5 sm:py-3.5 rounded-xl font-heading font-bold text-sm sm:text-lg hover:bg-whatsapp-dark transition flex items-center justify-center whitespace-nowrap shadow-md shadow-green-900/10 hover:shadow-green-900/20 hover:-translate-y-1">
+              <i className="fab fa-whatsapp mr-2 text-white text-base sm:text-xl"></i> <span>Chat with an Expert</span>
             </a>
           </div>
         </div>
@@ -111,13 +111,13 @@ const Banner1 = () => {
       </div>
 
       {/* Marquee Section */}
-      <div className="w-full flex flex-col items-center relative z-20 pt-0 pb-0 px-3 sm:px-0 -mt-1 sm:-mt-0.5 md:mt-0">
-        <p className="text-center text-slate-300 font-sans text-[7px] sm:text-[9px] font-bold tracking-[0.16em] uppercase mb-2 sm:mb-4 md:mb-6">
+      <div className="w-full flex flex-col items-center relative z-20 pt-2 sm:pt-0 pb-2 sm:pb-0 px-3 sm:px-0 mt-2 sm:mt-0">
+        <p className="text-center text-slate-300 font-sans text-[7px] sm:text-[9px] font-bold tracking-[0.16em] uppercase mb-1 sm:mb-4 md:mb-6">
           Trusted by professionals from top companies
         </p>
 
         <div className="w-full overflow-hidden bg-transparent">
-          <div className="animate-marquee flex w-max items-center gap-5 sm:gap-12 md:gap-16 lg:gap-20 whitespace-nowrap py-1">
+          <div className="animate-marquee flex w-max items-center gap-3 sm:gap-12 md:gap-16 lg:gap-20 whitespace-nowrap py-1">
             {[...marqueeLogos, ...marqueeLogos, ...marqueeLogos, ...marqueeLogos].map((company, index) => (
               <div key={`${company.name}-${index}`} className="flex items-center justify-center shrink-0 opacity-80">
                 <img
@@ -247,32 +247,32 @@ const Hero = () => {
   }, [currentSlide]);
 
   return (
-    <section className="bg-bg-dark overflow-hidden relative flex flex-col min-h-screen">
+    <section className="bg-bg-dark overflow-hidden relative flex flex-col min-h-0 sm:min-h-screen pb-4 sm:pb-0">
       {/* Global Background Elements */}
       <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-brand-blue/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-brand-sky/10 rounded-full blur-[150px] pointer-events-none z-0"></div>
 
-      <div className="flex-grow w-full relative pb-0 overflow-hidden">
-        <AnimatePresence initial={false}>
+      <div className="flex-grow w-full relative pb-2 sm:pb-0 overflow-hidden">
+        <AnimatePresence mode="wait" initial={false}>
           {currentSlide === 0 ? (
             <motion.div
               key="slide0"
-              initial={{ x: '100%' }}
-              animate={{ x: '0%' }}
-              exit={{ x: '-100%' }}
-              transition={{ duration: 1.5, ease: [0.33, 1, 0.68, 1] }}
-              className="absolute inset-0 w-full h-full flex flex-col will-change-transform"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -40 }}
+              transition={{ duration: 0.45, ease: [0.33, 1, 0.68, 1] }}
+              className="w-full sm:absolute sm:inset-0 flex flex-col"
             >
               <Banner1 />
             </motion.div>
           ) : (
             <motion.div
               key="slide1"
-              initial={{ x: '100%' }}
-              animate={{ x: '0%' }}
-              exit={{ x: '-100%' }}
-              transition={{ duration: 1.5, ease: [0.33, 1, 0.68, 1] }}
-              className="absolute inset-0 w-full h-full flex flex-col will-change-transform"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -40 }}
+              transition={{ duration: 0.45, ease: [0.33, 1, 0.68, 1] }}
+              className="w-full sm:absolute sm:inset-0 flex flex-col"
             >
               <Banner2 />
             </motion.div>
@@ -280,13 +280,13 @@ const Hero = () => {
         </AnimatePresence>
       </div>
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center space-x-3 z-50">
+      <div className="relative sm:absolute bottom-auto sm:bottom-6 left-auto sm:left-1/2 sm:-translate-x-1/2 flex items-center justify-center space-x-3 z-50 py-3 sm:py-0">
         {[0, 1].map((index) => (
           <button
             key={index}
             type="button"
             onClick={() => showSlide(index)}
-            className="relative w-12 h-1.5 rounded-full overflow-hidden bg-white/20 hover:bg-white/40 transition-colors"
+            className="relative w-10 sm:w-12 h-1.5 rounded-full overflow-hidden bg-white/20 hover:bg-white/40 transition-colors"
             aria-label={`Go to slide ${index + 1}`}
           >
             {currentSlide === index && (
