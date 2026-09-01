@@ -136,7 +136,7 @@ export default function TrainingPage() {
               </p>
               <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
                 {[
-                  { name: "AWS", url: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
+                  { name: "AWS", url: "/aws-logo.svg" },
                   { name: "Microsoft", url: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" },
                   { name: "Salesforce", url: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" },
                   { name: "Google Cloud", url: "https://www.google.com/favicon.ico" },
@@ -176,8 +176,8 @@ export default function TrainingPage() {
                   Our flagship personalized mentorship program pairs you directly with certified professionals who live and breathe the tech you are learning. They don&apos;t just teach the syllabus—they teach the industry.
                 </p>
                 <a
-                  href="https://wa.me/9392828155"
-                  className="inline-flex items-center space-x-3 bg-bg-dark text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold hover:bg-brand-blue transition-colors shadow-xl text-sm md:text-base"
+                  href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F"
+                  className="inline-flex items-center space-x-3 bg-whatsapp text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold hover:bg-green-600 transition-colors shadow-xl text-sm md:text-base"
                 >
                   <span>Match with a Mentor</span>
                   <i className="fas fa-arrow-right"></i>

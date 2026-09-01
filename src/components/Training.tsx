@@ -58,7 +58,7 @@ const Training = () => {
               </li>
             </ul>
             
-            <a href="https://wa.me/9392828155" className="inline-flex items-center bg-bg-dark text-white px-8 py-4 rounded-xl font-bold font-heading text-lg hover:bg-brand-blue transition">
+            <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="inline-flex items-center bg-bg-dark text-white px-8 py-4 rounded-xl font-bold font-heading text-lg hover:bg-brand-blue transition">
               Talk to an Expert <i className="fas fa-arrow-right ml-2"></i>
             </a>
           </motion.div>

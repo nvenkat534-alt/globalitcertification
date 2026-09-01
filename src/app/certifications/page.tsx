@@ -46,7 +46,7 @@ const CertificationsPage = () => {
               </p>
               <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
                 {[
-                  { name: "AWS", url: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
+                  { name: "AWS", url: "/aws-logo.svg" },
                   { name: "Microsoft", url: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" },
                   { name: "Salesforce", url: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" },
                   { name: "Google Cloud", url: "https://www.google.com/favicon.ico" },
@@ -84,7 +84,7 @@ const CertificationsPage = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
             {[
-              { name: 'AWS', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg', link: '/certifications/aws' },
+              { name: 'AWS', iconUrl: '/aws-logo.svg', link: '/certifications/aws' },
               { name: 'Microsoft Azure', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg', link: '/certifications/microsoft' },
               { name: 'Google Cloud', iconUrl: 'https://www.google.com/favicon.ico', link: '/certifications/google-cloud' },
               { name: 'Cisco', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg', link: '/certifications/cisco' },
@@ -143,8 +143,8 @@ const CertificationsPage = () => {
         
         <div className="mt-12 text-center">
           <p className="text-slate-400 font-sans mb-6">Have more questions about specific certifications?</p>
-          <a href="https://wa.me/9392828155" className="inline-block bg-bg-dark text-white px-8 py-4 rounded-xl font-bold font-heading hover:bg-brand-blue transition shadow-[0_0_20px_rgba(0,0,0,0.6)]">
-            Ask us on WhatsApp
+          <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="inline-flex items-center justify-center bg-whatsapp text-white px-8 py-4 rounded-xl font-bold font-heading hover:bg-green-600 transition shadow-lg shadow-green-900/20">
+            <i className="fab fa-whatsapp mr-2 text-xl"></i> Ask us on WhatsApp
           </a>
         </div>
       </div>

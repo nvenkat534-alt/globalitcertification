@@ -1,17 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-blue: #5b6cff;
-  --color-brand-sky: #5b6cff;
+  /* Core brand — indigo/violet family, kept close to your original hue but with actual range */
+  --color-brand-blue: #4F5FE8;      /* primary — slightly deeper, less "default purple-blue" */
+  --color-brand-sky: #6EA8FE;       /* secondary — genuine sky tone for gradients & highlights */
+  --color-brand-violet: #7C6CF0;    /* tertiary — subtle violet shift for depth in gradients */
   --color-brand-dark: #0b1424;
-  --color-brand-pink: #5b6cff;
+
+  /* Accent — warm complement so CTAs and highlights don't fight the blue */
+  --color-brand-amber: #F5A623;     /* for badges, prices, "discount" callouts */
+  --color-brand-teal: #2DD4BF;      /* for success states, secondary CTAs */
+
   --color-whatsapp: #25D366;
   --color-whatsapp-dark: #20bd5a;
-  --color-bg-dark: #020b16;
-  --color-bg-card: #0A1128;
+
+  --color-bg-dark: #060B18;         /* slightly warmer near-black than pure #020b16 */
+  --color-bg-card: #0E1730;         /* lifted just enough for card separation */
+  --color-bg-card-hover: #131D3D;
+
+  --color-border-subtle: rgba(255,255,255,0.08);
+
   --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-heading: "Plus Jakarta Sans", sans-serif;
-  
+
   --animate-marquee: marquee 22s linear infinite;
   --animate-marquee2: marquee2 22s linear infinite;
 
@@ -46,8 +57,9 @@
   }
 }
 
+/* Gradient text now spans blue → violet → sky, real motion instead of a flat single color */
 @utility text-gradient {
-  background: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-sky));
+  background: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-violet) 55%, var(--color-brand-sky));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -56,4 +68,10 @@
   background-color: var(--color-bg-dark);
   background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
   background-size: 20px 20px;
+}
+
+/* Accent utility for pricing / discount badges — gives the amber somewhere to live */
+@utility accent-badge {
+  background: linear-gradient(135deg, var(--color-brand-amber), #FFC966);
+  color: var(--color-brand-dark);
 }

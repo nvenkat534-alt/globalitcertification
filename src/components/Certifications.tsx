@@ -5,7 +5,7 @@ import FadeIn from './FadeIn';
 
 const Certifications = () => {
   const topCerts = [
-    { name: 'AWS', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg', link: '/certifications/aws' },
+    { name: 'AWS', iconUrl: '/aws-logo.svg', link: '/certifications/aws' },
     { name: 'Microsoft Azure', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg', link: '/certifications/microsoft' },
     { name: 'Google Cloud', iconUrl: 'https://www.google.com/favicon.ico', link: '/certifications/google-cloud', isLarge: true },
     { name: 'Cisco', iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg', link: '/certifications/cisco' },

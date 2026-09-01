@@ -39,8 +39,8 @@ export default function ProviderPage() {
             <p className="text-xl text-slate-300 font-sans leading-relaxed mb-8">
               {data.desc}
             </p>
-            <div className="flex gap-4">
-              <a href="https://wa.me/9392828155" className="bg-brand-blue text-white px-8 py-4 rounded-xl font-bold font-heading hover:bg-blue-700 transition shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center space-x-2">
+            <div className="flex gap-4 pointer-events-auto">
+              <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="bg-brand-blue text-white px-8 py-4 rounded-xl font-bold font-heading hover:bg-blue-700 transition shadow-[0_0_15px_rgba(0,0,0,0.5)] flex items-center space-x-2">
                 <Phone size={20} />
                 <span>Talk to an Expert</span>
               </a>
@@ -131,11 +131,11 @@ export default function ProviderPage() {
                       })}
                     </div>
                     {hasPrices ? (
-                      <a href="https://wa.me/9392828155" className="mt-6 flex items-center justify-center w-full bg-whatsapp text-white py-4 rounded-xl font-bold hover:bg-whatsapp-dark transition-colors shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                      <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="mt-6 flex items-center justify-center w-full bg-whatsapp text-white py-4 rounded-xl font-bold hover:bg-whatsapp-dark transition-colors shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                         <i className="fab fa-whatsapp text-xl mr-2"></i> Get Discount on WhatsApp
                       </a>
                     ) : (
-                      <a href="https://wa.me/9392828155" className="mt-6 flex items-center justify-center w-full bg-brand-blue text-white py-4 rounded-xl font-bold hover:bg-[#3f38b8] transition-colors shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                      <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="mt-6 flex items-center justify-center w-full bg-brand-blue text-white py-4 rounded-xl font-bold hover:bg-[#3f38b8] transition-colors shadow-[0_0_15px_rgba(0,0,0,0.5)]">
                         <i className="fab fa-whatsapp text-xl mr-2"></i> Inquire on WhatsApp
                       </a>
                     )}

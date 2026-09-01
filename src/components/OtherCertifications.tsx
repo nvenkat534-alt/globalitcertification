@@ -17,7 +17,7 @@ const OtherCertifications = () => {
         
         <div className="p-10 max-w-3xl mx-auto">
           <p className="text-white font-bold font-heading text-lg mb-6">Contact us on WhatsApp to check availability, pricing and offers for these certifications.</p>
-          <a href="https://wa.me/9392828155" className="inline-block bg-brand-blue text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition font-heading">
+          <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="inline-block bg-brand-blue text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition font-heading">
             <i className="fab fa-whatsapp mr-2"></i> Get a Quote on WhatsApp
           </a>
         </div>

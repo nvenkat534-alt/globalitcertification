@@ -41,7 +41,7 @@ const Navbar = () => {
             <span className={`font-heading font-extrabold text-base sm:text-xl md:text-2xl tracking-tight transition-colors ${
               useWhiteText ? 'text-white' : 'text-white'
             }`}>
-              Global Cer <span className="text-brand-blue">SIT</span></span>
+              Global Certs <span className="text-brand-blue">IT</span></span>
           </Link>
 
           {/* Desktop Nav */}
@@ -61,7 +61,7 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <a href="https://wa.me/9392828155" className="bg-brand-blue text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-heading font-semibold text-xs sm:text-sm hover:bg-blue-700 transition flex items-center">
+            <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="bg-brand-blue text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-heading font-semibold text-xs sm:text-sm hover:bg-blue-700 transition flex items-center">
               <i className="fab fa-whatsapp mr-1.5 sm:mr-2 text-sm sm:text-lg"></i> <span className="hidden sm:inline">Contact Expert</span><span className="sm:hidden">Contact</span>
             </a>
           </div>
@@ -97,7 +97,7 @@ const Navbar = () => {
               </Link>
             ))}
             <a 
-              href="https://wa.me/9392828155" 
+              href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" 
               className="block mt-3 sm:mt-4 px-3 py-2.5 sm:py-3 bg-brand-blue text-white rounded-md font-heading font-semibold text-center text-sm"
             >
               <i className="fab fa-whatsapp mr-2"></i> Contact Expert

@@ -36,7 +36,7 @@ export default function CertificationPage() {
               {description}
             </p>
             <div className="flex flex-wrap gap-4 pointer-events-auto">
-              <a href="https://wa.me/9392828155" className="bg-whatsapp text-white px-8 py-4 rounded-xl font-bold font-sans hover:bg-green-600 transition shadow-[0_0_30px_rgba(0,0,0,0.7)] shadow-green-900/20 flex items-center">
+              <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="bg-whatsapp text-white px-8 py-4 rounded-xl font-bold font-sans hover:bg-green-600 transition shadow-[0_0_30px_rgba(0,0,0,0.7)] shadow-green-900/20 flex items-center">
                 <i className="fab fa-whatsapp text-xl mr-2"></i> Chat for Best Price
               </a>
             </div>
@@ -105,7 +105,7 @@ export default function CertificationPage() {
                 <p className="text-slate-300 leading-relaxed">
                   {details.prerequisites}
                 </p>
-                <a href="https://wa.me/9392828155" className="mt-8 inline-block w-full text-center bg-brand-blue text-white px-8 py-4 rounded-xl font-bold hover:bg-brand-sky transition">
+                <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="mt-8 inline-block w-full text-center bg-brand-blue text-white px-8 py-4 rounded-xl font-bold hover:bg-brand-sky transition">
                   Request Full Syllabus
                 </a>
               </div>
@@ -115,7 +115,7 @@ export default function CertificationPage() {
           <div className="bg-bg-dark p-12 rounded-3xl border border-slate-800 shadow-xl text-center">
             <h2 className="text-3xl font-bold text-white mb-4">Curriculum & Details</h2>
             <p className="text-slate-400 mb-8 max-w-2xl mx-auto">This dedicated certification page is dynamic and will feature the complete syllabus, exam blueprint, and prerequisites for {displayName}.</p>
-            <a href="https://wa.me/9392828155" className="inline-block bg-bg-dark text-white px-8 py-4 rounded-xl font-bold hover:bg-brand-blue transition">
+            <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="inline-block bg-whatsapp text-white px-8 py-4 rounded-xl font-bold hover:bg-green-600 transition">
               Request Full Syllabus
             </a>
           </div>

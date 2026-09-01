@@ -37,7 +37,7 @@ const FloatingWhatsApp = () => {
       </AnimatePresence>
       
       <a 
-        href="https://wa.me/9392828155" 
+        href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" 
         target="_blank" 
         rel="noopener noreferrer"
         className="w-16 h-16 bg-whatsapp text-white rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 relative group">

@@ -1,5 +1,5 @@
 const brandLogos = [
-  { name: 'AWS', url: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg' },
+  { name: 'AWS', url: '/aws-logo.svg' },
   { name: 'Microsoft', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg' },
   { name: 'Salesforce', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg' },
   { name: 'Google Cloud', url: 'https://www.google.com/favicon.ico' },

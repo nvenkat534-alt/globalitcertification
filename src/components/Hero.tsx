@@ -1,20 +1,20 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 
 const Banner1 = () => {
   const certCards = [
-    { name: "aws", subtitle: "Certified", img: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg", href: "/certifications/aws" },
+    { name: "aws", subtitle: "Certified", img: "/aws-logo.svg", href: "/certifications/aws" },
     { name: "Microsoft Azure", subtitle: "Certified", img: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg", href: "/certifications/microsoft" },
     { name: "CISCO", subtitle: "Certified", img: "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg", href: "/certifications/cisco" },
     { name: "PMI PMP", subtitle: "Certified", img: "", href: "/certifications/pmi" },
-    { name: "ISACA", subtitle: "Certified", img: "", href: "/certifications/isaca" },
+    { name: "ISACA", subtitle: "Certified", img: "", href: "/certifications/isaca-fortinet" },
     { name: "+ More", subtitle: "Top Brands", img: "", href: "/certifications" }
   ];
 
   const marqueeLogos = [
-    { name: "AWS", img: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
+    { name: "AWS", img: "/aws-logo.svg" },
     { name: "Microsoft", img: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" },
     { name: "Salesforce", img: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" },
     { name: "Google Cloud", img: "https://www.google.com/favicon.ico" },
@@ -33,7 +33,7 @@ const Banner1 = () => {
           
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 leading-tight sm:leading-[0.96] font-heading text-white tracking-tight">
             Get Certified.<br />
-            In Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-blue">First Attempt.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-blue">100% First Attempt Pass.</span>
           </h1>
           
           <div className="flex items-center space-x-3 text-base sm:text-xl text-slate-300 mb-4 sm:mb-6 font-semibold">
@@ -75,10 +75,10 @@ const Banner1 = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
-            <a href="/certifications" className="bg-brand-blue text-white px-6 sm:px-10 py-2.5 sm:py-3.5 rounded-xl font-heading font-bold text-base sm:text-lg hover:bg-blue-600 transition flex items-center justify-center whitespace-nowrap shadow-lg shadow-brand-blue/20 hover:shadow-brand-blue/40 hover:-translate-y-1">
+            <a href="/certifications" className="bg-brand-blue text-white px-6 sm:px-10 py-2.5 sm:py-3.5 rounded-xl font-heading font-bold text-base sm:text-lg hover:bg-blue-600 transition flex items-center justify-center whitespace-nowrap shadow-md shadow-brand-blue/10 hover:shadow-brand-blue/20 hover:-translate-y-1">
               Explore Certifications <i className="fas fa-arrow-right ml-2 text-sm"></i>
             </a>
-            <a href="https://wa.me/9392828155" className="bg-whatsapp text-white px-6 sm:px-10 py-2.5 sm:py-3.5 rounded-xl font-heading font-bold text-base sm:text-lg hover:bg-whatsapp-dark transition flex items-center justify-center whitespace-nowrap shadow-lg shadow-green-900/20 hover:shadow-green-900/40 hover:-translate-y-1">
+            <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="bg-whatsapp text-white px-6 sm:px-10 py-2.5 sm:py-3.5 rounded-xl font-heading font-bold text-base sm:text-lg hover:bg-whatsapp-dark transition flex items-center justify-center whitespace-nowrap shadow-md shadow-green-900/10 hover:shadow-green-900/20 hover:-translate-y-1">
               <i className="fab fa-whatsapp mr-2 text-white text-lg sm:text-xl"></i> <span>Chat with an Expert</span>
             </a>
           </div>
@@ -142,7 +142,7 @@ const Banner1 = () => {
 
 const Banner2 = () => {
   const companyLogos = [
-    { name: "AWS", url: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
+    { name: "AWS", url: "/aws-logo.svg" },
     { name: "Microsoft", url: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" },
     { name: "Salesforce", url: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" },
     { name: "Google Cloud", url: "https://www.google.com/favicon.ico" },
@@ -187,7 +187,7 @@ const Banner2 = () => {
           
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight font-heading text-white tracking-tight drop-shadow-lg">
             Get Certified.<br />
-            In Your <span className="text-brand-sky">First Attempt.</span>
+            <span className="text-brand-sky">100% First Attempt Pass.</span>
           </h1>
           
           <div className="flex items-center justify-center space-x-3 text-lg md:text-2xl text-slate-300 mb-8 font-semibold">
@@ -219,10 +219,10 @@ const Banner2 = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
-            <a href="/certifications" className="bg-brand-blue text-white px-8 sm:px-12 py-3 sm:py-3.5 rounded-xl font-heading font-bold text-base md:text-lg hover:bg-blue-600 transition flex items-center justify-center w-full sm:w-auto relative z-30 whitespace-nowrap shadow-lg shadow-brand-blue/20 hover:shadow-brand-blue/40 hover:-translate-y-1">
+            <a href="/certifications" className="bg-brand-blue text-white px-8 sm:px-12 py-3 sm:py-3.5 rounded-xl font-heading font-bold text-base md:text-lg hover:bg-blue-600 transition flex items-center justify-center w-full sm:w-auto relative z-30 whitespace-nowrap shadow-md shadow-brand-blue/10 hover:shadow-brand-blue/20 hover:-translate-y-1">
               Explore Certifications <i className="fas fa-arrow-right ml-2 text-sm"></i>
             </a>
-            <a href="https://wa.me/9392828155" className="bg-whatsapp text-white px-8 sm:px-12 py-3 sm:py-3.5 rounded-xl font-heading font-bold text-base md:text-lg hover:bg-whatsapp-dark transition flex items-center justify-center w-full sm:w-auto relative z-30 whitespace-nowrap shadow-lg shadow-green-900/20 hover:shadow-green-900/40 hover:-translate-y-1">
+            <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="bg-whatsapp text-white px-8 sm:px-12 py-3 sm:py-3.5 rounded-xl font-heading font-bold text-base md:text-lg hover:bg-whatsapp-dark transition flex items-center justify-center w-full sm:w-auto relative z-30 whitespace-nowrap shadow-md shadow-green-900/10 hover:shadow-green-900/20 hover:-translate-y-1">
               <i className="fab fa-whatsapp mr-2 text-white text-xl"></i> Chat with an Expert
             </a>
           </div>
@@ -238,15 +238,13 @@ const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const showSlide = (index: number) => setCurrentSlide(index);
-  const nextSlide = () => setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
-  const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const timer = setTimeout(() => {
       setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
-    }, 6000);
-    return () => clearInterval(interval);
-  }, []);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [currentSlide]);
 
   return (
     <section className="bg-bg-dark overflow-hidden relative flex flex-col min-h-screen">
@@ -254,70 +252,53 @@ const Hero = () => {
       <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-brand-blue/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-brand-sky/10 rounded-full blur-[150px] pointer-events-none z-0"></div>
 
-      <div className="flex-grow grid grid-cols-1 grid-rows-1 w-full relative pb-0">
-          <motion.div 
-            initial={false}
-            animate={{ 
-              x: currentSlide === 0 ? '0%' : '-100%',
-              pointerEvents: currentSlide === 0 ? 'auto' : 'none'
-            }} 
-            transition={{ duration: 1.5, ease: [0.33, 1, 0.68, 1] }}
-            className="col-start-1 row-start-1 w-full h-full flex flex-col will-change-transform"
-            aria-hidden={currentSlide !== 0}
-          >
-            <Banner1 />
-          </motion.div>
-
-          <motion.div 
-            initial={false}
-            animate={{ 
-              x: currentSlide === 1 ? '0%' : '100%',
-              pointerEvents: currentSlide === 1 ? 'auto' : 'none'
-            }} 
-            transition={{ duration: 1.5, ease: [0.33, 1, 0.68, 1] }}
-            className="col-start-1 row-start-1 w-full h-full flex flex-col will-change-transform"
-            aria-hidden={currentSlide !== 1}
-          >
-            <Banner2 />
-          </motion.div>
-      </div>
-
-      {/* Manual Slide Controls */}
-      <div className="pointer-events-none absolute inset-0 z-50 hidden sm:block">
-        <div className="relative flex h-full w-full items-center justify-between px-4 sm:px-6 lg:px-8">
-          <button
-            type="button"
-            onClick={prevSlide}
-            aria-label="Previous slide"
-            className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-slate-900/80 text-white transition hover:border-brand-blue hover:text-brand-blue"
-          >
-            <i className="fas fa-chevron-left text-sm"></i>
-          </button>
-
-          <button
-            type="button"
-            onClick={nextSlide}
-            aria-label="Next slide"
-            className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-slate-900/80 text-white transition hover:border-brand-blue hover:text-brand-blue"
-          >
-            <i className="fas fa-chevron-right text-sm"></i>
-          </button>
-        </div>
+      <div className="flex-grow w-full relative pb-0 overflow-hidden">
+        <AnimatePresence initial={false}>
+          {currentSlide === 0 ? (
+            <motion.div
+              key="slide0"
+              initial={{ x: '100%' }}
+              animate={{ x: '0%' }}
+              exit={{ x: '-100%' }}
+              transition={{ duration: 1.5, ease: [0.33, 1, 0.68, 1] }}
+              className="absolute inset-0 w-full h-full flex flex-col will-change-transform"
+            >
+              <Banner1 />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="slide1"
+              initial={{ x: '100%' }}
+              animate={{ x: '0%' }}
+              exit={{ x: '-100%' }}
+              transition={{ duration: 1.5, ease: [0.33, 1, 0.68, 1] }}
+              className="absolute inset-0 w-full h-full flex flex-col will-change-transform"
+            >
+              <Banner2 />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center space-x-3 z-50">
-        <button
-          type="button"
-          onClick={() => showSlide(0)}
-          className={`w-12 h-1.5 rounded-full transition-all duration-300 ${currentSlide === 0 ? 'bg-brand-sky' : 'bg-white/20 hover:bg-white/40'}`}
-          aria-label="Go to slide 1"
-        />
-        <button
-          type="button"
-          onClick={() => showSlide(1)}
-          className={`w-12 h-1.5 rounded-full transition-all duration-300 ${currentSlide === 1 ? 'bg-brand-sky' : 'bg-white/20 hover:bg-white/40'}`}
-          aria-label="Go to slide 2"
-        />
+        {[0, 1].map((index) => (
+          <button
+            key={index}
+            type="button"
+            onClick={() => showSlide(index)}
+            className="relative w-12 h-1.5 rounded-full overflow-hidden bg-white/20 hover:bg-white/40 transition-colors"
+            aria-label={`Go to slide ${index + 1}`}
+          >
+            {currentSlide === index && (
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: '100%' }}
+                transition={{ duration: 5, ease: 'linear' }}
+                className="absolute top-0 left-0 h-full bg-brand-sky"
+              />
+            )}
+          </button>
+        ))}
       </div>
     </section>
   );

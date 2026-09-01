@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 
 const testimonials = [
   { name: "Karthik Reddy", rating: 5, cert: "AWS Solutions Architect Professional", role: "Cloud Architect", text: "The personalized mentorship was a game changer. I cleared my AWS Solutions Architect Professional on the first try and landed a senior role within a month." },
-  { name: "Srinivas Rao", rating: 4.5, cert: "Microsoft Azure Administrator", role: "DevOps Engineer", text: "Global Cer SIT completely demystified Azure for me. The hands-on practice exams were exactly like the real thing. Highly recommended!" },
+  { name: "Srinivas Rao", rating: 4.5, cert: "Microsoft Azure Administrator", role: "DevOps Engineer", text: "Global Certs IT completely demystified Azure for me. The hands-on practice exams were exactly like the real thing. Highly recommended!" },
   { name: "Priya Darshini", rating: 3.5, cert: "Salesforce Administrator", role: "Salesforce Administrator", text: "I was struggling with self-study for months. Getting personalized guidance helped me focus on exactly what I needed to pass the admin cert." },
   { name: "Arun Kumar", rating: 5, cert: "AWS Security Specialty", role: "Security Consultant", text: "Their exam vouchers are genuinely the best price on the market, but the true value is in their expert trainers. Brilliant experience." },
   { name: "Ananya S.", rating: 4, cert: "Microsoft Azure Fundamentals", role: "Cloud Support Specialist", text: "I transition from a non-tech background to a Cloud role in just 8 weeks thanks to their structured learning paths and constant support." },
-  { name: "Venkatraman G.", rating: 4.5, cert: "AWS SysOps Administrator", role: "IT Infrastructure Lead", text: "We now send all our junior engineers through Global Cer SIT's certification tracks. The pass rate is incredible." }
+  { name: "Venkatraman G.", rating: 4.5, cert: "AWS SysOps Administrator", role: "IT Infrastructure Lead", text: "We now send all our junior engineers through Global Certs IT's certification tracks. The pass rate is incredible." }
 ];
 
 const StarRating = ({ rating }: { rating: number }) => {

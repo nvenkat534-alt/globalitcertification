@@ -11,14 +11,14 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">1. Introduction</h2>
               <p>
-                Welcome to Global Cer SIT. By accessing our website and using our services, you agree to comply with and be bound by the following terms and conditions. If you disagree with any part of these terms, please do not use our website.
+                Welcome to Global Certs IT. By accessing our website and using our services, you agree to comply with and be bound by the following terms and conditions. If you disagree with any part of these terms, please do not use our website.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">2. Exam Vouchers</h2>
               <p>
-                All certification exam vouchers purchased through Global Cer SIT are subject to the policies of the respective vendors (AWS, Microsoft, Salesforce, etc.). Vouchers are non-transferable and non-refundable once issued. The validity period of each voucher is set by the vendor and cannot be extended by us.
+                All certification exam vouchers purchased through Global Certs IT are subject to the policies of the respective vendors (AWS, Microsoft, Salesforce, etc.). Vouchers are non-transferable and non-refundable once issued. The validity period of each voucher is set by the vendor and cannot be extended by us.
               </p>
             </section>
 

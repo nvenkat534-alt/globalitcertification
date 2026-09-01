@@ -4,6 +4,17 @@ import Link from 'next/link';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 export default function ContactPage() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name') as string;
+    const message = formData.get('message') as string;
+    
+    let text = `Hello! I'm ${name}.\n\n${message}`;
+    
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/9392828155?text=${encodedText}`, '_blank');
+  };
   return (
     <main className="min-h-screen bg-bg-dark pb-20">
       {/* Hero */}
@@ -30,7 +41,7 @@ export default function ContactPage() {
             </p>
             
             <div className="space-y-8 mt-10 inline-flex flex-col text-left">
-              <a href="https://wa.me/9392828155" className="flex items-start group">
+              <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="flex items-start group">
                 <div className="mt-1 mr-5 text-whatsapp">
                   <i className="fab fa-whatsapp text-3xl transition-transform group-hover:scale-110"></i>
                 </div>
@@ -40,13 +51,13 @@ export default function ContactPage() {
                 </div>
               </a>
 
-              <a href="mailto:contact@globalcertification.com" className="flex items-start group">
+              <a href="mailto:nvenkat534@gmail.com" className="flex items-start group">
                 <div className="mt-1 mr-5 text-brand-blue">
                   <Mail size={32} className="transition-transform group-hover:scale-110" />
                 </div>
                 <div className="break-all sm:break-normal">
                   <span className="block font-bold text-xl text-white group-hover:text-brand-blue transition-colors">Email</span>
-                  <span className="text-slate-400 text-lg">contact@globalcertification.com</span>
+                  <span className="text-slate-400 text-lg">nvenkat534@gmail.com</span>
                 </div>
               </a>
 
@@ -75,30 +86,19 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div className="bg-bg-dark rounded-3xl p-8 lg:p-10 border border-slate-800 shadow-xl">
             <h3 className="text-2xl font-bold font-heading text-white mb-8">Send us a Message</h3>
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-slate-300 mb-2">Your Name</label>
-                  <input type="text" id="name" className="w-full px-4 py-3 bg-bg-dark rounded-xl border border-slate-800 focus:bg-bg-dark focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition" placeholder="John Doe" />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-slate-300 mb-2">Email Address</label>
-                  <input type="email" id="email" className="w-full px-4 py-3 bg-bg-dark rounded-xl border border-slate-800 focus:bg-bg-dark focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition" placeholder="john@example.com" />
-                </div>
-              </div>
-              
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
-                <label htmlFor="subject" className="block text-sm font-semibold text-slate-300 mb-2">Subject</label>
-                <input type="text" id="subject" className="w-full px-4 py-3 bg-bg-dark rounded-xl border border-slate-800 focus:bg-bg-dark focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition" placeholder="Exam Voucher Inquiry" />
+                <label htmlFor="name" className="block text-sm font-semibold text-slate-300 mb-2">Your Name</label>
+                <input type="text" id="name" name="name" className="w-full px-4 py-3 bg-bg-dark rounded-xl border border-slate-800 focus:bg-bg-dark focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition" placeholder="John Doe" required />
               </div>
               
               <div>
                 <label htmlFor="message" className="block text-sm font-semibold text-slate-300 mb-2">Message</label>
-                <textarea id="message" rows={5} className="w-full px-4 py-3 bg-bg-dark rounded-xl border border-slate-800 focus:bg-bg-dark focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition resize-none" placeholder="How can we help you?"></textarea>
+                <textarea id="message" name="message" rows={5} className="w-full px-4 py-3 bg-bg-dark rounded-xl border border-slate-800 focus:bg-bg-dark focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition resize-none" placeholder="How can we help you?" required></textarea>
               </div>
               
-              <button type="button" className="w-full bg-bg-dark text-white px-8 py-4 rounded-xl font-bold hover:bg-brand-blue transition-colors shadow-[0_0_30px_rgba(0,0,0,0.7)] flex items-center justify-center space-x-2">
-                <span>Send Message</span>
+              <button type="submit" className="w-full bg-whatsapp text-white px-8 py-4 rounded-xl font-bold hover:bg-green-600 transition-colors shadow-[0_0_30px_rgba(0,0,0,0.7)] flex items-center justify-center space-x-2">
+                <span>Send via WhatsApp</span>
                 <Send size={18} />
               </button>
             </form>

@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="space-y-4 md:space-y-6 flex flex-col items-center md:items-start">
             <Link href="/" className="inline-block">
               <span className="text-2xl font-bold text-white block font-heading tracking-tight">
-                Global Cer <span className="text-brand-sky">SIT</span>
+                Global Certs <span className="text-brand-sky">IT</span>
               </span>
             </Link>
             <p className="text-sm text-slate-400 font-sans leading-relaxed">
@@ -28,10 +28,10 @@ const Footer = () => {
               <a href="https://instagram.com/global_certification" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#E1306C] hover:text-white transition-all hover:-translate-y-1">
                 <i className="fab fa-instagram text-lg"></i>
               </a>
-              <a href="https://wa.me/9392828155" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-whatsapp hover:text-white transition-all hover:-translate-y-1">
+              <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-whatsapp hover:text-white transition-all hover:-translate-y-1">
                 <i className="fab fa-whatsapp text-lg"></i>
               </a>
-              <a href="mailto:contact@globalcertification.com" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-blue hover:text-white transition-all hover:-translate-y-1">
+              <a href="mailto:nvenkat534@gmail.com" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-blue hover:text-white transition-all hover:-translate-y-1">
                 <Mail size={18} />
               </a>
             </div>
@@ -104,14 +104,14 @@ const Footer = () => {
                 <Phone className="text-brand-sky mt-1 mr-4 flex-shrink-0" size={18} />
                 <div>
                   <span className="block font-semibold text-slate-300">WhatsApp / Phone</span>
-                  <a href="https://wa.me/9392828155" className="text-slate-400 hover:text-white transition">+91 93928 28155</a>
+                  <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="text-slate-400 hover:text-white transition">+91 93928 28155</a>
                 </div>
               </li>
               <li className="flex items-start">
                 <Mail className="text-brand-sky mt-1 mr-4 flex-shrink-0" size={18} />
                 <div className="break-all sm:break-normal">
                   <span className="block font-semibold text-slate-300">Email</span>
-                  <a href="mailto:contact@globalcertification.com" className="text-slate-400 hover:text-white transition">contact@globalcertification.com</a>
+                  <a href="mailto:nvenkat534@gmail.com" className="text-slate-400 hover:text-white transition">nvenkat534@gmail.com</a>
                 </div>
               </li>
               <li className="flex items-start">
@@ -128,7 +128,7 @@ const Footer = () => {
         
         {/* Copyright Bar */}
         <div className="border-t border-slate-800 pt-8 mt-12 text-center md:text-left text-sm text-slate-400 font-sans flex flex-col md:flex-row justify-between items-center">
-          <p>&copy; {new Date().getFullYear()} Global IT Certifications. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Global Certs IT. All rights reserved.</p>
           <div className="mt-4 md:mt-0 flex space-x-6 text-xs">
             <Link href="/privacy" className="hover:text-slate-300 transition">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-slate-300 transition">Terms of Service</Link>

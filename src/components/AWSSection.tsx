@@ -11,7 +11,7 @@ const AWSSection = () => {
             </h2>
             <p className="text-lg text-slate-400 font-sans">Exclusive discounted pricing on Amazon Web Services exams.</p>
           </div>
-          <a href="https://wa.me/9392828155" className="mt-6 md:mt-0 bg-bg-dark border border-brand-blue text-brand-blue px-6 py-3 rounded-xl font-bold hover:bg-brand-blue hover:text-white transition flex items-center font-heading">
+          <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="mt-6 md:mt-0 bg-bg-dark border border-brand-blue text-brand-blue px-6 py-3 rounded-xl font-bold hover:bg-brand-blue hover:text-white transition flex items-center font-heading">
             Check Exam Voucher Price <i className="fab fa-whatsapp ml-2 text-xl"></i>
           </a>
         </div>
@@ -31,7 +31,7 @@ const AWSSection = () => {
                   <span className="text-3xl font-bold text-brand-blue font-heading">₹6,000</span>
                 </div>
               </div>
-              <a href="https://wa.me/9392828155" className="block w-full text-center bg-brand-blue/5 hover:bg-brand-blue hover:text-white text-brand-blue border border-brand-blue/20 font-bold py-3 rounded-xl transition mt-8 font-heading">
+              <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="block w-full text-center bg-brand-blue/5 hover:bg-brand-blue hover:text-white text-brand-blue border border-brand-blue/20 font-bold py-3 rounded-xl transition mt-8 font-heading">
                 Get This Voucher
               </a>
             </div>
@@ -52,7 +52,7 @@ const AWSSection = () => {
                   <span className="text-4xl font-bold text-brand-blue font-heading">₹9,000</span>
                 </div>
               </div>
-              <a href="https://wa.me/9392828155" className="block w-full text-center bg-brand-blue text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition mt-8 font-heading">
+              <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="block w-full text-center bg-brand-blue text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition mt-8 font-heading">
                 Get This Voucher
               </a>
             </div>
@@ -72,7 +72,7 @@ const AWSSection = () => {
                   <span className="text-3xl font-bold text-brand-blue font-heading">₹22,000</span>
                 </div>
               </div>
-              <a href="https://wa.me/9392828155" className="block w-full text-center bg-brand-blue/5 hover:bg-brand-blue hover:text-white text-brand-blue border border-brand-blue/20 font-bold py-3 rounded-xl transition mt-8 font-heading">
+              <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="block w-full text-center bg-brand-blue/5 hover:bg-brand-blue hover:text-white text-brand-blue border border-brand-blue/20 font-bold py-3 rounded-xl transition mt-8 font-heading">
                 Get This Voucher
               </a>
             </div>
