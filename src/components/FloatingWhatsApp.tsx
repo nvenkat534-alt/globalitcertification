@@ -40,8 +40,8 @@ const FloatingWhatsApp = () => {
         href="https://wa.me/9392828155" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 relative group">
-        <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-25"></span>
+        className="w-16 h-16 bg-whatsapp text-white rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 relative group">
+        <span className="absolute inset-0 rounded-full bg-whatsapp animate-ping opacity-25"></span>
         <MessageCircle size={32} />
       </a>
     </div>

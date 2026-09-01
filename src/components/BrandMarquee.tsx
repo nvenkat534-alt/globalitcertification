@@ -12,7 +12,7 @@ const brandLogos = [
 ];
 
 const BrandMarquee = () => {
-  const duplicatedLogos = [...brandLogos, ...brandLogos, ...brandLogos];
+  const duplicatedLogos = [...brandLogos, ...brandLogos, ...brandLogos, ...brandLogos];
 
   return (
     <div className="relative overflow-hidden border-y border-slate-800 bg-bg-dark py-2 sm:py-3 md:py-4">

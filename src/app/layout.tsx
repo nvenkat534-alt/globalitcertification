@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
-  title: "Global Certification Training & Exam Vouchers",
+  title: "Global Cer SIT | Certification Training & Exam Vouchers",
   description: "Get Certified. Stand Ahead of Your Competition. Advance your IT career with personalized training, complete certification guidance, and expert support for AWS, Microsoft Azure, and Salesforce.",
 };
 
@@ -33,7 +33,7 @@ export default function RootLayout({
             href="https://wa.me/9392828155" 
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed bottom-6 right-6 z-[100] bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-md hover:scale-110 hover:bg-[#20bd5a] transition-all duration-300 group"
+            className="fixed bottom-6 right-6 z-[100] bg-whatsapp text-white w-14 h-14 rounded-full flex items-center justify-center shadow-md hover:scale-110 hover:bg-whatsapp-dark transition-all duration-300 group"
           >
             <i className="fab fa-whatsapp text-3xl"></i>
             {/* Tooltip */}

@@ -31,11 +31,11 @@ export default function ContactPage() {
             
             <div className="space-y-8 mt-10 inline-flex flex-col text-left">
               <a href="https://wa.me/9392828155" className="flex items-start group">
-                <div className="mt-1 mr-5 text-[#25D366]">
+                <div className="mt-1 mr-5 text-whatsapp">
                   <i className="fab fa-whatsapp text-3xl transition-transform group-hover:scale-110"></i>
                 </div>
                 <div>
-                  <span className="block font-bold text-xl text-white group-hover:text-[#25D366] transition-colors">WhatsApp</span>
+                  <span className="block font-bold text-xl text-white group-hover:text-whatsapp transition-colors">WhatsApp</span>
                   <span className="text-slate-400 text-lg">+91 93928 28155</span>
                 </div>
               </a>

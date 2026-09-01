@@ -2,9 +2,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { Canvas } from '@react-three/fiber';
-import { Environment } from '@react-three/drei';
-import GlobalBrandSphere from '../../../../components/GlobalBrandSphere';
 import ScrollHighlightText from '../../../../components/ScrollHighlightText';
 import { certificationDetails } from '../../certificationDetails';
 import { CheckCircle2, Clock, FileText, DollarSign, Info } from 'lucide-react';
@@ -28,14 +25,7 @@ export default function CertificationPage() {
       
       {/* Hero */}
       <div className="bg-bg-dark pt-32 pb-24 relative overflow-hidden">
-        {/* 3D Background Element */}
-        <div className="absolute top-0 right-0 w-full md:w-1/2 h-full opacity-30 pointer-events-auto z-0">
-          <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 5], fov: 45 }}>
-            <ambientLight intensity={0.5} />
-            <Environment preset="city" />
-            <GlobalBrandSphere interactive={true} />
-          </Canvas>
-        </div>
+
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pointer-events-none mb-8">
           <div className="max-w-3xl">
@@ -46,7 +36,7 @@ export default function CertificationPage() {
               {description}
             </p>
             <div className="flex flex-wrap gap-4 pointer-events-auto">
-              <a href="https://wa.me/9392828155" className="bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold font-sans hover:bg-green-600 transition shadow-[0_0_30px_rgba(0,0,0,0.7)] shadow-green-900/20 flex items-center">
+              <a href="https://wa.me/9392828155" className="bg-whatsapp text-white px-8 py-4 rounded-xl font-bold font-sans hover:bg-green-600 transition shadow-[0_0_30px_rgba(0,0,0,0.7)] shadow-green-900/20 flex items-center">
                 <i className="fab fa-whatsapp text-xl mr-2"></i> Chat for Best Price
               </a>
             </div>

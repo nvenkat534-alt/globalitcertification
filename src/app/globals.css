@@ -6,7 +6,9 @@
   --color-brand-dark: #0b1424;
   --color-brand-pink: #5b6cff;
   --color-whatsapp: #25D366;
+  --color-whatsapp-dark: #20bd5a;
   --color-bg-dark: #020b16;
+  --color-bg-card: #0A1128;
   --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-heading: "Plus Jakarta Sans", sans-serif;
   
@@ -15,11 +17,7 @@
 
   @keyframes marquee {
     0% { transform: translateX(0%); }
-    100% { transform: translateX(-33.333%); }
-  }
-  @keyframes marquee2 {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
   }
 }
 
@@ -45,10 +43,6 @@
 @layer utilities {
   .animate-marquee {
     animation: marquee 26s linear infinite;
-  }
-
-  .animate-marquee2 {
-    animation: marquee2 26s linear infinite;
   }
 }
 

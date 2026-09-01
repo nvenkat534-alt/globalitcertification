@@ -41,7 +41,7 @@ const Navbar = () => {
             <span className={`font-heading font-extrabold text-base sm:text-xl md:text-2xl tracking-tight transition-colors ${
               useWhiteText ? 'text-white' : 'text-white'
             }`}>
-              Global <span className="text-brand-blue">IT</span> Certifications</span>
+              Global Cer <span className="text-brand-blue">SIT</span></span>
           </Link>
 
           {/* Desktop Nav */}

@@ -3,12 +3,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const testimonials = [
-  { rating: 5, cert: "AWS Solutions Architect Professional", role: "Cloud Architect", text: "The personalized mentorship was a game changer. I cleared my AWS Solutions Architect Professional on the first try and landed a senior role within a month." },
-  { rating: 4.5, cert: "Microsoft Azure Administrator", role: "DevOps Engineer", text: "Global IT completely demystified Azure for me. The hands-on practice exams were exactly like the real thing. Highly recommended!" },
-  { rating: 3.5, cert: "Salesforce Administrator", role: "Salesforce Administrator", text: "I was struggling with self-study for months. Getting personalized guidance helped me focus on exactly what I needed to pass the admin cert." },
-  { rating: 5, cert: "AWS Security Specialty", role: "Security Consultant", text: "Their exam vouchers are genuinely the best price on the market, but the true value is in their expert trainers. Brilliant experience." },
-  { rating: 4, cert: "Microsoft Azure Fundamentals", role: "Cloud Support Specialist", text: "I transition from a non-tech background to a Cloud role in just 8 weeks thanks to their structured learning paths and constant support." },
-  { rating: 4.5, cert: "AWS SysOps Administrator", role: "IT Infrastructure Lead", text: "We now send all our junior engineers through Global IT's certification tracks. The pass rate is incredible." }
+  { name: "Karthik Reddy", rating: 5, cert: "AWS Solutions Architect Professional", role: "Cloud Architect", text: "The personalized mentorship was a game changer. I cleared my AWS Solutions Architect Professional on the first try and landed a senior role within a month." },
+  { name: "Srinivas Rao", rating: 4.5, cert: "Microsoft Azure Administrator", role: "DevOps Engineer", text: "Global Cer SIT completely demystified Azure for me. The hands-on practice exams were exactly like the real thing. Highly recommended!" },
+  { name: "Priya Darshini", rating: 3.5, cert: "Salesforce Administrator", role: "Salesforce Administrator", text: "I was struggling with self-study for months. Getting personalized guidance helped me focus on exactly what I needed to pass the admin cert." },
+  { name: "Arun Kumar", rating: 5, cert: "AWS Security Specialty", role: "Security Consultant", text: "Their exam vouchers are genuinely the best price on the market, but the true value is in their expert trainers. Brilliant experience." },
+  { name: "Ananya S.", rating: 4, cert: "Microsoft Azure Fundamentals", role: "Cloud Support Specialist", text: "I transition from a non-tech background to a Cloud role in just 8 weeks thanks to their structured learning paths and constant support." },
+  { name: "Venkatraman G.", rating: 4.5, cert: "AWS SysOps Administrator", role: "IT Infrastructure Lead", text: "We now send all our junior engineers through Global Cer SIT's certification tracks. The pass rate is incredible." }
 ];
 
 const StarRating = ({ rating }: { rating: number }) => {
@@ -62,7 +62,7 @@ export default function TestimonialsMarquee() {
                 </p>
               </div>
               <div>
-                <h4 className="text-white font-bold font-heading text-lg">Anonymous</h4>
+                <h4 className="text-white font-bold font-heading text-lg">{testimonial.name}</h4>
                 <p className="text-brand-blue text-sm font-sans font-semibold mb-1">{testimonial.cert}</p>
                 <p className="text-slate-400 text-xs font-sans font-medium uppercase tracking-wider">{testimonial.role}</p>
               </div>

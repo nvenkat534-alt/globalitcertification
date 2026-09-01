@@ -31,21 +31,21 @@ export default function StatsCounter() {
         >
           <div className="grid grid-cols-1 md:grid-cols-3 text-center relative z-10">
             <div className="flex flex-col items-center justify-center py-4 md:py-0 md:px-8 md:border-r md:border-slate-700/80">
-              <h3 className="text-5xl md:text-6xl font-bold text-[#5b6cff] mb-3 font-heading tracking-tight leading-none">
+              <h3 className="text-5xl md:text-6xl font-bold text-brand-blue mb-3 font-heading tracking-tight leading-none">
                 <Counter to={50} />+
               </h3>
               <p className="text-white font-sans text-base md:text-lg font-bold uppercase tracking-[0.08em]">Certified Instructors</p>
             </div>
             
             <div className="flex flex-col items-center justify-center py-4 md:py-0 md:px-8 md:border-r md:border-slate-700/80">
-              <h3 className="text-5xl md:text-6xl font-bold text-[#5b6cff] mb-3 font-heading tracking-tight leading-none">
+              <h3 className="text-5xl md:text-6xl font-bold text-brand-blue mb-3 font-heading tracking-tight leading-none">
                 <Counter to={10} />k+
               </h3>
               <p className="text-white font-sans text-base md:text-lg font-bold uppercase tracking-[0.08em]">Careers Advanced</p>
             </div>
             
             <div className="flex flex-col items-center justify-center py-4 md:py-0 md:px-8">
-              <h3 className="text-5xl md:text-6xl font-bold text-[#5b6cff] mb-3 font-heading tracking-tight leading-none">
+              <h3 className="text-5xl md:text-6xl font-bold text-brand-blue mb-3 font-heading tracking-tight leading-none">
                 <Counter to={98} />%
               </h3>
               <p className="text-white font-sans text-base md:text-lg font-bold uppercase tracking-[0.08em]">First-Attempt Pass Rate</p>

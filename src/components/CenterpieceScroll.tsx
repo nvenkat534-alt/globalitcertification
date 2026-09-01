@@ -73,7 +73,7 @@ export default function CenterpieceScroll() {
             transition={{ duration: 0.5 }}
             className="max-w-md bg-bg-dark/90 backdrop-blur-xl p-8 rounded-3xl border border-white shadow-2xl pointer-events-auto"
           >
-            <h2 className="text-[#25D366] font-bold font-heading uppercase tracking-widest text-sm mb-2">The Result</h2>
+            <h2 className="text-whatsapp font-bold font-heading uppercase tracking-widest text-sm mb-2">The Result</h2>
             <p className="text-4xl font-bold font-heading text-white leading-tight">Your Career <br/>Accelerated.</p>
           </motion.div>
         </div>
