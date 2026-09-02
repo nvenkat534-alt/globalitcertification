@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const brandLogos = [
   { name: 'AWS', url: '/aws-logo.svg' },
   { name: 'Microsoft', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg' },
@@ -25,9 +27,11 @@ const BrandMarquee = () => {
             key={`${brand.name}-${index}`}
             className="flex items-center justify-center transition-all duration-300"
           >
-            <img 
+            <Image 
               src={brand.url} 
               alt={brand.name} 
+              width={100}
+              height={32}
               className="h-5 sm:h-6 md:h-7 lg:h-8 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300" 
             />
           </div>

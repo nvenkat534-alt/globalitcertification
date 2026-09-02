@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Banner1 = () => {
   const certCards = [
@@ -75,9 +76,9 @@ const Banner1 = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4 w-full sm:w-auto">
-            <a href="/certifications" className="bg-brand-blue text-white px-5 sm:px-10 py-2.5 sm:py-3.5 rounded-xl font-heading font-bold text-sm sm:text-lg hover:bg-blue-600 transition flex items-center justify-center whitespace-nowrap shadow-md shadow-brand-blue/10 hover:shadow-brand-blue/20 hover:-translate-y-1">
+            <Link href="/certifications" className="bg-brand-blue text-white px-5 sm:px-10 py-2.5 sm:py-3.5 rounded-xl font-heading font-bold text-sm sm:text-lg hover:bg-blue-600 transition flex items-center justify-center whitespace-nowrap shadow-md shadow-brand-blue/10 hover:shadow-brand-blue/20 hover:-translate-y-1">
               Explore Certifications <i className="fas fa-arrow-right ml-2 text-sm"></i>
-            </a>
+            </Link>
             <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="bg-whatsapp text-white px-5 sm:px-10 py-2.5 sm:py-3.5 rounded-xl font-heading font-bold text-sm sm:text-lg hover:bg-whatsapp-dark transition flex items-center justify-center whitespace-nowrap shadow-md shadow-green-900/10 hover:shadow-green-900/20 hover:-translate-y-1">
               <i className="fab fa-whatsapp mr-2 text-white text-base sm:text-xl"></i> <span>Chat with an Expert</span>
             </a>
@@ -92,7 +93,7 @@ const Banner1 = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 {card.img ? (
                   <div className="h-7 sm:h-10 w-full mb-1 sm:mb-1.5 flex items-center justify-center relative z-10">
-                    <img src={card.img} alt={card.name} className="max-h-full max-w-[75%] sm:max-w-[80%] object-contain transition-all duration-300" onError={(e) => {
+                    <Image src={card.img} alt={card.name} width={100} height={40} className="max-h-full max-w-[75%] sm:max-w-[80%] object-contain transition-all duration-300" onError={(e) => {
                       e.currentTarget.style.display = 'none';
                       e.currentTarget.nextElementSibling?.classList.remove('hidden');
                     }} />
@@ -120,9 +121,11 @@ const Banner1 = () => {
           <div className="animate-marquee flex w-max items-center gap-3 sm:gap-12 md:gap-16 lg:gap-20 whitespace-nowrap py-1">
             {[...marqueeLogos, ...marqueeLogos, ...marqueeLogos, ...marqueeLogos].map((company, index) => (
               <div key={`${company.name}-${index}`} className="flex items-center justify-center shrink-0 opacity-80">
-                <img
+                <Image
                   src={company.img}
                   alt={company.name}
+                  width={150}
+                  height={40}
                   className="h-5 sm:h-6 md:h-7 lg:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-opacity duration-300 hover:opacity-100"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
@@ -159,9 +162,11 @@ const Banner2 = () => {
             <div className="animate-marquee whitespace-nowrap flex items-center">
               {marqueeLogos.map((company, index) => (
                 <div key={index} className="mx-8 md:mx-16 flex items-center justify-center min-w-[150px] md:min-w-[250px]">
-                  <img 
+                  <Image 
                     src={company.url} 
                     alt={company.name} 
+                    width={250}
+                    height={100}
                     className="h-20 md:h-32 w-auto object-contain drop-shadow-[0_0_15px_rgba(91,108,255,0.3)]"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
@@ -219,9 +224,9 @@ const Banner2 = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
-            <a href="/certifications" className="bg-brand-blue text-white px-8 sm:px-12 py-3 sm:py-3.5 rounded-xl font-heading font-bold text-base md:text-lg hover:bg-blue-600 transition flex items-center justify-center w-full sm:w-auto relative z-30 whitespace-nowrap shadow-md shadow-brand-blue/10 hover:shadow-brand-blue/20 hover:-translate-y-1">
+            <Link href="/certifications" className="bg-brand-blue text-white px-8 sm:px-12 py-3 sm:py-3.5 rounded-xl font-heading font-bold text-base md:text-lg hover:bg-blue-600 transition flex items-center justify-center w-full sm:w-auto relative z-30 whitespace-nowrap shadow-md shadow-brand-blue/10 hover:shadow-brand-blue/20 hover:-translate-y-1">
               Explore Certifications <i className="fas fa-arrow-right ml-2 text-sm"></i>
-            </a>
+            </Link>
             <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="bg-whatsapp text-white px-8 sm:px-12 py-3 sm:py-3.5 rounded-xl font-heading font-bold text-base md:text-lg hover:bg-whatsapp-dark transition flex items-center justify-center w-full sm:w-auto relative z-30 whitespace-nowrap shadow-md shadow-green-900/10 hover:shadow-green-900/20 hover:-translate-y-1">
               <i className="fab fa-whatsapp mr-2 text-white text-xl"></i> Chat with an Expert
             </a>

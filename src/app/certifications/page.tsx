@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import BrandMarquee from '../../components/BrandMarquee';
 import WhyCertify from '../../components/WhyCertify';
 
@@ -56,9 +57,11 @@ const CertificationsPage = () => {
                     key={i}
                     className="flex items-center justify-center transition-all duration-300"
                   >
-                    <img 
+                    <Image 
                       src={provider.url} 
                       alt={provider.name} 
+                      width={100}
+                      height={28}
                       className="h-6 md:h-7 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-100 hover:brightness-100 hover:invert-0 transition-all duration-300"
                     />
                   </div>
@@ -104,7 +107,7 @@ const CertificationsPage = () => {
               <Link href={cert.link} key={index} className="group p-6 flex flex-col items-center text-center transition-transform hover:-translate-y-1 bg-bg-dark hover:bg-bg-dark border border-transparent hover:border-slate-800 hover:shadow-[0_0_20px_rgba(0,0,0,0.6)] rounded-2xl duration-300">
                 <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 transition-colors bg-white shadow-[0_0_15px_rgba(0,0,0,0.5)] group-hover:scale-110 duration-300`}>
                   {cert.iconUrl ? (
-                    <img src={cert.iconUrl} alt={cert.name} className="w-10 h-10 object-contain transition-opacity" />
+                    <Image src={cert.iconUrl} alt={cert.name} width={40} height={40} className="w-10 h-10 object-contain transition-opacity" />
                   ) : (
                     <i className={`${cert.icon} text-2xl text-brand-blue`}></i>
                   )}

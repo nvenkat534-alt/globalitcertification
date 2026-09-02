@@ -4,9 +4,41 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://globalcertsit.com";
+
 export const metadata: Metadata = {
-  title: "Global Certs IT | Certification Training & Exam Vouchers",
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: "Global Certs IT | Certification Training & Exam Vouchers",
+    template: "%s | Global Certs IT",
+  },
   description: "Get Certified. Stand Ahead of Your Competition. Advance your IT career with personalized training, complete certification guidance, and expert support for AWS, Microsoft Azure, and Salesforce.",
+  keywords: ["IT Certification", "AWS Certification", "Microsoft Azure Certification", "Salesforce Certification", "Exam Vouchers", "IT Training", "Global Certs IT"],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: baseUrl,
+    siteName: "Global Certs IT",
+    title: "Global Certs IT | Certification Training & Exam Vouchers",
+    description: "Advance your IT career with personalized training, complete certification guidance, and expert support for top IT certifications.",
+    images: [
+      {
+        url: `${baseUrl}/og-image.jpg`, // You can add a default og-image later
+        width: 1200,
+        height: 630,
+        alt: "Global Certs IT",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Global Certs IT | Certification Training & Exam Vouchers",
+    description: "Advance your IT career with personalized training and expert support.",
+    images: [`${baseUrl}/og-image.jpg`],
+  },
+  alternates: {
+    canonical: baseUrl,
+  },
 };
 
 export default function RootLayout({
@@ -21,6 +53,22 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "EducationalOrganization",
+              "name": "Global Certs IT",
+              "url": baseUrl,
+              "logo": `${baseUrl}/logo.png`, // Add the correct path to your logo
+              "description": "Get Certified. Advance your IT career with personalized training, complete certification guidance, and expert support for AWS, Microsoft Azure, and Salesforce.",
+              "sameAs": [
+                // Add social media links here
+              ]
+            })
+          }}
+        />
       </head>
       <body className="font-sans antialiased bg-bg-dark text-white">
         <SmoothScroll>

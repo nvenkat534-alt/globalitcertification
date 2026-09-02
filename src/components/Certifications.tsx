@@ -1,5 +1,6 @@
 // @ts-nocheck
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import FadeIn from './FadeIn';
 
@@ -34,7 +35,7 @@ const Certifications = () => {
               <Link href={cert.link} className="group flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-1">
                 <div className="w-20 sm:w-24 h-20 sm:h-24 rounded-xl sm:rounded-2xl bg-white shadow-[0_0_25px_rgba(16,24,40,0.18)] border border-slate-200/80 flex items-center justify-center mb-2 sm:mb-4 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(91,108,255,0.25)] group-hover:border-brand-blue/40">
                   {cert.iconUrl ? (
-                    <img src={cert.iconUrl} alt={cert.name} className={`object-contain transition-transform duration-300 group-hover:scale-105 ${cert.isLarge ? 'w-14 sm:w-16 h-14 sm:h-16' : 'w-10 sm:w-12 h-10 sm:h-12'}`} />
+                    <Image src={cert.iconUrl} alt={cert.name} width={64} height={64} className={`object-contain transition-transform duration-300 group-hover:scale-105 ${cert.isLarge ? 'w-14 sm:w-16 h-14 sm:h-16' : 'w-10 sm:w-12 h-10 sm:h-12'}`} />
                   ) : (
                     <i className={`${cert.icon} text-lg sm:text-2xl text-brand-blue`}></i>
                   )}

@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const Training = () => {
@@ -73,7 +74,13 @@ const Training = () => {
           >
             {/* Image styling */}
             <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue to-brand-sky rounded-3xl transform rotate-3 opacity-20"></div>
-            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Training Session" className="rounded-3xl shadow-xl relative z-10 object-cover h-[600px] w-full" />
+            <Image 
+              src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+              alt="Training Session" 
+              width={1000}
+              height={600}
+              className="rounded-3xl shadow-xl relative z-10 object-cover h-[600px] w-full" 
+            />
             
             {/* Floating badge */}
             <div className="absolute -bottom-8 -left-8 bg-bg-dark p-6 rounded-2xl shadow-xl z-20 border border-slate-800 flex items-center">
