@@ -146,7 +146,7 @@ const CertificationsPage = () => {
         
         <div className="mt-12 text-center">
           <p className="text-slate-400 font-sans mb-6">Have more questions about specific certifications?</p>
-          <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="inline-flex items-center justify-center bg-whatsapp text-white px-8 py-4 rounded-xl font-bold font-heading hover:bg-green-600 transition shadow-lg shadow-green-900/20">
+          <a href="https://wa.me/919392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="inline-flex items-center justify-center bg-whatsapp text-white px-8 py-4 rounded-xl font-bold font-heading hover:bg-green-600 transition shadow-lg shadow-green-900/20">
             <i className="fab fa-whatsapp mr-2 text-xl"></i> Ask us on WhatsApp
           </a>
         </div>

@@ -110,7 +110,7 @@ export default function RootLayout({
           
           {/* Floating WhatsApp Widget */}
           <a 
-            href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" 
+            href="https://wa.me/919392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F"
             target="_blank"
             rel="noopener noreferrer"
             className="fixed bottom-6 right-6 z-[100] bg-whatsapp text-white w-14 h-14 rounded-full flex items-center justify-center shadow-md hover:scale-110 hover:bg-whatsapp-dark transition-all duration-300 group"
