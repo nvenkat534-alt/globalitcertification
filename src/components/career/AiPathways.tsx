@@ -113,9 +113,9 @@ export default function AiPathways() {
             <Sparkles size={16} /> AI CERTIFICATION PATHWAYS
           </span>
           <h1>
-            Build your future.
+            AI certifications.
             <br />
-            <em>Find your AI path.</em>
+            <em>Matched to your experience.</em>
           </h1>
           <p>
             AI literacy, application development, production ML and business

@@ -210,18 +210,18 @@ export default function CertificationFinder({
             <Compass size={15} />
             {initialProvider !== "all"
               ? `${providerById(initialProvider)?.name} CERTIFICATIONS`
-              : "YOUR NEXT CAREER MOVE"}
+              : "GLOBAL IT CERTIFICATION FINDER"}
           </div>
           <div className="intro-row">
             <div>
               <h1>
-                Find your direction.
+                Find your next
                 <br />
-                <span>Then your certification.</span>
+                <span>global certification.</span>
               </h1>
               <p>
                 {providerById(initialProvider)?.description ||
-                  "Start with what you do. Discover current certifications that fit your skills, your platform and where you want to go."}
+                  "Choose your role, experience and technology. Compare relevant certifications, check exam details and send your shortlist on WhatsApp."}
               </p>
             </div>
             <div className="review-stamp">
@@ -289,7 +289,7 @@ export default function CertificationFinder({
         <div className="step-heading step-two">
           <span className="step-number">02</span>
           <div>
-            <h2>Make it personal.</h2>
+            <h2>Choose your experience and platform.</h2>
             <p>Your experience and technology stack make a difference.</p>
           </div>
         </div>

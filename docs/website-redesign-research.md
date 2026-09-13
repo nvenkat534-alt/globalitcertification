@@ -93,3 +93,11 @@ The catalogue’s exam review date is separate from the design review. This rede
 6. Google web.dev. [How to create high-performance CSS animations](https://web.dev/articles/animations-guide). Last updated 6 October 2020. Transform, opacity and rendering performance.
 7. W3C WAI ARIA Authoring Practices Guide. [Dialog (Modal) Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/). Accessed 13 September 2026. Dialog interaction requirements.
 8. Stripe. [Financial Infrastructure to Grow Your Revenue](https://stripe.com/). Accessed 13 September 2026. First-party messaging and action hierarchy reference.
+
+## Implementation verification
+
+The deployed desktop homepage, category filtering, certification quick-view dialog and enquiry composer were inspected. Selecting AWS and “Exam voucher enquiry” produced a WhatsApp URL containing both selections and the correct business number; no message was sent. Production compilation, TypeScript, focused ESLint and the existing 64-certification catalogue checks passed.
+
+Visual review identified an opening-animation issue when motion was paused, plus low-contrast inherited catalogue links. The follow-up adjustment removes entrance animation for essential popups in paused mode, increases catalogue text contrast and makes the finder and AI page headings more explicit.
+
+Responsive layouts are implemented at 1150, 900 and 650 pixels, including a fixed mobile WhatsApp bar and safe-area padding. A phone-sized browser session was not available in this environment, so mobile device rendering is not independently verified.
