@@ -1,5 +1,5 @@
-import CareerHome from "@/components/career/CareerHome";
+import CertificationHome from "@/components/experience/CertificationHome";
 export const dynamic = "force-dynamic";
 export default function Home() {
-  return <CareerHome />;
+  return <CertificationHome />;
 }

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowUpRight, Compass, MessageCircle } from "lucide-react";
+import { ArrowUpRight, MessageCircle } from "lucide-react";
+import BrandMark from "./experience/BrandMark";
 import { whatsappUrl } from "@/lib/certifications";
 export default function Footer() {
   return (
@@ -8,17 +9,12 @@ export default function Footer() {
         <div className="footer-top">
           <div>
             <Link href="/" className="site-brand">
-              <span className="brand-symbol">
-                <Compass />
-              </span>
-              <span>
-                Global Certs <span>IT</span>
-              </span>
+              <BrandMark />
             </Link>
             <p>
-              A clearer path to your next certification.
+              Global IT certifications. Personal guidance.
               <br />
-              Built around your career.
+              PMP · Cloud · AI · Data · Cybersecurity.
             </p>
             <a
               href={whatsappUrl(
@@ -33,7 +29,7 @@ export default function Footer() {
             </a>
           </div>
           <div>
-            <h2>FIND YOUR DIRECTION</h2>
+            <h2>GLOBAL CERTIFICATIONS</h2>
             <Link href="/certifications">Certification finder</Link>
             <Link href="/ai-certifications">AI career pathways</Link>
             <Link href="/certifications?role=data-engineer">
@@ -70,7 +66,7 @@ export default function Footer() {
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Global Certs IT</span>
-          <span>Provider names belong to their respective owners.</span>
+          <span>Independent certification guidance. Provider names and marks belong to their owners.</span>
           <div>
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>

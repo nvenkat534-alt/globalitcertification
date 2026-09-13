@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import "./career.css";
+import "./experience.css";
+import WhatsAppConcierge from "@/components/experience/WhatsAppConcierge";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -12,7 +14,7 @@ const baseUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Global Certs IT | Find Your Next Certification",
+    default: "Global IT Certifications | PMP, AWS, Azure & AI | Global Certs IT",
     template: "%s | Global Certs IT",
   },
   description:
@@ -31,9 +33,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: baseUrl,
     siteName: "Global Certs IT",
-    title: "Global Certs IT | Find Your Next Certification",
+    title: "Global IT Certifications | PMP, AWS, Azure & AI | Global Certs IT",
     description:
-      "Advance your IT career with personalized training, complete certification guidance, and expert support for top IT certifications.",
+      "Explore global IT certifications, PMP, AWS, Microsoft and AI. Get personal certification guidance, exam details and voucher enquiries on WhatsApp.",
     images: [
       {
         url: `${baseUrl}/og-image.jpg`, // You can add a default og-image later
@@ -45,9 +47,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Global Certs IT | Find Your Next Certification",
+    title: "Global IT Certifications | PMP, AWS, Azure & AI | Global Certs IT",
     description:
-      "Advance your IT career with personalized training and expert support.",
+      "PMP, cloud, AI and data certifications. Get exam details and personal guidance on WhatsApp.",
     images: [`${baseUrl}/og-image.jpg`],
   },
   alternates: {
@@ -92,7 +94,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
         <link
@@ -109,7 +111,7 @@ export default function RootLayout({
               url: baseUrl,
               logo: `${baseUrl}/logo.png`, // Add the correct path to your logo
               description:
-                "Get Certified. Advance your IT career with personalized training, complete certification guidance, and expert support for AWS, Microsoft Azure, and Salesforce.",
+                "Global IT certification guidance, exam information and voucher enquiries for PMP, AWS, Microsoft, Google Cloud and AI.",
               sameAs: [
                 // Add social media links here
               ],
@@ -132,20 +134,7 @@ export default function RootLayout({
           <div id="main-content">{children}</div>
           <Footer />
 
-          {/* Floating WhatsApp Widget */}
-          <a
-            aria-label="Chat with Global Certs IT on WhatsApp"
-            href="https://wa.me/919392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="fixed bottom-6 right-6 z-[100] bg-whatsapp text-white w-14 h-14 rounded-full flex items-center justify-center shadow-md hover:scale-110 hover:bg-whatsapp-dark transition-all duration-300 group"
-          >
-            <i className="fab fa-whatsapp text-3xl"></i>
-            {/* Tooltip */}
-            <span className="absolute right-full mr-4 bg-slate-900 text-white text-sm font-semibold px-3 py-2 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.6)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap hidden sm:block border border-slate-800">
-              Chat with us!
-            </span>
-          </a>
+          <WhatsAppConcierge />
         </SmoothScroll>
       </body>
     </html>
