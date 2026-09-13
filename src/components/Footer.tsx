@@ -38,7 +38,10 @@ export default function Footer() {
             <Link href="/certifications/pmi/pmp">PMP certification</Link>
           </div>
           <div>
-            <h2>EXPLORE PLATFORMS</h2>
+            <h2>PLAN YOUR NEXT MOVE</h2>
+            <Link href="/careers">Career switch hub</Link>
+            <Link href="/careers/resume">Résumé review</Link>
+            <Link href="/careers/jobs">Daily job listings</Link>
             <Link href="/certifications/aws">AWS</Link>
             <Link href="/certifications/microsoft">Microsoft</Link>
             <Link href="/certifications/google-cloud">Google Cloud</Link>

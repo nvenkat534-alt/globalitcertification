@@ -151,9 +151,11 @@ export const roles = [
     project:
       "Deliver a business workflow with permissions, clean data, an agent escalation path and user acceptance tests.",
   },
+  { id: "sap-consultant", name: "SAP Consultant", icon: "layers", description: "S/4HANA processes & enterprise integration", advice: "Choose the business process and deployment edition used in your target role. Pair official SAP learning with authorised practice.", project: "Document a business process or integration with configuration rationale, test cases and failure recovery." },
 ] as const;
 export type RoleId = (typeof roles)[number]["id"];
 export const providers = [
+  { id: "sap", name: "SAP", mark: "SAP", color: "#218aba", description: "SAP S/4HANA Sales and Integration Suite credentials. Match the deployment edition, practise in the official learning system and check current assessment access." },
   { id: "anthropic", name: "Anthropic / Claude", mark: "✳", color: "#c27d62", description: "Explore Claude credentials for business users, developers and architects. Proctored exams currently require Claude Partner Network access; public Claude Academy learning is a separate route." },
   { id: "comptia", name: "CompTIA", mark: "CompTIA", color: "#ce405c", description: "Vendor-neutral IT support, networking, cybersecurity, Linux, cloud and data credentials. Check the live exam version and regional booking options through CompTIA Central." },
   {
@@ -355,6 +357,8 @@ function c(
   };
 }
 export const certifications: Certification[] = [
+{"id": "s4hana-sales", "name": "SAP Certified - Implementation Consultant for SAP S/4HANA Cloud Private Edition, Sales", "exam": "C_TS462", "provider": "sap", "level": "Associate", "stage": 1, "roles": {"sap-consultant": 5}, "skills": ["SAP SD", "Order to cash", "Pricing", "Billing", "S/4HANA"], "why": "Validates sales process and configuration skills for mentored SAP S/4HANA private-edition or on-premise project work.", "readiness": "Practise sales processes, pricing, delivery and billing in an authorised SAP learning system.", "source": "https://learning.sap.com/certifications/sap-certified-associate-sap-s-4hana-sales", "eligibility": "Check the SAP Universal ID setup, Learning Hub subscription with certification attempts, available attempts and technical readiness on the official assessment page.", "note": "SAP currently lists this as a system-based assessment. Confirm the live format and subscription before purchase.", "fresh": true},
+{"id": "integration-developer", "name": "SAP Certified - Integration Developer", "exam": "C_CPI", "provider": "sap", "level": "Associate", "stage": 1, "roles": {"sap-consultant": 5}, "skills": ["SAP Integration Suite", "SAP CPI", "APIs", "iFlows"], "why": "Validates core integration development knowledge for mentored enterprise integration work.", "readiness": "Build, test and monitor integration flows, including authentication, mapping and failure handling.", "source": "https://learning.sap.com/certifications/sap-certified-associate-integration-developer", "eligibility": "Check the SAP Universal ID setup, Learning Hub subscription with certification attempts, available attempts and technical readiness on the official assessment page.", "note": "SAP currently lists this as a system-based assessment. Confirm the live format and subscription before purchase.", "fresh": true},
   c(
     "cloud-practitioner",
     "AWS Certified Cloud Practitioner",

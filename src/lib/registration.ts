@@ -8,6 +8,7 @@ export type RegistrationGuide = {
 };
 
 export const registrationGuides: Partial<Record<ProviderId, RegistrationGuide>> = {
+  sap: { title: "SAP assessment registration", url: "https://learning.sap.com/certifications", steps: ["Select the exact SAP credential and deployment edition; open its current assessment page.", "Set up SAP Universal ID, including a secondary email, and confirm a Learning Hub subscription that includes certification attempts.", "Complete the linked learning journey and authorised practice; check system readiness and available attempts.", "Use Go to exam on the official page and follow the current assessment instructions. Review requirements for keeping the credential current."], note: "The SAP Sales and Integration Developer pages currently list system-based assessments. Follow the selected credential’s live instructions." },
   anthropic: {
     title: "Claude Partner Network",
     url: "https://claude.com/partners",

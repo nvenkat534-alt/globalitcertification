@@ -5,6 +5,7 @@ import {
   isAvailable,
   providers,
 } from "@/lib/certifications";
+import { careerPaths } from "@/lib/career-paths";
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.globalcertsit.com";
   return [
@@ -15,6 +16,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     ...[
+      "/careers",
+      "/careers/jobs",
+      "/careers/resume",
+      ...careerPaths.map(p => `/careers/${p.id}`),
       "/certifications",
       "/ai-certifications",
       "/contact",

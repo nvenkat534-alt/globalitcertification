@@ -1,0 +1,68 @@
+import assert from "node:assert/strict";
+import { registerHooks } from "node:module";
+import { existsSync } from "node:fs";
+registerHooks({ resolve(specifier, context, nextResolve) {
+  if (specifier.startsWith(".") && context.parentURL && !/\.[cm]?[jt]s$/.test(specifier)) {
+    const candidate = new URL(specifier + ".ts", context.parentURL);
+    if (existsSync(candidate)) return nextResolve(candidate.href, context);
+  }
+  return nextResolve(specifier, context);
+} });
+const { careerPaths, careerById, pathCertifications, jobBoardLinks } = await import("../src/lib/career-paths.ts");
+const { certifications, certKey } = await import("../src/lib/certifications.ts");
+const { mentions, skillEvidence, detectRoles, reviewResume, reviewText } = await import("../src/lib/resume-review.ts");
+const { normaliseJob, plainText } = await import("../src/lib/job-types.ts");
+const { extractResume } = await import("../src/lib/resume-file.ts");
+assert.equal(careerPaths.length, 21);
+assert.equal(new Set(careerPaths.map(p => p.id)).size, 21);
+for (const path of careerPaths) {
+  assert.equal(path.topics.length, 4);
+  assert.ok(path.skills.length >= 8 && path.interviews.length >= 2);
+  assert.ok(path.certs.length || path.learning.length, `${path.id} needs official credential guidance`);
+  for (const key of path.certs) assert.ok(certifications.some(c => certKey(c) === key), `Missing credential ${key}`);
+}
+assert.equal(mentions("NoSQL and chair design", "SQL"), false);
+assert.equal(mentions("NoSQL and chair design", "AI"), false);
+assert.equal(mentions("Built a SQL pipeline.", "SQL"), true);
+assert.equal(mentions("C++ and C#", "C#"), true);
+const sql = { name: "SQL", aliases: ["SQL"] };
+assert.equal(skillEvidence("I am learning SQL", sql), "learning");
+assert.equal(skillEvidence("No experience with SQL.", sql), "learning");
+assert.equal(skillEvidence("I have never used SQL", sql), "learning");
+assert.equal(skillEvidence("Learning SQL. Built SQL transformations at work.", sql), "mentioned");
+const sap = careerById("sap-sd");
+assert.ok(pathCertifications(sap).some(c => c.exam === "C_TS462"));
+const fixture = "SAMPLE ONLY — fictional test résumé\nProfile\nSAP SD support analyst with experience in order-to-cash, pricing and billing.\nExperience\n- Resolved 25 tickets involving pricing and master data.\n- Configured a delivery test in an S/4HANA lab.\n- Built UAT cases for billing.\nEducation\nSample training course\nsample@example.com";
+assert.equal(detectRoles(fixture)[0].path.id, "sap-sd");
+const report = reviewResume(fixture, sap, "working", "SAP SD role requiring pricing, billing and IDoc integration.");
+assert.ok(report.matched >= 5);
+assert.ok(report.jobMatch.missing.includes("Integration"));
+assert.equal(report.recommendations[0].exam, "C_TS462");
+assert.ok(report.checks.find(c => c.label === "Specific results or scale").ok);
+assert.ok(reviewText(report).includes("[verified outcome or scale]"));
+const mentioned = reviewResume(fixture + "\nC_TS462 in progress", sap, "working");
+assert.equal(mentioned.recommendations.length, 0);
+assert.equal(mentioned.alreadyMentioned.length, 1);
+const beginner = reviewResume("Project planning, stakeholders and risk management.", careerById("project-manager"), "beginner");
+assert.equal(beginner.recommendations[0].id, "capm");
+assert.equal(detectRoles("I enjoy painting and cooking.").length, 0);
+const now = Date.parse("2026-09-13T12:00:00Z");
+const row = { id: 1, title: "<b>Data Engineer</b>", company_name: "Sample", url: "https://remotive.com/remote-jobs/test/1", publication_date: "2026-09-12T12:00:00", candidate_required_location: "Germany", description: "<p>SQL pipelines &amp; Python.</p>" };
+const job = normaliseJob(row, "remotive", now);
+assert.equal(job.title, "Data Engineer");
+assert.equal(job.location, "Germany");
+assert.equal(job.remote, true);
+assert.equal(job.postedAt, "2026-09-12T12:00:00.000Z");
+for (const url of ["javascript:alert(1)", "https://evil.example/job", "https://remotive.com.evil.example/job", "http://remotive.com/job"]) assert.equal(normaliseJob({ ...row, url }, "remotive", now), null);
+assert.equal(normaliseJob({ ...row, publication_date: "2020-01-01" }, "remotive", now), null);
+assert.equal(normaliseJob({ ...row, publication_date: "not a date" }, "remotive", now), null);
+assert.equal(plainText("<script>alert(1)</script><b>Safe text</b>"), "Safe text");
+const boards = jobBoardLinks("SAP SD & billing", "Hyderabad");
+assert.equal(new URL(boards[0].url).searchParams.get("keywords"), "SAP SD & billing");
+assert.equal(new URL(boards[0].url).searchParams.get("location"), "Hyderabad");
+assert.equal(await extractResume(new File([fixture], "resume.txt")), fixture);
+await assert.rejects(() => extractResume(new File(["short"], "resume.txt")), /enough readable text/);
+await assert.rejects(() => extractResume(new File([fixture], "resume.exe")), /Use PDF/);
+await assert.rejects(() => extractResume(new File([new Uint8Array(5 * 1024 * 1024 + 1)], "resume.pdf")), /smaller than 5 MB/);
+await import("./test-certifications.mjs");
+console.log("PASS: 21 role paths, SAP guidance, résumé matching/negation, certification options, job URL/date validation, text extraction and input limits.");

@@ -31,6 +31,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">3. Data Protection</h2>
+              <p className="mb-4">The career résumé reviewer extracts and checks PDF, DOCX or text content in your browser. Our reviewer does not upload the file or résumé text to our server, an AI service or WhatsApp, and does not save it in browser storage. Clear or leave the page to discard the review; downloads remain on your device. Normal website analytics and page visits are separate from the review. Job application links open third-party sites with their own privacy practices.</p>
               <p>
                 We implement a variety of security measures to maintain the safety of your personal information. Your personal information is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems, and are required to keep the information confidential.
               </p>

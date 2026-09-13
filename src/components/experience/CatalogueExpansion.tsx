@@ -5,6 +5,7 @@ import ProviderMark from "./ProviderMark";
 import { WhatsAppIcon } from "./WhatsAppConcierge";
 
 const highlights: Record<string, string> = {
+  sap: "S/4HANA Sales · Integration Suite",
   anthropic: "Claude · Associate · Developer · Architect",
   salesforce: "Administrator · Agentforce · Data 360 · Developer",
   databricks: "Data engineering · GenAI · ML · Context engineering",
@@ -26,7 +27,7 @@ const highlights: Record<string, string> = {
 };
 
 export function ProviderDirectory() {
-  const order = ["anthropic", "salesforce", "databricks", "cisco", "pmi", "iapp", "isaca", "comptia", "aws", "microsoft", "google-cloud", "snowflake", "isc2", "red-hat", "linux-foundation", "hashicorp", "oracle", "scrum-org"];
+  const order = ["sap", "anthropic", "salesforce", "databricks", "cisco", "pmi", "iapp", "isaca", "comptia", "aws", "microsoft", "google-cloud", "snowflake", "isc2", "red-hat", "linux-foundation", "hashicorp", "oracle", "scrum-org"];
   return <section className="gc-container gc-section provider-directory" id="providers">
     <div className="gc-section-heading"><div><span className="gc-kicker">FIND YOUR PLATFORM. SEE YOUR OPTIONS.</span><h2>Global names.<br/><span>Your next credential.</span></h2></div><p>Explore {providers.length} providers. Every credential includes<br/>career relevance, eligibility and registration guidance.</p></div>
     <div className="provider-directory-grid">{order.map(id => {
