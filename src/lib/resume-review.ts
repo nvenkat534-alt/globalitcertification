@@ -24,7 +24,7 @@ export function reviewResume(text: string, path: CareerPath, experience: "beginn
   const skills = path.skills.map(s => ({ ...s, evidence: skillEvidence(text, s), required: s.aliases.some(a => mentions(jobDescription, a)) }));
   const lines = text.split(/\n+/).map(l => l.trim()).filter(Boolean);
   const bullets = lines.filter(l => /^(?:[-•●▪*]\s*|(?:built|led|delivered|designed|implemented|configured|resolved|automated|developed|improved|managed|supported|responsible|worked on|helped|involved in|duties)\b)/i.test(l));
-  const outcomes = bullets.filter(l => /\b\d+(?:\.\d+)?\s*(?:%|hours?|days?|minutes?|users?|tickets?|records?|projects?|seconds?)\b|\d+(?:\.\d+)?%/i.test(l));
+  const outcomes = bullets.filter(l => /\b\d+(?:\.\d+)?\s*(?:[a-z]+\s+){0,2}(?:%|hours?|days?|minutes?|users?|tickets?|records?|projects?|seconds?)\b|\d+(?:\.\d+)?%/i.test(l));
   const checks = [
     { label: "Clear role summary", ok: /\b(summary|profile|objective|professional overview)\b/i.test(text), advice: `Add a short summary naming ${path.title}, your actual background and the strongest relevant evidence.` },
     { label: "Experience or projects", ok: /\b(experience|employment|projects?|work history)\b/i.test(text), advice: "Use clear Experience and/or Projects headings with your own responsibilities, dates and outcomes. Label training projects as projects." },

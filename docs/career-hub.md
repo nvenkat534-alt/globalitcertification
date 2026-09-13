@@ -39,3 +39,7 @@ Imported coverage currently consists of Remotive remote roles and Arbeitnow's la
 ## Maintenance
 
 Run `node --experimental-strip-types scripts/test-careers.mjs`, targeted ESLint and `npm run build`. Build/dev scripts copy the version-matched PDF worker to `public/workers`; do not commit that generated asset. Update role mappings and issuer sources as credentials change. No new secret or environment variable is required for the initial module.
+
+## Validation on the deployed website
+
+Desktop checks covered role search, SAP SD navigation and checklist, PDF and DOCX upload/extraction, generated résumé feedback and SAP recommendation, optional job-description comparison, clearing the input, and a downloaded text report. Live API checks returned both sources and confirmed a reused daily cache timestamp. IT/digital listings are the default view; all source listings remain available through the role filter. Responsive CSS is included; no phone viewport was available for browser testing.

@@ -1,6 +1,9 @@
 export type JobSourceId = "remotive" | "arbeitnow";
 export type Job = { id: string; title: string; company: string; location: string; remote: boolean; url: string; source: JobSourceId; postedAt: string; tags: string[]; excerpt: string; searchText: string };
 export type JobFeed = { jobs: Job[]; checkedAt: string; sources: { id: JobSourceId; name: string; status: "ok" | "unavailable"; count: number; coverage: string }[] };
+export function isTechJob(job: Pick<Job, "title" | "tags">) {
+  return /\b(software|developer|entwickler|informatik|it support|helpdesk|cloud|devops|data|daten|sap|salesforce|cybersecurity|security analyst|network|kubernetes|machine learning|artificial intelligence|ai response|product manager|business analyst|qa|sdet|scrum|frontend|backend|full.stack)\b/i.test(`${job.title} ${job.tags.join(" ")}`);
+}
 export function plainText(value: unknown) {
   return String(value ?? "").replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ").replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\s+/g, " ").trim();
 }

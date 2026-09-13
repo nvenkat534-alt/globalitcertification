@@ -3,7 +3,7 @@ import { normaliseJob, type JobFeed, type JobSourceId } from "./job-types";
 
 const sources: { id: JobSourceId; name: string; url: string; coverage: string }[] = [
   { id: "remotive", name: "Remotive", url: "https://remotive.com/api/remote-jobs", coverage: "Remote roles with country restrictions. Public listings are delayed by 24 hours at source." },
-  { id: "arbeitnow", name: "Arbeitnow", url: "https://www.arbeitnow.com/api/job-board-api", coverage: "Latest 250 listings from the Europe-focused feed, primarily Germany. Includes non-remote roles." },
+  { id: "arbeitnow", name: "Arbeitnow", url: "https://www.arbeitnow.com/api/job-board-api", coverage: "Up to 250 listings from the latest Europe-focused feed page, primarily Germany. Includes non-remote roles." },
 ];
 async function loadSource(source: typeof sources[number]) {
   const response = await fetch(source.url, { signal: AbortSignal.timeout(15000), cache: "no-store", headers: { Accept: "application/json" } });
