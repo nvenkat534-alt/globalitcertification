@@ -18,7 +18,7 @@ export default function ContactPage() {
     text += `\n${message}`;
     
     const encodedText = encodeURIComponent(text);
-    window.open(`https://wa.me/9392828155?text=${encodedText}`, '_blank');
+    window.open(`https://wa.me/919392828155?text=${encodedText}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -112,9 +112,12 @@ export default function ContactPage() {
               </div>
               
               <button type="submit" className="w-full bg-whatsapp text-white px-8 py-4 rounded-xl font-bold hover:bg-green-600 transition-colors shadow-[0_0_30px_rgba(0,0,0,0.7)] flex items-center justify-center space-x-2">
-                <span>Send via WhatsApp</span>
+                <span>Continue to WhatsApp</span>
                 <Send size={18} />
               </button>
+              <p className="text-sm text-slate-400">
+                Your message will open in WhatsApp. Tap Send there to complete your enquiry.
+              </p>
             </form>
           </div>
 

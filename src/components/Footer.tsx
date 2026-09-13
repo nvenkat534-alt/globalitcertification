@@ -28,7 +28,7 @@ const Footer = () => {
               <a href="https://instagram.com/global_certification_" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#E1306C] hover:text-white transition-all hover:-translate-y-1">
                 <i className="fab fa-instagram text-lg"></i>
               </a>
-              <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-whatsapp hover:text-white transition-all hover:-translate-y-1">
+              <a href="https://wa.me/919392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-whatsapp hover:text-white transition-all hover:-translate-y-1">
                 <i className="fab fa-whatsapp text-lg"></i>
               </a>
               <a href="mailto:nvenkat534@gmail.com" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-blue hover:text-white transition-all hover:-translate-y-1">
@@ -104,7 +104,7 @@ const Footer = () => {
                 <Phone className="text-brand-sky mt-1 mr-4 flex-shrink-0" size={18} />
                 <div>
                   <span className="block font-semibold text-slate-300">WhatsApp / Phone</span>
-                  <a href="https://wa.me/9392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="text-slate-400 hover:text-white transition">+91 93928 28155</a>
+                  <a href="https://wa.me/919392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="text-slate-400 hover:text-white transition">+91 93928 28155</a>
                 </div>
               </li>
               <li className="flex items-start">
