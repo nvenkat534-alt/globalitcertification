@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { getRegistrationGuide } from "../src/lib/registration.ts";
 import {
   certifications,
   certKey,
@@ -20,7 +21,22 @@ for (const c of certifications) {
   assert.ok(Object.keys(c.roles).every((r) => roles.some((x) => x.id === r)));
   assert.equal(new URL(c.source).protocol, "https:");
   assert.ok(c.why && c.readiness && c.eligibility);
+  const guide = getRegistrationGuide(c);
+  assert.equal(new URL(guide.url).protocol, "https:");
+  assert.ok(guide.steps.length >= 3 && guide.note);
 }
+// Learners must see access restrictions and current names when searching familiar terms.
+const claude = getMatches({ query: "Claude" });
+assert.equal(claude.length, 4);
+assert.ok(claude.every(c => c.access === "Partner access" && c.ai));
+assert.ok(claude.every(c => /partner/i.test(getRegistrationGuide(c).note)));
+assert.equal(getMatches({ query: "Data Cloud Consultant" })[0]?.id, "data-360-consultant");
+assert.equal(getMatches({ query: "AIGP" })[0]?.provider, "iapp");
+assert.ok(getMatches({ query: "DevNet" }).every(c => c.name.includes("Automation")));
+assert.equal(getMatches({ query: "CASP+" })[0]?.id, "securityx");
+assert.ok(getMatches({ provider: "comptia" }).every(c => c.sourceKind === "Issuer badge" && /current exam code/.test(c.note)));
+const pmiOptions = getMatches({ provider: "pmi" });
+assert.ok(pmiOptions.some(c => c.id === "pgmp") && pmiOptions.some(c => c.id === "pmi-cpmai"));
 const de = getMatches({ role: "data-engineer", today: "2026-09-13" });
 assert.ok(
   de.every((c) => c.roles["data-engineer"]),

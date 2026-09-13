@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RegistrationSteps from "@/components/career/RegistrationSteps";
+import { getRegistrationGuide } from "@/lib/registration";
 import { notFound, permanentRedirect } from "next/navigation";
 import { ArrowUpRight, Check, ExternalLink, MessageCircle } from "lucide-react";
 import {
@@ -51,6 +53,7 @@ export default async function Page({
   const c = await getCert(params);
   if (!c || !isAvailable(c)) notFound();
   const p = providerById(c.provider)!;
+  const registration = getRegistrationGuide(c);
   const roleList = roles.filter((r) => c.roles[r.id]);
   const chat = whatsappUrl(
     `Hi Global Certs IT! I am interested in ${c.name} (${c.exam}). Please help me check whether it fits my experience and confirm the current exam version, eligibility and voucher availability.`,
@@ -70,6 +73,7 @@ export default async function Page({
             <span>{p.name}</span>
             <span>{c.level}</span>
             {c.ai && <span className="ai-tag">AI certification</span>}
+            {c.access && <span className="access-tag">{c.access}</span>}
             {c.status && <span className="beta-tag">Bookable beta</span>}
             {c.fresh && <span className="new-tag">New / updated</span>}
           </div>
@@ -90,7 +94,7 @@ export default async function Page({
               target="_blank"
               rel="noopener noreferrer"
             >
-              Official exam details <ExternalLink size={15} />
+              Official credential details <ExternalLink size={15} />
             </a>
           </div>
         </div>
@@ -123,6 +127,10 @@ export default async function Page({
           <section className="detail-section">
             <h2>Eligibility comes first.</h2>
             <p>{c.eligibility}</p>
+          </section>
+          <section className="detail-section" id="registration">
+            <h2>How to register</h2>
+            <RegistrationSteps guide={registration} />
           </section>
           <section className="detail-section">
             <h2>Make it count in your career.</h2>
@@ -167,9 +175,9 @@ export default async function Page({
             <div>
               <dt>Status at last review</dt>
               <dd>
-                {c.status === "Beta"
+                {c.access || (c.status === "Beta"
                   ? "Beta registration open"
-                  : "Listed on the official provider catalog"}
+                  : c.sourceKind === "Issuer badge" ? "Issuer badge verified; confirm live exam version" : "Listed on the official provider catalog")}
               </dd>
             </div>
             <div>

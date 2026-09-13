@@ -41,6 +41,7 @@ export default function AiPathways() {
         "microsoft/azure-ai-fundamentals",
         "google-cloud/generative-ai-leader",
         "oracle/agentic-ai-foundations",
+        "anthropic/claude-associate-foundations",
       ],
       project:
         "Try a small AI use case and record where its answers work, fail or need a human check.",
@@ -62,6 +63,8 @@ export default function AiPathways() {
         "salesforce/agentforce-specialist",
         "microsoft/ai-agent-builder",
         "snowflake/snowpro-gen-ai",
+        "anthropic/claude-developer-foundations",
+        "anthropic/claude-architect-foundations",
       ],
       project:
         "Build an assistant with reliable retrieval, citations, access controls and a test set to measure answer quality.",
@@ -81,6 +84,7 @@ export default function AiPathways() {
         "microsoft/ml-operations-engineer",
         "aws/machine-learning-engineer",
         "databricks/machine-learning-professional",
+        "anthropic/claude-architect-professional",
       ],
       project:
         "Deploy a production-style AI service with monitoring, safety evaluations, cost controls and rollback.",
@@ -100,6 +104,10 @@ export default function AiPathways() {
         "microsoft/ai-transformation-leader",
         "google-cloud/generative-ai-leader",
         "iapp/aigp",
+        "pmi/pmi-cpmai",
+        "isaca/aaia",
+        "isaca/aaism",
+        "isaca/aair",
       ],
       project:
         "Create an AI business case with success metrics, governance, stakeholder responsibilities and a staged adoption plan.",
@@ -159,9 +167,10 @@ export default function AiPathways() {
                   ),
                 )
                 .map((c) => (
-                  <Link className="ai-option" href={certUrl(c)} key={c.id}>
+                  <Link className="ai-option" href={certUrl(c)} key={`${c.provider}/${c.id}`}>
                     <div>
                       <span>{providerById(c.provider)?.name}</span>
+                      {c.access && <small className="access-tag">{c.access}</small>}
                       {c.status && (
                         <small className="beta-tag">Bookable beta</small>
                       )}

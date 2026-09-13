@@ -39,6 +39,10 @@ import {
   type Experience,
 } from "@/lib/certifications";
 
+import { registrationGuides } from "@/lib/registration";
+import type { ProviderId } from "@/lib/certifications";
+import RegistrationSteps from "./RegistrationSteps";
+
 type Props = {
   initialRole?: string;
   initialProvider?: string;
@@ -252,6 +256,7 @@ export default function CertificationFinder({
           </div>
         </div>
       </section>
+      {registrationGuides[provider as ProviderId] && <section className="cf-shell provider-registration"><details key={provider} open={provider === "anthropic" ? true : undefined}><summary>How to register for {providerById(provider)?.name} certifications <ArrowUpRight size={17}/></summary><RegistrationSteps guide={registrationGuides[provider as ProviderId]!}/></details></section>}
       <section className="cf-shell finder-content" id="finder">
         <div className="step-heading">
           <span className="step-number">01</span>
@@ -501,6 +506,7 @@ export default function CertificationFinder({
                   </div>
                   <div className="cert-tags">
                     <span>{c.level}</span>
+                    {c.access && <span className="access-tag">{c.access}</span>}
                     {c.status && (
                       <span className="beta-tag">Beta · registration open</span>
                     )}
@@ -769,9 +775,9 @@ export default function CertificationFinder({
                   name: "Availability",
                   value: (c: Certification) =>
                     [
-                      c.status === "Beta"
+                      c.access || (c.status === "Beta"
                         ? "Bookable beta"
-                        : "Listed by provider",
+                        : c.sourceKind === "Issuer badge" ? "Issuer badge verified; confirm live exam version" : "Listed by provider"),
                       c.note,
                     ]
                       .filter(Boolean)

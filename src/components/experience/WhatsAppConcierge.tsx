@@ -7,7 +7,7 @@ export function WhatsAppIcon({ size = 21 }: { size?: number }) {
 }
 export default function WhatsAppConcierge() {
   const dialog = useRef<HTMLDialogElement>(null);
-  const [certification, setCertification] = useState("PMP / Project Management");
+  const [certification, setCertification] = useState("PMP / PMI Project Management");
   const [goal, setGoal] = useState("Exam details & eligibility");
   const [nudge, setNudge] = useState(false);
   useEffect(() => {
@@ -29,8 +29,8 @@ export default function WhatsAppConcierge() {
     <dialog className="gc-dialog enquiry-dialog" ref={dialog} aria-labelledby="enquiry-title" onClick={e=>{if(e.target===e.currentTarget)dialog.current?.close();}}>
       <button className="dialog-close" aria-label="Close enquiry options" onClick={()=>dialog.current?.close()}><X size={22}/></button>
       <span className="enquiry-icon"><WhatsAppIcon size={30}/></span><span className="gc-kicker">LET’S TALK CERTIFICATIONS</span><h2 id="enquiry-title">Your next certification<br/>starts with a message.</h2><p>Choose what you need. We’ll put the details into your WhatsApp message.</p>
-      <label>Which certification are you considering?<select value={certification} onChange={e=>setCertification(e.target.value)}>{["PMP / Project Management", "AWS", "Microsoft Azure / Fabric", "Google Cloud", "AI & Generative AI", "Data Engineering / Analytics", "Cybersecurity / Cisco", "Salesforce / Other", "I need help choosing"].map(v=><option key={v}>{v}</option>)}</select></label>
-      <label>How can we help?<select value={goal} onChange={e=>setGoal(e.target.value)}>{["Exam details & eligibility", "Exam voucher enquiry", "Help choosing a certification", "Compare certifications for my role"].map(v=><option key={v}>{v}</option>)}</select></label>
+      <label>Which certification are you considering?<select value={certification} onChange={e=>setCertification(e.target.value)}>{["PMP / PMI Project Management", "Claude / Anthropic", "Salesforce / Agentforce", "Databricks", "Cisco", "ISACA", "CompTIA", "AIGP / IAPP Privacy", "AWS", "Microsoft Azure / Fabric", "Google Cloud", "AI & Generative AI", "Data Engineering / Analytics", "Other certification", "I need help choosing"].map(v=><option key={v}>{v}</option>)}</select></label>
+      <label>How can we help?<select value={goal} onChange={e=>setGoal(e.target.value)}>{["Exam details & eligibility", "How to register", "Exam voucher enquiry", "Help choosing a certification", "Compare certifications for my role"].map(v=><option key={v}>{v}</option>)}</select></label>
       <a className="gc-button gc-button-whatsapp" target="_blank" rel="noopener noreferrer" href={whatsappUrl(`Hi Global Certs IT! I am interested in ${certification}. I need help with: ${goal}. My country: . My target exam date: .`)}><WhatsAppIcon/> Continue to WhatsApp <ArrowUpRight size={18}/></a><small className="enquiry-note">WhatsApp opens with your message. Tap Send to contact us.</small><span className="enquiry-number">+91 93928 28155 · Telugu & English</span>
     </dialog>
   </>;

@@ -2,7 +2,7 @@
 
 Catalog review: 13 September 2026. Website: https://www.globalcertsit.com.
 
-The typed catalog in `src/lib/certifications.ts` stores the canonical official provider URL for every credential. It includes 64 curated credentials across 13 roles and 16 providers. It is not an exhaustive worldwide registry or a live provider feed. Career relevance, role assignments, experience bands and project suggestions are editorial judgments. No salary, hiring, pass-rate or customer-review claims are made by the finder.
+The typed catalog in `src/lib/certifications.ts` stores an official provider or issuer-owned credential URL for every record. It includes 122 curated credentials across 13 roles and 18 providers. It is not an exhaustive worldwide registry or a live provider feed. Career relevance, role assignments, experience bands and project suggestions are editorial judgments. No salary, hiring, pass-rate or customer-review claims are made by the finder.
 
 ## Source review highlights
 
@@ -18,6 +18,10 @@ The typed catalog in `src/lib/certifications.ts` stores the canonical official p
 - PMI formal application requirements: https://www.pmi.org/certifications/project-management-pmp
 
 Known expired/retired exam versions are not recommended. Where an exam is transitioning but still available, the record carries a version/language note. Bookable beta is explicitly labelled. No live prices are copied into the finder. A visitor asks about fees, eligibility and voucher availability before purchase.
+
+## September expansion
+
+Claude access restrictions, registration guides, current-name search aliases and the CompTIA source limitation are documented in [the expansion audit](catalogue-expansion-2026-09-13.md). CompTIA scope is verified against issuer-owned Credly records; live exam series and appointment availability must be confirmed in CompTIA Central. The displayed status distinguishes these records from provider-catalogue checks.
 
 ## Maintenance procedure
 
