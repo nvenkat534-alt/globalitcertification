@@ -12,8 +12,15 @@ registerHooks({ resolve(specifier, context, nextResolve) {
 const { emptyDraft, parseResume, readDraft, draftText, composeBullet } = await import("../src/lib/resume-builder.ts");
 const { readablePdfText } = await import("../src/lib/resume-file.ts");
 const { createPdf, createWord } = await import("../src/lib/resume-export.ts");
+const { skillEvidence, reviewResume } = await import("../src/lib/resume-review.ts");
+const { careerById } = await import("../src/lib/career-paths.ts");
 const { certificationEnquiry } = await import("../src/lib/certifications.ts");
 const source = "Sample Only — fictional résumé\nAlex Morgan\nalex@example.com | Hyderabad | +91 90000 00000\nPROFILE\nSAP SD analyst with order-to-cash, billing and pricing experience.\nWork experience:\n- Resolved 25 support tickets involving pricing and master data.\nUnrecognised custom detail remains here.\nCertifications\nC_TS462 — planned, not earned\nEducation\nTraining lab — fictional example\n";
+const custom = parseResume("Alex Morgan\nExperience\n- Built a training project.\nAdditional information\nAvailable for remote work.\nLanguages\nEnglish, Telugu");
+assert.equal(custom.sections.find(s => s.title === "Languages").content, "English, Telugu");
+assert.ok(!custom.sections.find(s => s.title === "Experience").content.includes("Available"));
+assert.equal(skillEvidence("SAP S/4HANA certification — planned, not earned", { name: "SAP S/4HANA", aliases: ["SAP S/4HANA"] }), "learning");
+assert.ok(reviewResume("Experience\n- Resolved 25 pricing and billing support tickets.", careerById("sap-sd"), "working").checks.find(c => c.label === "Specific results or scale").ok);
 const imported = parseResume(source, "sap-sd");
 assert.equal(imported.originalText, source);
 for (const phrase of ["alex@example.com | Hyderabad", "Unrecognised custom detail", "C_TS462 — planned, not earned", "Alex Morgan"]) assert.ok(draftText(imported).includes(phrase), `Preserve ${phrase}`);

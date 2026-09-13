@@ -15,6 +15,7 @@ const aliases: Record<string, string> = {
   experience: "Experience", "work experience": "Experience", "professional experience": "Experience", "employment history": "Experience",
   projects: "Projects", "personal projects": "Projects", "academic projects": "Projects",
   education: "Education", "academic qualifications": "Education", certifications: "Certifications", certificates: "Certifications", "licenses and certifications": "Certifications",
+  "additional information": "Additional information", languages: "Languages", awards: "Awards", volunteering: "Volunteering", "volunteer experience": "Volunteering", publications: "Publications",
 };
 /** Conservative grouping only: unrecognised text remains editable and the original is retained. */
 export function parseResume(source: string, targetRole = ""): ResumeDraft {
@@ -28,7 +29,11 @@ export function parseResume(source: string, targetRole = ""): ResumeDraft {
     const line = raw.trim();
     if (!line) { if (current) current.content += "\n"; else extra.push(""); continue; }
     const heading = aliases[line.toLowerCase().replace(/[:\s]+$/, "")];
-    if (heading) { current = draft.sections.find(s => s.title === heading); first = false; continue; }
+    if (heading) {
+      current = draft.sections.find(s => s.title === heading);
+      if (!current) { current = { id: `section-${draft.sections.length}`, title: heading, content: "" }; draft.sections.push(current); }
+      first = false; continue;
+    }
     if (first && /^[\p{L}][\p{L} .'’\-]{1,70}$/u.test(line) && line.split(/\s+/).length >= 2 && line.split(/\s+/).length <= 5 && !/resume|résumé|curriculum|sample|profile|engineer|analyst|consultant|developer|manager/i.test(line)) {
       draft.name = line; first = false; continue;
     }
@@ -37,7 +42,11 @@ export function parseResume(source: string, targetRole = ""): ResumeDraft {
     if (current) current.content += `${line}\n`; else extra.push(line);
   }
   draft.sections.forEach(s => { s.content = s.content.trim(); });
-  if (extra.join("\n").trim()) draft.sections.push({ id: "imported-other", title: "Additional information", content: extra.join("\n").trim() });
+  if (extra.join("\n").trim()) {
+    const additional = draft.sections.find(s => s.title === "Additional information");
+    if (additional) additional.content = `${extra.join("\n").trim()}\n${additional.content}`.trim();
+    else draft.sections.push({ id: "imported-other", title: "Additional information", content: extra.join("\n").trim() });
+  }
   return draft;
 }
 export function contactText(draft: ResumeDraft) {

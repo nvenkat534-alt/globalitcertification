@@ -1494,7 +1494,7 @@ export function getMatches({
     );
 }
 export function certificationEnquiry(items: Pick<Certification, "name" | "exam">[]) {
-  const selection = items.map(c => `${c.name} (${c.exam})`).join("; ");
+  const selection = items.map(c => c.name.includes(`(${c.exam})`) || c.name.endsWith(c.exam) ? c.name : `${c.name} (${c.exam})`).join("; ");
   return whatsappUrl(`Hi Global Certs IT! I am interested in ${selection || "a global certification"}. Please share the price and payment details.`);
 }
 export function whatsappUrl(message: string) {

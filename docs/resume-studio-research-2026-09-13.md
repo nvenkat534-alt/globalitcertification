@@ -37,3 +37,7 @@ No voucher stock or price was invented. Regional provider fees and appointment a
 - Saved drafts are validated by version, string types, section count and size. Exports contain visitor-entered data; unsupported PDF characters raise an actionable Word fallback rather than being silently removed.
 - Automated checks cover lossless handling of unrecognised text, planned-credential status, JSON validation, section edits/order/removal, facts-only bullet composition, pricing-only WhatsApp URLs, PDF selectable Unicode text, multi-page wrapping and DOCX extraction. Synthetic fixtures are labelled as fictional.
 - Build/type checks and visual PDF inspection are required before release. Live UI checks verify the homepage shortcut, import/edit/review continuity and export controls after deployment.
+
+## Release verification
+
+The live deployment was checked with synthetic fixtures. The homepage shortcut, PDF import, manual editing, PDF/Word downloads, saved JSON draft reopening in a fresh editor, and edited-text SAP SD review all worked. Downloaded documents were read back to confirm the edited name, work bullets and planned-certification status. The AZ-104 page and showcase use the pricing-only enquiry. Follow-up fixes keep planned/in-progress mentions qualified, recognise longer measured-result phrases, preserve additional named import sections and show export feedback beside the download controls.
