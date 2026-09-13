@@ -100,6 +100,17 @@ export const registrationGuides: Partial<Record<ProviderId, RegistrationGuide>> 
 };
 
 export function getRegistrationGuide(cert: Certification): RegistrationGuide {
+  if (cert.provider === "microsoft" && cert.id === "azure-administrator") return {
+    title: "Book AZ-104 through Microsoft Learn",
+    url: cert.source,
+    steps: [
+      "Prepare the AZ-104 skills outline dated 17 April 2026: identities and governance, storage, compute, networking, and monitoring.",
+      "Open the Azure Administrator Associate page on Microsoft Learn and use Schedule exam. Microsoft recommends a personal Microsoft account.",
+      "Continue to Pearson VUE. Select your country, language, delivery option and an available appointment; review the local fee and identification requirements.",
+      "Complete payment or apply a valid voucher in the official booking flow, keep the confirmation and complete the required exam-day checks.",
+    ],
+    note: "Passing AZ-104 earns this associate credential. No prior certification is listed as a prerequisite. The exam allows 100 minutes for the assessment; certification renewal is every 12 months through Microsoft Learn.",
+  };
   const guide = registrationGuides[cert.provider];
   if (guide) return guide;
   return {

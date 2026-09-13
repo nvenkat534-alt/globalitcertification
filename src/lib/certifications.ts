@@ -771,8 +771,9 @@ export const certifications: Certification[] = [
     { "cloud-engineer": 5, "cloud-architect": 4, devops: 4 },
     ["Azure administration", "Networking", "Identity", "Compute & storage"],
     "A direct operational credential for managing Azure environments and an important step in the Azure architect pathway.",
-    "Practise Azure administration, networking, identity and command-line tools.",
+    "Build experience with PowerShell, Azure CLI, the Azure portal, ARM/Bicep and Microsoft Entra ID, alongside operating systems, networking and virtualisation.",
     ms("azure-administrator"),
+    { eligibility: "Earn the credential by passing AZ-104. Microsoft does not list another certification as a prerequisite; hands-on Azure administration knowledge is recommended. Use a personal Microsoft account when scheduling through Pearson VUE.", note: "Current exam: AZ-104. The English skills outline applies from 17 April 2026. Assessment time: 100 minutes. Role-based certification renewal is every 12 months through Microsoft Learn. Checked 13 September 2026; regional pricing and languages are on the official page." },
   ),
   c(
     "azure-solutions-architect",
@@ -1491,6 +1492,10 @@ export function getMatches({
         a.stage - b.stage ||
         a.name.localeCompare(b.name),
     );
+}
+export function certificationEnquiry(items: Pick<Certification, "name" | "exam">[]) {
+  const selection = items.map(c => `${c.name} (${c.exam})`).join("; ");
+  return whatsappUrl(`Hi Global Certs IT! I am interested in ${selection || "a global certification"}. Please share the price and payment details.`);
 }
 export function whatsappUrl(message: string) {
   return `https://wa.me/919392828155?text=${encodeURIComponent(message)}`;

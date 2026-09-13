@@ -18,7 +18,7 @@ export default function Footer() {
             </p>
             <a
               href={whatsappUrl(
-                "Hi Global Certs IT! I would like certification guidance.",
+                "Hi Global Certs IT! I am interested in a global certification. Please share the price and payment details.",
               )}
               target="_blank"
               rel="noopener noreferrer"

@@ -10,7 +10,7 @@ import {
   providerById,
   roles,
   isAvailable,
-  whatsappUrl,
+  certificationEnquiry,
 } from "@/lib/certifications";
 export const dynamic = "force-dynamic";
 const aliases: Record<string, string> = {
@@ -55,9 +55,7 @@ export default async function Page({
   const p = providerById(c.provider)!;
   const registration = getRegistrationGuide(c);
   const roleList = roles.filter((r) => c.roles[r.id]);
-  const chat = whatsappUrl(
-    `Hi Global Certs IT! I am interested in ${c.name} (${c.exam}). Please help me check whether it fits my experience and confirm the current exam version, eligibility and voucher availability.`,
-  );
+  const chat = certificationEnquiry([c]);
   return (
     <main className="cf">
       <section className="detail-hero">
@@ -86,7 +84,7 @@ export default async function Page({
               target="_blank"
               rel="noopener noreferrer"
             >
-              Is this right for me? <MessageCircle size={17} />
+              Get price & payment details <MessageCircle size={17} />
             </a>
             <a
               className="cf-btn cf-btn-outline"
@@ -102,6 +100,7 @@ export default async function Page({
       <div className="cf-shell detail-grid">
         <div>
           {c.note && <p className="detail-note detail-section">{c.note}</p>}
+          {c.provider === "microsoft" && c.id === "azure-administrator" && <section className="detail-section"><h2>AZ-104 preparation checklist</h2><p>Manage Azure identities and governance (20–25%), storage (15–20%), compute resources (20–25%), virtual networking (15–20%), and monitoring and maintenance (10–15%). Practise these tasks in Azure before booking.</p><a className="all-paths" href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-104" target="_blank" rel="noopener noreferrer">Read Microsoft’s current AZ-104 study guide <ExternalLink size={15}/></a></section>}
           <section className="detail-section">
             <h2>What this credential focuses on</h2>
             <div className="detail-skills">
@@ -196,7 +195,7 @@ export default async function Page({
             target="_blank"
             rel="noopener noreferrer"
           >
-            Ask about this certification <ArrowUpRight size={16} />
+            Get price & payment details <ArrowUpRight size={16} />
           </a>
         </aside>
       </div>

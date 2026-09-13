@@ -34,7 +34,7 @@ import {
   providerById,
   REVIEWED_ON,
   roles,
-  whatsappUrl,
+  certificationEnquiry,
   type Certification,
   type Experience,
 } from "@/lib/certifications";
@@ -183,9 +183,7 @@ export default function CertificationFinder({
     setNotice("");
   }
   function enquiry(items: Certification[]) {
-    return whatsappUrl(
-      `Hi Global Certs IT! I would like certification guidance.\nRole: ${activeRole?.name || "Exploring roles"}\nExperience: ${experiences.find((e) => e.id === experience)?.label}\nPlatform: ${providerById(provider)?.name || "Open to advice"}\nShortlist:\n${items.map((c) => `• ${c.name} (${c.exam})`).join("\n")}\nPlease help me choose the right exam and confirm eligibility and voucher availability.`,
-    );
+    return certificationEnquiry(items);
   }
   async function share() {
     const params = new URLSearchParams();

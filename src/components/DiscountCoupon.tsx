@@ -37,7 +37,7 @@ const DiscountCoupon = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <a href="https://wa.me/919392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="inline-flex items-center bg-brand-blue text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-brand-sky transition-colors">
+              <a href="https://wa.me/919392828155?text=Hi%20Global%20Certs%20IT%21%20I%20am%20interested%20in%20a%20global%20certification.%20Please%20share%20the%20price%20and%20payment%20details." className="inline-flex items-center bg-brand-blue text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-brand-sky transition-colors">
                 <i className="fab fa-whatsapp text-xl mr-2"></i>
                 Claim Discount
                 <i className="fas fa-arrow-right ml-2 text-xs"></i>

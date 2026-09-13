@@ -317,7 +317,7 @@ export default function CareerHome() {
               {
                 n: "03",
                 title: "Take your next step",
-                text: "Send your shortlist on WhatsApp for personal guidance, eligibility checks and voucher enquiries.",
+                text: "Read eligibility and registration steps on the website, then send your shortlist on WhatsApp for pricing.",
                 icon: MessageCircle,
               },
             ].map((s) => (
@@ -372,7 +372,7 @@ export default function CareerHome() {
         </p>
         <a
           href={whatsappUrl(
-            "Hi Global Certs IT! I would like help choosing a certification for my career.",
+            "Hi Global Certs IT! I am interested in a global certification. Please share the price and payment details.",
           )}
           className="cf-btn cf-btn-dark"
           target="_blank"

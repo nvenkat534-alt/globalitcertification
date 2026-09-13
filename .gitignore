@@ -41,3 +41,4 @@ yarn-error.log*
 next-env.d.ts
 
 /public/workers/pdf.worker.min.mjs
+/public/fonts/resume/

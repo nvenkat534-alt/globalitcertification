@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/careers",
       "/careers/jobs",
       "/careers/resume",
+      "/careers/resume-builder",
       ...careerPaths.map(p => `/careers/${p.id}`),
       "/certifications",
       "/ai-certifications",

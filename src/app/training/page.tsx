@@ -176,7 +176,7 @@ export default function TrainingPage() {
                   Our flagship personalized mentorship program pairs you directly with certified professionals who live and breathe the tech you are learning. They don&apos;t just teach the syllabus—they teach the industry.
                 </p>
                 <a
-                  href="https://wa.me/919392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F"
+                  href="https://wa.me/919392828155?text=Hi%20Global%20Certs%20IT%21%20I%20am%20interested%20in%20a%20global%20certification.%20Please%20share%20the%20price%20and%20payment%20details."
                   className="inline-flex items-center space-x-3 bg-whatsapp text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-bold hover:bg-green-600 transition-colors shadow-xl text-sm md:text-base"
                 >
                   <span>Match with a Mentor</span>

@@ -79,7 +79,7 @@ const Banner1 = () => {
             <Link href="/certifications" className="bg-brand-blue text-white px-5 sm:px-10 py-2.5 sm:py-3.5 rounded-xl font-heading font-bold text-sm sm:text-lg hover:bg-blue-600 transition flex items-center justify-center whitespace-nowrap shadow-md shadow-brand-blue/10 hover:shadow-brand-blue/20 hover:-translate-y-1">
               Explore Certifications <i className="fas fa-arrow-right ml-2 text-sm"></i>
             </Link>
-            <a href="https://wa.me/919392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="bg-whatsapp text-white px-5 sm:px-10 py-2.5 sm:py-3.5 rounded-xl font-heading font-bold text-sm sm:text-lg hover:bg-whatsapp-dark transition flex items-center justify-center whitespace-nowrap shadow-md shadow-green-900/10 hover:shadow-green-900/20 hover:-translate-y-1">
+            <a href="https://wa.me/919392828155?text=Hi%20Global%20Certs%20IT%21%20I%20am%20interested%20in%20a%20global%20certification.%20Please%20share%20the%20price%20and%20payment%20details." className="bg-whatsapp text-white px-5 sm:px-10 py-2.5 sm:py-3.5 rounded-xl font-heading font-bold text-sm sm:text-lg hover:bg-whatsapp-dark transition flex items-center justify-center whitespace-nowrap shadow-md shadow-green-900/10 hover:shadow-green-900/20 hover:-translate-y-1">
               <i className="fab fa-whatsapp mr-2 text-white text-base sm:text-xl"></i> <span>Chat with an Expert</span>
             </a>
           </div>
@@ -227,7 +227,7 @@ const Banner2 = () => {
             <Link href="/certifications" className="bg-brand-blue text-white px-8 sm:px-12 py-3 sm:py-3.5 rounded-xl font-heading font-bold text-base md:text-lg hover:bg-blue-600 transition flex items-center justify-center w-full sm:w-auto relative z-30 whitespace-nowrap shadow-md shadow-brand-blue/10 hover:shadow-brand-blue/20 hover:-translate-y-1">
               Explore Certifications <i className="fas fa-arrow-right ml-2 text-sm"></i>
             </Link>
-            <a href="https://wa.me/919392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="bg-whatsapp text-white px-8 sm:px-12 py-3 sm:py-3.5 rounded-xl font-heading font-bold text-base md:text-lg hover:bg-whatsapp-dark transition flex items-center justify-center w-full sm:w-auto relative z-30 whitespace-nowrap shadow-md shadow-green-900/10 hover:shadow-green-900/20 hover:-translate-y-1">
+            <a href="https://wa.me/919392828155?text=Hi%20Global%20Certs%20IT%21%20I%20am%20interested%20in%20a%20global%20certification.%20Please%20share%20the%20price%20and%20payment%20details." className="bg-whatsapp text-white px-8 sm:px-12 py-3 sm:py-3.5 rounded-xl font-heading font-bold text-base md:text-lg hover:bg-whatsapp-dark transition flex items-center justify-center w-full sm:w-auto relative z-30 whitespace-nowrap shadow-md shadow-green-900/10 hover:shadow-green-900/20 hover:-translate-y-1">
               <i className="fab fa-whatsapp mr-2 text-white text-xl"></i> Chat with an Expert
             </a>
           </div>

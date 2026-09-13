@@ -8,7 +8,7 @@ export function WhatsAppIcon({ size = 21 }: { size?: number }) {
 export default function WhatsAppConcierge() {
   const dialog = useRef<HTMLDialogElement>(null);
   const [certification, setCertification] = useState("PMP / PMI Project Management");
-  const [goal, setGoal] = useState("Exam details & eligibility");
+  const [goal, setGoal] = useState("Price & payment details");
   const [nudge, setNudge] = useState(false);
   useEffect(() => {
     let dismissed = false;
@@ -19,19 +19,19 @@ export default function WhatsAppConcierge() {
   }, []);
   const dismiss = () => {setNudge(false); try {sessionStorage.setItem("gcit-enquiry-dismissed", "true");} catch {}};
   const show = () => {dismiss(); dialog.current?.showModal();};
-  const general = whatsappUrl("Hi Global Certs IT! I would like information about global IT certifications. Certification I am interested in: ");
+  const general = whatsappUrl("Hi Global Certs IT! I am interested in a global certification. Please share the price and payment details.");
   return <>
     <div className="whatsapp-dock">
-      {nudge && <div className="whatsapp-nudge"><button aria-label="Dismiss certification help" onClick={dismiss}><X size={14}/></button><strong>Which certification is next for you?</strong><p>Get exam details and personal guidance.</p><button className="nudge-action" onClick={show}>Choose a certification <ArrowUpRight size={14}/></button></div>}
-      <button className="whatsapp-dock-button" onClick={show} aria-label="Open certification enquiry options"><span className="dock-icon"><WhatsAppIcon size={25}/></span><span><strong>Chat on WhatsApp</strong><small>Certification details & guidance</small></span><ArrowUpRight size={17}/></button>
+      {nudge && <div className="whatsapp-nudge"><button aria-label="Dismiss certification help" onClick={dismiss}><X size={14}/></button><strong>Which certification is next for you?</strong><p>Ready to book? Get pricing and payment details.</p><button className="nudge-action" onClick={show}>Choose a certification <ArrowUpRight size={14}/></button></div>}
+      <button className="whatsapp-dock-button" onClick={show} aria-label="Open certification enquiry options"><span className="dock-icon"><WhatsAppIcon size={25}/></span><span><strong>Chat on WhatsApp</strong><small>Pricing & booking</small></span><ArrowUpRight size={17}/></button>
     </div>
-    <div className="mobile-enquiry-bar"><a href={general} target="_blank" rel="noopener noreferrer"><WhatsAppIcon size={22}/><span>WhatsApp us<small>Get certification details</small></span><ArrowUpRight size={20}/></a><button onClick={show} aria-label="Choose a certification to enquire about"><MessageCircle size={21}/></button></div>
+    <div className="mobile-enquiry-bar"><a href={general} target="_blank" rel="noopener noreferrer"><WhatsAppIcon size={22}/><span>WhatsApp us<small>Get pricing & booking</small></span><ArrowUpRight size={20}/></a><button onClick={show} aria-label="Choose a certification to enquire about"><MessageCircle size={21}/></button></div>
     <dialog className="gc-dialog enquiry-dialog" ref={dialog} aria-labelledby="enquiry-title" onClick={e=>{if(e.target===e.currentTarget)dialog.current?.close();}}>
       <button className="dialog-close" aria-label="Close enquiry options" onClick={()=>dialog.current?.close()}><X size={22}/></button>
       <span className="enquiry-icon"><WhatsAppIcon size={30}/></span><span className="gc-kicker">LET’S TALK CERTIFICATIONS</span><h2 id="enquiry-title">Your next certification<br/>starts with a message.</h2><p>Choose what you need. We’ll put the details into your WhatsApp message.</p>
-      <label>Which certification are you considering?<select value={certification} onChange={e=>setCertification(e.target.value)}>{["PMP / PMI Project Management", "SAP S/4HANA / Integration", "Claude / Anthropic", "Salesforce / Agentforce", "Databricks", "Cisco", "ISACA", "CompTIA", "AIGP / IAPP Privacy", "AWS", "Microsoft Azure / Fabric", "Google Cloud", "AI & Generative AI", "Data Engineering / Analytics", "Other certification", "I need help choosing"].map(v=><option key={v}>{v}</option>)}</select></label>
-      <label>How can we help?<select value={goal} onChange={e=>setGoal(e.target.value)}>{["Exam details & eligibility", "How to register", "Exam voucher enquiry", "Help choosing a certification", "Compare certifications for my role", "Career switch guidance", "Résumé and certification guidance"].map(v=><option key={v}>{v}</option>)}</select></label>
-      <a className="gc-button gc-button-whatsapp" target="_blank" rel="noopener noreferrer" href={whatsappUrl(`Hi Global Certs IT! I am interested in ${certification}. I need help with: ${goal}. My country: . My target exam date: .`)}><WhatsAppIcon/> Continue to WhatsApp <ArrowUpRight size={18}/></a><small className="enquiry-note">WhatsApp opens with your message. Tap Send to contact us.</small><span className="enquiry-number">+91 93928 28155 · Telugu & English</span>
+      <label>Which certification are you considering?<select value={certification} onChange={e=>setCertification(e.target.value)}>{["PMP / PMI Project Management", "SAP S/4HANA / Integration", "Claude / Anthropic", "Salesforce / Agentforce", "Databricks", "Cisco", "ISACA", "CompTIA", "AIGP / IAPP Privacy", "AWS", "Microsoft Azure / Fabric", "Google Cloud", "AI & Generative AI", "Data Engineering / Analytics", "Other global certification"].map(v=><option key={v}>{v}</option>)}</select></label>
+      <label>How can we help?<select value={goal} onChange={e=>setGoal(e.target.value)}>{["Price & payment details", "Book an exam voucher", "Existing order support"].map(v=><option key={v}>{v}</option>)}</select></label>
+      <a className="gc-button gc-button-whatsapp" target="_blank" rel="noopener noreferrer" href={whatsappUrl(`Hi Global Certs IT! I am interested in ${certification}. Enquiry: ${goal}.`)}><WhatsAppIcon/> Continue to WhatsApp <ArrowUpRight size={18}/></a><small className="enquiry-note">WhatsApp opens with your message. Tap Send to contact us.</small><span className="enquiry-number">+91 93928 28155 · Telugu & English</span>
     </dialog>
   </>;
 }
