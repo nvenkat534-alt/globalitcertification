@@ -1,29 +1,6 @@
 "use client";
-import React, { useEffect } from 'react';
-import Lenis from 'lenis';
-
-export default function SmoothScroll({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    const lenis = new Lenis({
-      lerp: 0.1,
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
-
+import { ReactNode } from "react";
+// Native scrolling supports keyboard navigation, browser find, dialogs and reduced motion.
+export default function SmoothScroll({ children }: { children: ReactNode }) {
   return <>{children}</>;
 }

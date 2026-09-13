@@ -1,27 +1,39 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+import "./career.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://globalcertsit.com";
+const baseUrl =
+  process.env.NEXT_PUBLIC_BASE_URL || "https://www.globalcertsit.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Global Certs IT | Certification Training & Exam Vouchers",
+    default: "Global Certs IT | Find Your Next Certification",
     template: "%s | Global Certs IT",
   },
-  description: "Get Certified. Stand Ahead of Your Competition. Advance your IT career with personalized training, complete certification guidance, and expert support for AWS, Microsoft Azure, and Salesforce.",
-  keywords: ["IT Certification", "AWS Certification", "Microsoft Azure Certification", "Salesforce Certification", "Exam Vouchers", "IT Training", "Global Certs IT"],
+  description:
+    "Find current global certifications by role, experience and platform. Compare AWS, Microsoft, Google Cloud, data, AI and PMP pathways with personal certification guidance.",
+  keywords: [
+    "IT Certification",
+    "AWS Certification",
+    "Microsoft Azure Certification",
+    "Salesforce Certification",
+    "Exam Vouchers",
+    "IT Training",
+    "Global Certs IT",
+  ],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: baseUrl,
     siteName: "Global Certs IT",
-    title: "Global Certs IT | Certification Training & Exam Vouchers",
-    description: "Advance your IT career with personalized training, complete certification guidance, and expert support for top IT certifications.",
+    title: "Global Certs IT | Find Your Next Certification",
+    description:
+      "Advance your IT career with personalized training, complete certification guidance, and expert support for top IT certifications.",
     images: [
       {
         url: `${baseUrl}/og-image.jpg`, // You can add a default og-image later
@@ -33,8 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Global Certs IT | Certification Training & Exam Vouchers",
-    description: "Advance your IT career with personalized training and expert support.",
+    title: "Global Certs IT | Find Your Next Certification",
+    description:
+      "Advance your IT career with personalized training and expert support.",
     images: [`${baseUrl}/og-image.jpg`],
   },
   alternates: {
@@ -73,23 +86,34 @@ export default function RootLayout({
           `}
         </Script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "EducationalOrganization",
-              "name": "Global Certs IT",
-              "url": baseUrl,
-              "logo": `${baseUrl}/logo.png`, // Add the correct path to your logo
-              "description": "Get Certified. Advance your IT career with personalized training, complete certification guidance, and expert support for AWS, Microsoft Azure, and Salesforce.",
-              "sameAs": [
+              name: "Global Certs IT",
+              url: baseUrl,
+              logo: `${baseUrl}/logo.png`, // Add the correct path to your logo
+              description:
+                "Get Certified. Advance your IT career with personalized training, complete certification guidance, and expert support for AWS, Microsoft Azure, and Salesforce.",
+              sameAs: [
                 // Add social media links here
-              ]
-            })
+              ],
+            }),
           }}
         />
       </head>
@@ -102,14 +126,15 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        
+
         <SmoothScroll>
           <Navbar />
-          {children}
+          <div id="main-content">{children}</div>
           <Footer />
-          
+
           {/* Floating WhatsApp Widget */}
-          <a 
+          <a
+            aria-label="Chat with Global Certs IT on WhatsApp"
             href="https://wa.me/919392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F"
             target="_blank"
             rel="noopener noreferrer"
@@ -122,7 +147,6 @@ export default function RootLayout({
             </span>
           </a>
         </SmoothScroll>
-        
       </body>
     </html>
   );

@@ -1,127 +1,197 @@
-"use client";
-import React from 'react';
-import Link from 'next/link';
-import { useParams } from 'next/navigation';
-import ScrollHighlightText from '../../../../components/ScrollHighlightText';
-import { certificationDetails } from '../../certificationDetails';
-import { CheckCircle2, Clock, FileText, DollarSign, Info } from 'lucide-react';
-
-export default function CertificationPage() {
-  const params = useParams();
-  const provider = params.provider as string;
-  const cert = params.cert as string;
-
-  // Format the name nicely from the slug
-  const formattedProvider = provider.charAt(0).toUpperCase() + provider.slice(1);
-  const formattedCert = cert.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-
-  const details = certificationDetails[cert];
-  
-  const displayName = details?.name || `${formattedCert} Certification`;
-  const description = details?.description || `Master the skills required to pass the ${formattedCert} exam on your first attempt. Get personalized training and discounted exam vouchers.`;
-
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound, permanentRedirect } from "next/navigation";
+import { ArrowUpRight, Check, ExternalLink, MessageCircle } from "lucide-react";
+import {
+  certifications,
+  certUrl,
+  providerById,
+  roles,
+  isAvailable,
+  whatsappUrl,
+} from "@/lib/certifications";
+export const dynamic = "force-dynamic";
+const aliases: Record<string, string> = {
+  "aws-cloud-practitioner": "cloud-practitioner",
+  "aws-solutions-architect-associate": "solutions-architect-associate",
+  "aws-solutions-architect-professional": "solutions-architect-professional",
+  "aws-developer-associate": "developer-associate",
+  "aws-sysops-administrator": "cloudops-engineer",
+  "az-900": "azure-fundamentals",
+  "az-104": "azure-administrator",
+  "az-305": "azure-solutions-architect",
+  "salesforce-administrator": "platform-administrator",
+};
+async function getCert(params: Promise<{ provider: string; cert: string }>) {
+  const { provider, cert } = await params;
+  return certifications.find((c) => c.provider === provider && c.id === cert);
+}
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ provider: string; cert: string }>;
+}): Promise<Metadata> {
+  const c = await getCert(params);
+  return c
+    ? {
+        title: c.name,
+        description: c.why,
+        alternates: { canonical: `https://www.globalcertsit.com${certUrl(c)}` },
+      }
+    : { title: "Certification not found" };
+}
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ provider: string; cert: string }>;
+}) {
+  const { provider, cert } = await params;
+  if (aliases[cert])
+    permanentRedirect(`/certifications/${provider}/${aliases[cert]}`);
+  const c = await getCert(params);
+  if (!c || !isAvailable(c)) notFound();
+  const p = providerById(c.provider)!;
+  const roleList = roles.filter((r) => c.roles[r.id]);
+  const chat = whatsappUrl(
+    `Hi Global Certs IT! I am interested in ${c.name} (${c.exam}). Please help me check whether it fits my experience and confirm the current exam version, eligibility and voucher availability.`,
+  );
   return (
-    <main className="min-h-screen bg-bg-dark">
-      
-      {/* Hero */}
-      <div className="bg-bg-dark pt-32 pb-24 relative overflow-hidden">
-
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pointer-events-none mb-8">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl font-bold font-heading text-white mb-6 leading-tight">
-              {displayName}
-            </h1>
-            <p className="text-xl text-slate-300 font-sans leading-relaxed mb-8">
-              {description}
-            </p>
-            <div className="flex flex-wrap gap-4 pointer-events-auto">
-              <a href="https://wa.me/919392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="bg-whatsapp text-white px-8 py-4 rounded-xl font-bold font-sans hover:bg-green-600 transition shadow-[0_0_30px_rgba(0,0,0,0.7)] shadow-green-900/20 flex items-center">
-                <i className="fab fa-whatsapp text-xl mr-2"></i> Chat for Best Price
-              </a>
-            </div>
+    <main className="cf">
+      <section className="detail-hero">
+        <div className="cf-shell">
+          <div className="detail-breadcrumb">
+            <Link href="/certifications">Certification finder</Link>
+            <span>/</span>
+            <Link href={`/certifications/${p.id}`}>{p.name}</Link>
+            <span>/</span>
+            <span>{c.exam}</span>
           </div>
-        </div>
-      </div>
-
-      <ScrollHighlightText text={`Prepare for the ${displayName} with our rigorously tested curriculum, designed to simulate the actual exam environment and ensure your absolute success.`} />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        
-        {details ? (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-12">
-              <div>
-                <h2 className="text-3xl font-bold text-white mb-6 font-heading">Curriculum</h2>
-                <div className="space-y-4">
-                  {details.curriculum.map((item: any, i: number) => (
-                    <div key={i} className="flex items-start space-x-4 bg-bg-dark p-6 rounded-2xl border border-slate-800 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
-                      <div className="bg-brand-blue/10 p-3 rounded-lg text-brand-blue mt-1">
-                        <CheckCircle2 size={24} />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                        <p className="text-slate-400 leading-relaxed">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-8">
-              <div className="bg-bg-dark p-8 rounded-3xl border border-slate-800 shadow-xl">
-                <h3 className="text-2xl font-bold text-white mb-6 font-heading border-b pb-4">Exam Details</h3>
-                <ul className="space-y-6">
-                  <li className="flex items-start space-x-4">
-                    <Clock className="text-brand-blue mt-1" size={24} />
-                    <div>
-                      <span className="block font-bold text-white">Duration</span>
-                      <span className="text-slate-400">{details.examDetails.duration}</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start space-x-4">
-                    <FileText className="text-brand-blue mt-1" size={24} />
-                    <div>
-                      <span className="block font-bold text-white">Format</span>
-                      <span className="text-slate-400">{details.examDetails.format}</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start space-x-4">
-                    <DollarSign className="text-brand-blue mt-1" size={24} />
-                    <div>
-                      <span className="block font-bold text-white">Cost</span>
-                      <span className="text-slate-400">{details.examDetails.cost}</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-bg-dark p-8 rounded-3xl text-white shadow-xl">
-                <div className="flex items-center space-x-3 mb-4">
-                  <Info className="text-brand-sky" size={28} />
-                  <h3 className="text-xl font-bold font-heading">Prerequisites</h3>
-                </div>
-                <p className="text-slate-300 leading-relaxed">
-                  {details.prerequisites}
-                </p>
-                <a href="https://wa.me/919392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="mt-8 inline-block w-full text-center bg-brand-blue text-white px-8 py-4 rounded-xl font-bold hover:bg-brand-sky transition">
-                  Request Full Syllabus
-                </a>
-              </div>
-            </div>
+          <div className="cert-tags">
+            <span>{p.name}</span>
+            <span>{c.level}</span>
+            {c.ai && <span className="ai-tag">AI certification</span>}
+            {c.status && <span className="beta-tag">Bookable beta</span>}
+            {c.fresh && <span className="new-tag">New / updated</span>}
           </div>
-        ) : (
-          <div className="bg-bg-dark p-12 rounded-3xl border border-slate-800 shadow-xl text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">Curriculum & Details</h2>
-            <p className="text-slate-400 mb-8 max-w-2xl mx-auto">This dedicated certification page is dynamic and will feature the complete syllabus, exam blueprint, and prerequisites for {displayName}.</p>
-            <a href="https://wa.me/919392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="inline-block bg-whatsapp text-white px-8 py-4 rounded-xl font-bold hover:bg-green-600 transition">
-              Request Full Syllabus
+          <h1>{c.name}</h1>
+          <p>{c.why}</p>
+          <div className="detail-actions">
+            <a
+              className="cf-btn cf-btn-dark"
+              href={chat}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Is this right for me? <MessageCircle size={17} />
+            </a>
+            <a
+              className="cf-btn cf-btn-outline"
+              href={c.source}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Official exam details <ExternalLink size={15} />
             </a>
           </div>
-        )}
+        </div>
+      </section>
+      <div className="cf-shell detail-grid">
+        <div>
+          {c.note && <p className="detail-note detail-section">{c.note}</p>}
+          <section className="detail-section">
+            <h2>What this credential focuses on</h2>
+            <div className="detail-skills">
+              {c.skills.map((s) => (
+                <span key={s}>
+                  <Check size={16} />
+                  {s}
+                </span>
+              ))}
+            </div>
+          </section>
+          <section className="detail-section">
+            <h2>Who should consider it?</h2>
+            <p>{c.readiness}</p>
+            <div className="detail-role-links" style={{ marginTop: 17 }}>
+              {roleList.map((r) => (
+                <Link href={`/certifications?role=${r.id}`} key={r.id}>
+                  {r.name} <span>↗</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+          <section className="detail-section">
+            <h2>Eligibility comes first.</h2>
+            <p>{c.eligibility}</p>
+          </section>
+          <section className="detail-section">
+            <h2>Make it count in your career.</h2>
+            <p>
+              {roleList[0]?.project ||
+                "Build a practical project using the skills covered by this credential and document your decisions and results."}
+            </p>
+            <p style={{ marginTop: 14 }}>
+              The career guidance here is editorial. A certification can support
+              your profile, but its value depends on your practical ability,
+              your employer’s technology and the role you are targeting.
+            </p>
+          </section>
+          <div className="detail-bottom">
+            <Link
+              href={`/certifications?role=${roleList[0]?.id || "all"}`}
+              className="all-paths"
+            >
+              Compare other options for this role <ArrowUpRight size={16} />
+            </Link>
+            <p>
+              Official exam source reviewed 13 September 2026. Confirm current
+              details and availability with the provider before booking.
+            </p>
+          </div>
+        </div>
+        <aside className="detail-aside">
+          <h2>Your exam at a glance</h2>
+          <dl>
+            <div>
+              <dt>Provider</dt>
+              <dd>{p.name}</dd>
+            </div>
+            <div>
+              <dt>Exam / credential</dt>
+              <dd>{c.exam}</dd>
+            </div>
+            <div>
+              <dt>Level</dt>
+              <dd>{c.level}</dd>
+            </div>
+            <div>
+              <dt>Status at last review</dt>
+              <dd>
+                {c.status === "Beta"
+                  ? "Beta registration open"
+                  : "Listed on the official provider catalog"}
+              </dd>
+            </div>
+            <div>
+              <dt>Good preparation</dt>
+              <dd>{c.readiness}</dd>
+            </div>
+          </dl>
+          <p>
+            Fees, appointment availability, languages and credential
+            requirements vary. Get the current details before choosing a
+            voucher.
+          </p>
+          <a
+            className="cf-btn cf-btn-dark"
+            href={chat}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ask about this certification <ArrowUpRight size={16} />
+          </a>
+        </aside>
       </div>
     </main>
   );
 }
-

@@ -1,142 +1,82 @@
-import React from 'react';
-import Link from 'next/link';
-import { Mail, MapPin, Phone } from 'lucide-react';
-
-const Footer = () => {
+import Link from "next/link";
+import { ArrowUpRight, Compass, MessageCircle } from "lucide-react";
+import { whatsappUrl } from "@/lib/certifications";
+export default function Footer() {
   return (
-    <footer className="bg-bg-dark relative overflow-hidden text-slate-300 pt-12 md:pt-20 pb-8 md:pb-10 border-t border-brand-blue/30">
-      
-      {/* Subtle Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-brand-blue rounded-full blur-[120px] opacity-20 pointer-events-none"></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center md:text-left">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-10 md:mb-16">
-          
-          {/* Brand & Intro */}
-          <div className="space-y-4 md:space-y-6 flex flex-col items-center md:items-start">
-            <Link href="/" className="inline-block">
-              <span className="text-2xl font-bold text-white block font-heading tracking-tight">
-                Global Certs <span className="text-brand-sky">IT</span>
+    <footer className="career-footer">
+      <div className="cf-shell">
+        <div className="footer-top">
+          <div>
+            <Link href="/" className="site-brand">
+              <span className="brand-symbol">
+                <Compass />
+              </span>
+              <span>
+                Global Certs <span>IT</span>
               </span>
             </Link>
-            <p className="text-sm text-slate-400 font-sans leading-relaxed">
-              Your trusted partner for globally recognised certification vouchers, personalized training, and guaranteed exam success. Empowering professionals worldwide.
+            <p>
+              A clearer path to your next certification.
+              <br />
+              Built around your career.
             </p>
-            
-            {/* Social Icons */}
-            <div className="flex space-x-4 pt-2">
-              <a href="https://instagram.com/global_certification_" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-[#E1306C] hover:text-white transition-all hover:-translate-y-1">
-                <i className="fab fa-instagram text-lg"></i>
-              </a>
-              <a href="https://wa.me/919392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-whatsapp hover:text-white transition-all hover:-translate-y-1">
-                <i className="fab fa-whatsapp text-lg"></i>
-              </a>
-              <a href="mailto:nvenkat534@gmail.com" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-blue hover:text-white transition-all hover:-translate-y-1">
-                <Mail size={18} />
-              </a>
-            </div>
+            <a
+              href={whatsappUrl(
+                "Hi Global Certs IT! I would like certification guidance.",
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-chat"
+            >
+              <MessageCircle size={15} /> +91 93928 28155{" "}
+              <ArrowUpRight size={13} />
+            </a>
           </div>
-
-          {/* Quick Links */}
           <div>
-            <h3 className="text-white font-bold font-heading mb-6 uppercase tracking-wider text-sm">Quick Links</h3>
-            <ul className="space-y-3 md:space-y-4 text-sm font-sans">
-              <li>
-                <Link href="/" className="text-slate-400 hover:text-brand-sky transition inline-block">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/certifications" className="text-slate-400 hover:text-brand-sky transition inline-block">
-                  All Certifications
-                </Link>
-              </li>
-              <li>
-                <Link href="/training" className="text-slate-400 hover:text-brand-sky transition inline-block">
-                  Personalized Training
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-slate-400 hover:text-brand-sky transition inline-block">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="text-slate-400 hover:text-brand-sky transition inline-block">
-                  FAQs
-                </Link>
-              </li>
-            </ul>
+            <h2>FIND YOUR DIRECTION</h2>
+            <Link href="/certifications">Certification finder</Link>
+            <Link href="/ai-certifications">AI career pathways</Link>
+            <Link href="/certifications?role=data-engineer">
+              Data engineering
+            </Link>
+            <Link href="/certifications/pmi/pmp">PMP certification</Link>
           </div>
-
-          {/* Top Providers */}
           <div>
-            <h3 className="text-white font-bold font-heading mb-6 uppercase tracking-wider text-sm">Top Providers</h3>
-            <ul className="space-y-3 md:space-y-4 text-sm font-sans">
-              <li>
-                <Link href="/certifications/aws" className="text-slate-400 hover:text-brand-sky transition inline-block">
-                  Amazon Web Services (AWS)
-                </Link>
-              </li>
-              <li>
-                <Link href="/certifications/microsoft" className="text-slate-400 hover:text-brand-sky transition inline-block">
-                  Microsoft Azure
-                </Link>
-              </li>
-              <li>
-                <Link href="/certifications/salesforce" className="text-slate-400 hover:text-brand-sky transition inline-block">
-                  Salesforce
-                </Link>
-              </li>
-              <li>
-                <Link href="/certifications/google-cloud" className="text-slate-400 hover:text-brand-sky transition inline-block">
-                  Google Cloud
-                </Link>
-              </li>
-            </ul>
+            <h2>EXPLORE PLATFORMS</h2>
+            <Link href="/certifications/aws">AWS</Link>
+            <Link href="/certifications/microsoft">Microsoft</Link>
+            <Link href="/certifications/google-cloud">Google Cloud</Link>
+            <Link href="/certifications/databricks">
+              Databricks & data careers
+            </Link>
           </div>
-
-          {/* Contact Details */}
           <div>
-            <h3 className="text-white font-bold font-heading mb-6 uppercase tracking-wider text-sm">Get in Touch</h3>
-            <ul className="space-y-4 md:space-y-5 text-sm font-sans inline-flex flex-col text-left">
-              <li className="flex items-start">
-                <Phone className="text-brand-sky mt-1 mr-4 flex-shrink-0" size={18} />
-                <div>
-                  <span className="block font-semibold text-slate-300">WhatsApp / Phone</span>
-                  <a href="https://wa.me/919392828155?text=Hello!%20Can%20i%20get%20more%20info%20on%20this%20global%20certifications%20%3F" className="text-slate-400 hover:text-white transition">+91 93928 28155</a>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <Mail className="text-brand-sky mt-1 mr-4 flex-shrink-0" size={18} />
-                <div className="break-all sm:break-normal">
-                  <span className="block font-semibold text-slate-300">Email</span>
-                  <a href="mailto:nvenkat534@gmail.com" className="text-slate-400 hover:text-white transition">nvenkat534@gmail.com</a>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <MapPin className="text-brand-sky mt-1 mr-4 flex-shrink-0" size={18} />
-                <div>
-                  <span className="block font-semibold text-slate-300">Location</span>
-                  <span className="text-slate-400 leading-relaxed">Benz Circle, Vijayawada<br/>Andhra Pradesh, India</span>
-                </div>
-              </li>
-            </ul>
+            <h2>LET’S CONNECT</h2>
+            <Link href="/contact">Contact us</Link>
+            <a href="mailto:nvenkat534@gmail.com">nvenkat534@gmail.com</a>
+            <a
+              href="https://instagram.com/global_certification_"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram <ArrowUpRight size={11} />
+            </a>
+            <p>
+              Benz Circle, Vijayawada
+              <br />
+              Andhra Pradesh, India
+            </p>
           </div>
-          
         </div>
-        
-        {/* Copyright Bar */}
-        <div className="border-t border-slate-800 pt-8 mt-12 text-center md:text-left text-sm text-slate-400 font-sans flex flex-col md:flex-row justify-between items-center">
-          <p>&copy; {new Date().getFullYear()} Global Certs IT. All rights reserved.</p>
-          <div className="mt-4 md:mt-0 flex space-x-6 text-xs">
-            <Link href="/privacy" className="hover:text-slate-300 transition">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-slate-300 transition">Terms of Service</Link>
+        <div className="footer-bottom">
+          <span>© {new Date().getFullYear()} Global Certs IT</span>
+          <span>Provider names belong to their respective owners.</span>
+          <div>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
           </div>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

@@ -1,39 +1,46 @@
-import { MetadataRoute } from 'next';
-
+import { MetadataRoute } from "next";
+import {
+  certifications,
+  certUrl,
+  isAvailable,
+  providers,
+} from "@/lib/certifications";
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://globalcertsit.com';
-
+  const base = "https://www.globalcertsit.com";
   return [
     {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
+      url: base,
+      lastModified: "2026-09-13",
+      changeFrequency: "weekly",
       priority: 1,
     },
-    {
-      url: `${baseUrl}/certifications`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/training`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/faq`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
+    ...[
+      "/certifications",
+      "/ai-certifications",
+      "/contact",
+      "/training",
+      "/faq",
+      "/privacy",
+      "/terms",
+    ].map((path) => ({
+      url: `${base}${path}`,
+      lastModified: "2026-09-13",
+      changeFrequency: "weekly" as const,
+      priority: path.includes("certifications") ? 0.9 : 0.5,
+    })),
+    ...providers.map((p) => ({
+      url: `${base}/certifications/${p.id}`,
+      lastModified: "2026-09-13",
+      changeFrequency: "weekly" as const,
       priority: 0.7,
-    },
-    // More dynamic routes (e.g., specific certifications) can be mapped here later
+    })),
+    ...certifications
+      .filter((c) => isAvailable(c))
+      .map((c) => ({
+        url: `${base}${certUrl(c)}`,
+        lastModified: "2026-09-13",
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+      })),
   ];
 }
