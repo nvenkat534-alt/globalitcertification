@@ -246,12 +246,12 @@ export default function CertificationFinder({
             </aside>
           </div>
           <div className="finder-start-actions">
-            <button className="finder-primary" onClick={exploreAll}>Explore All Certifications <ArrowRight size={18}/></button>
+            <Link className="finder-primary" href="/certifications/explore">Explore All Certifications <ArrowRight size={18}/></Link>
             <button className="finder-secondary" onClick={() => { setGuided(true); document.getElementById("finder")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}>Help Me Choose <Compass size={18}/></button>
           </div>
           <p className="finder-start-note">Already know your exam? Search below. Not sure yet? We’ll help you narrow the options.</p>
           <div className="finder-tabs">
-            <button onClick={exploreAll} aria-pressed={!guided}><Compass size={17} /> All certifications</button>
+            <Link href="/certifications/explore"><Compass size={17} /> All certifications</Link>
             <Link href="/ai-certifications">
               <Sparkles size={17} /> AI career pathways{" "}
               <ArrowUpRight size={15} />
