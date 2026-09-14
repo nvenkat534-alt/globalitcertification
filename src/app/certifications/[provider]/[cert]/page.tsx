@@ -12,7 +12,7 @@ import {
   isAvailable,
   certificationEnquiry,
 } from "@/lib/certifications";
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 const aliases: Record<string, string> = {
   "aws-cloud-practitioner": "cloud-practitioner",
   "aws-solutions-architect-associate": "solutions-architect-associate",
@@ -198,3 +198,6 @@ export default async function Page({
     </main>
   );
 }
+
+// Render requested certification routes once, then reuse the cached page.
+export function generateStaticParams() { return []; }

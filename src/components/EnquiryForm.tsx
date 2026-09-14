@@ -9,22 +9,30 @@ import { captureAttribution, readAttribution, trackReceivedEnquiry } from "@/lib
 export default function EnquiryForm({ initialCertification = "", initialRole = "" }: { initialCertification?: string; initialRole?: string }) {
   const [pending, setPending] = useState(false), [error, setError] = useState("");
   const [receipt, setReceipt] = useState<{ id: string; message: string } | null>(null);
-  const requestId = useRef(""); const startedAt = useRef(0);
+  const requestId = useRef(""); const startedAt = useRef(0); const submitting = useRef(false);
   useEffect(() => { requestId.current = crypto.randomUUID(); startedAt.current = Date.now(); captureAttribution(); }, []);
   const general = whatsappUrl("Hi Global Certs IT! I would like pricing and payment details for a certification.");
   async function submit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault(); if (pending) return;
+    event.preventDefault(); if (submitting.current) return;
+    submitting.current = true;
     const form = new FormData(event.currentTarget), data = Object.fromEntries(form.entries());
     setPending(true); setError("");
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 25000);
     try {
-      const response = await fetch("/api/enquiries", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...data, consent: form.get("consent") === "on", requestId: requestId.current, startedAt: startedAt.current, attribution: readAttribution() }) });
+      const response = await fetch("/api/enquiries", { signal: controller.signal, method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...data, consent: form.get("consent") === "on", requestId: requestId.current, startedAt: startedAt.current, attribution: readAttribution() }) });
+      if (response.status === 429) {
+        const seconds = Number(response.headers.get("Retry-After")) || 60;
+        throw new Error(`Too many attempts. Please wait ${Math.ceil(seconds / 60)} minute(s) and try again, or contact us on WhatsApp.`);
+      }
+      if (!response.headers.get("content-type")?.includes("application/json")) throw new Error("The service is temporarily busy. Your form is still here; please try again or contact us on WhatsApp.");
       const result = await response.json();
       if (!response.ok || result.received !== true || typeof result.receiptId !== "string") throw new Error(result.error || "We couldn't save your enquiry. Please try again.");
       const message = `Hi Global Certs IT! I submitted website enquiry ${result.receiptId}.\nCertification: ${data.certification}\nService: ${data.service}\nTarget: ${data.timeline}\nRole: ${data.role} (${data.experience})\nExam country: ${data.country}\nName: ${data.name}\nPlease share pricing and payment details.`;
       setReceipt({ id: result.receiptId, message });
       trackReceivedEnquiry(result.receiptId);
-    } catch (e) { setError(e instanceof Error ? e.message : "Unable to submit. Please try again."); }
-    finally { setPending(false); }
+    } catch (e) { setError(controller.signal.aborted ? "The connection took too long. Your form is still here. Please try again; a saved enquiry will not be duplicated." : e instanceof Error ? e.message : "Unable to submit. Please try again."); }
+    finally { clearTimeout(timeout); submitting.current = false; setPending(false); }
   }
   if (receipt) return <section className="enquiry-received" aria-live="polite">
     <CheckCircle2 size={48}/><span className="gc-kicker">ENQUIRY RECEIVED</span><h2>Your next step is on its way.</h2>

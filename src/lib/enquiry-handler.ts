@@ -6,14 +6,20 @@ export type EnquiryDependencies = {
   configured: boolean; origins: string[]; production: boolean;
   write: (path: string, record: EnquiryRecord) => Promise<void>;
   exists: (path: string) => Promise<boolean>;
-  permit: (request: Request) => boolean;
+  permit: (request: Request) => boolean | { allowed: boolean; retryAfter: number };
 };
 export async function receiveEnquiry(request: Request, deps: EnquiryDependencies): Promise<Response> {
-  const reply = (data: object, status = 200) => Response.json(data, { status, headers: { "Cache-Control": "no-store" } });
+  const reply = (data: object, status = 200, extraHeaders: Record<string, string> = {}) => Response.json(data, { status, headers: { "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff", ...extraHeaders } });
   if (!deps.origins.includes(request.headers.get("origin") || "")) return reply({ error: "Please submit the form from our website." }, 403);
   if (!request.headers.get("content-type")?.startsWith("application/json")) return reply({ error: "Unsupported form format." }, 415);
   if (!deps.configured) return reply({ error: "Online enquiries are temporarily unavailable. Please contact us on WhatsApp." }, 503);
-  if (!deps.permit(request)) return reply({ error: "Please wait before sending another enquiry, or continue on WhatsApp." }, 429);
+  const decision = deps.permit(request);
+  if (decision === false || (typeof decision === "object" && !decision.allowed)) {
+    const retryAfter = typeof decision === "object" ? decision.retryAfter : 60;
+    return reply({ error: `Too many attempts. Please try again in ${Math.ceil(retryAfter / 60)} minute(s), or continue on WhatsApp.`, retryAfter }, 429, { "Retry-After": String(retryAfter) });
+  }
+  const declaredLength = request.headers.get("content-length");
+  if (declaredLength && Number(declaredLength) > 12_000) return reply({ error: "This enquiry is too long." }, 413);
   let parsed;
   try {
     const reader = request.body?.getReader();
