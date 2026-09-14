@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import CertificationFinder from "@/components/career/CertificationFinder";
 import { providerById } from "@/lib/certifications";
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 export async function generateMetadata({
   params,
 }: {
@@ -50,3 +50,6 @@ export default async function Page({
     />
   );
 }
+
+// Render requested certification routes once, then reuse the cached page.
+export function generateStaticParams() { return []; }

@@ -1,5 +1,5 @@
 import CertificationHome from "@/components/experience/CertificationHome";
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 export default function Home() {
   return <CertificationHome />;
 }
