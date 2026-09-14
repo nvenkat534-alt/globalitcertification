@@ -183,7 +183,9 @@ export default function CertificationFinder({
     setNotice("");
   }
   function enquiry(items: Certification[]) {
-    return certificationEnquiry(items);
+    const url = certificationEnquiry(items);
+    const selectedRole = roles.find(r => r.id === role)?.name;
+    return selectedRole ? `${url}&role=${encodeURIComponent(selectedRole)}` : url;
   }
   async function share() {
     const params = new URLSearchParams();
@@ -223,7 +225,7 @@ export default function CertificationFinder({
               </h1>
               <p>
                 {providerById(initialProvider)?.description ||
-                  "Choose your role, experience and technology. Compare relevant certifications, check exam details and send your shortlist on WhatsApp."}
+                  "Choose your role, experience and technology. Compare relevant certifications, check exam details and request pricing for your shortlist."}
               </p>
             </div>
             <div className="review-stamp">
@@ -399,8 +401,6 @@ export default function CertificationFinder({
             </div>
             <a
               href={enquiry(matches.slice(0, 3))}
-              target="_blank"
-              rel="noopener noreferrer"
             >
               Talk it through <ArrowUpRight size={16} />
             </a>
@@ -613,8 +613,6 @@ export default function CertificationFinder({
             <a
               className="cf-btn cf-btn-dark"
               href={enquiry(savedCerts)}
-              target="_blank"
-              rel="noopener noreferrer"
             >
               Discuss my shortlist <MessageCircle size={17} />
             </a>
@@ -811,8 +809,6 @@ export default function CertificationFinder({
           <a
             className="cf-btn cf-btn-dark"
             href={enquiry(selected)}
-            target="_blank"
-            rel="noopener noreferrer"
           >
             Ask about these exams <MessageCircle size={16} />
           </a>

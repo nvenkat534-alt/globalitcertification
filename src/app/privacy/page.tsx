@@ -45,6 +45,13 @@ export default function PrivacyPage() {
             </section>
             
             <section>
+              <h2 className="text-2xl font-bold text-white mb-4">Website enquiries and advertising measurement</h2>
+              <p className="mb-4">When you submit a certification enquiry, we save your contact details, selected certification, role, experience, exam country, timeline and requested service in private Vercel storage to handle your request. Campaign tags may be retained on your device for up to seven days and included with the enquiry to identify which advertisement led to it. Our enquiry records are accessible to authorised business administrators; they are not public downloads. Contact us to request access, correction or deletion of your enquiry details.</p>
+              <p className="mb-4">On certification, enquiry and contact pages, you can allow or decline Meta advertising measurement. When allowed, the Meta Pixel can use advertising cookies and share a page visit or a successfully received enquiry event with Meta. We do not attach your form answers, phone number, email or résumé contents to these events, and automatic advanced matching is not enabled. You can change this choice using Ad cookie settings. Declining does not prevent enquiry submission. Our existing Google website analytics operate separately.</p>
+              <p>Continuing on WhatsApp is optional after a website enquiry is saved. Opening WhatsApp does not establish that a message was sent there. WhatsApp applies its own privacy terms.</p>
+            </section>
+
+            <section>
               <h2 className="text-2xl font-bold text-white mb-4">5. Contacting Us</h2>
               <p>
                 If there are any questions regarding this privacy policy, you may contact us using the information on our Contact Us page.

@@ -1,26 +1,9 @@
 "use client";
 import React from 'react';
-import Link from 'next/link';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import EnquiryForm from "@/components/EnquiryForm";
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function ContactPage() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const name = formData.get('name') as string;
-    const email = formData.get('email') as string;
-    const subject = formData.get('subject') as string;
-    const message = formData.get('message') as string;
-    
-    let text = `Hello! I'm ${name}.\n`;
-    if (email) text += `My email is ${email}.\n`;
-    if (subject) text += `I'm contacting you regarding: ${subject}\n`;
-    text += `\n${message}`;
-    
-    const encodedText = encodeURIComponent(text);
-    window.open(`https://wa.me/919392828155?text=${encodedText}`, '_blank', 'noopener,noreferrer');
-  };
-
   return (
     <main className="min-h-screen bg-bg-dark pb-20">
       {/* Hero */}
@@ -88,37 +71,8 @@ export default function ContactPage() {
 
           {/* Contact Form */}
           <div className="bg-bg-dark rounded-3xl p-8 lg:p-10 border border-slate-800 shadow-xl">
-            <h3 className="text-2xl font-bold font-heading text-white mb-8">Send us a Message</h3>
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-slate-300 mb-2">Your Name</label>
-                  <input type="text" id="name" name="name" className="w-full px-4 py-3 bg-bg-dark rounded-xl border border-slate-800 focus:bg-bg-dark focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition" placeholder="John Doe" required />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-slate-300 mb-2">Email Address</label>
-                  <input type="email" id="email" name="email" className="w-full px-4 py-3 bg-bg-dark rounded-xl border border-slate-800 focus:bg-bg-dark focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition" placeholder="john@example.com" />
-                </div>
-              </div>
-              
-              <div>
-                <label htmlFor="subject" className="block text-sm font-semibold text-slate-300 mb-2">Subject</label>
-                <input type="text" id="subject" name="subject" className="w-full px-4 py-3 bg-bg-dark rounded-xl border border-slate-800 focus:bg-bg-dark focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition" placeholder="Exam Voucher Inquiry" />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-slate-300 mb-2">Message</label>
-                <textarea id="message" name="message" rows={5} className="w-full px-4 py-3 bg-bg-dark rounded-xl border border-slate-800 focus:bg-bg-dark focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition resize-none" placeholder="How can we help you?" required></textarea>
-              </div>
-              
-              <button type="submit" className="w-full bg-whatsapp text-white px-8 py-4 rounded-xl font-bold hover:bg-green-600 transition-colors shadow-[0_0_30px_rgba(0,0,0,0.7)] flex items-center justify-center space-x-2">
-                <span>Continue to WhatsApp</span>
-                <Send size={18} />
-              </button>
-              <p className="text-sm text-slate-400">
-                Your message will open in WhatsApp. Tap Send there to complete your enquiry.
-              </p>
-            </form>
+            <h3 className="text-2xl font-bold font-heading text-white mb-8">Request pricing & support</h3>
+            <EnquiryForm />
           </div>
 
         </div>
