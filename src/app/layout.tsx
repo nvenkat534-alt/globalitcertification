@@ -5,6 +5,8 @@ import "./career.css";
 import "./experience.css";
 import "./career-hub.css";
 import "./resume-builder.css";
+import "./enquiry.css";
+import CampaignTracking from "@/components/CampaignTracking";
 import WhatsAppConcierge from "@/components/experience/WhatsAppConcierge";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -138,6 +140,7 @@ export default function RootLayout({
 
           <WhatsAppConcierge />
         </SmoothScroll>
+        <CampaignTracking />
       </body>
     </html>
   );

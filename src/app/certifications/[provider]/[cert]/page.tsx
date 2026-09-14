@@ -81,8 +81,6 @@ export default async function Page({
             <a
               className="cf-btn cf-btn-dark"
               href={chat}
-              target="_blank"
-              rel="noopener noreferrer"
             >
               Get price & payment details <MessageCircle size={17} />
             </a>
@@ -192,8 +190,6 @@ export default async function Page({
           <a
             className="cf-btn cf-btn-dark"
             href={chat}
-            target="_blank"
-            rel="noopener noreferrer"
           >
             Get price & payment details <ArrowUpRight size={16} />
           </a>
