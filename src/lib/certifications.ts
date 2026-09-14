@@ -1495,7 +1495,7 @@ export function getMatches({
 }
 export function certificationEnquiry(items: Pick<Certification, "name" | "exam">[]) {
   const selection = items.map(c => c.name.includes(`(${c.exam})`) || c.name.endsWith(c.exam) ? c.name : `${c.name} (${c.exam})`).join("; ");
-  return `/enquire?${new URLSearchParams({ certification: selection.slice(0, 800) }).toString()}`;
+  return whatsappUrl("Hi Global Certs IT! I am interested in " + selection.slice(0, 800) + ".");
 }
 export function whatsappUrl(message: string) {
   return `https://wa.me/919392828155?text=${encodeURIComponent(message)}`;
