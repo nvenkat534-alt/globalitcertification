@@ -8,7 +8,7 @@ export default function CampaignTracking() {
   const pathname = usePathname();
   const [showChoice, setShowChoice] = useState(false), [revision, setRevision] = useState(0);
   const lastView = useRef("");
-  const applicable = pathname.startsWith("/certifications") || pathname === "/enquire" || pathname === "/contact";
+  const applicable = pathname === "/" || pathname.startsWith("/certifications") || pathname === "/enquire" || pathname === "/contact";
   useEffect(() => {
     captureAttribution();
     if (!applicable) return;
