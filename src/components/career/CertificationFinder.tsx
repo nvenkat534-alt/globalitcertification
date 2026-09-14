@@ -65,6 +65,7 @@ export default function CertificationFinder({
   today,
   compact = false,
 }: Props) {
+  const [guided, setGuided] = useState(initialRole !== "all" || initialExperience !== "all");
   const [role, setRole] = useState(initialRole),
     [provider, setProvider] = useState(initialProvider),
     [experience, setExperience] = useState<Experience>(initialExperience),
@@ -157,6 +158,13 @@ export default function CertificationFinder({
     setLimit(12);
     setSort("fit");
   }
+  function exploreAll() {
+    reset();
+    setProvider("all");
+    setAiOnly(false);
+    setGuided(false);
+    document.getElementById("finder")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
   function selectRole(id: string) {
     setRole(id);
     setLimit(12);
@@ -207,39 +215,43 @@ export default function CertificationFinder({
     }
   }
   return (
-    <div className="cf finder-page">
+    <div className={`cf finder-page landing-refresh ${guided ? "guided-mode" : "browse-mode"}`}>
       <section className={`finder-intro ${compact ? "compact" : ""}`}>
         <div className="cf-shell">
+          <Link className="finder-home-link" href="/">← Global Certs IT home</Link>
           <div className="cf-eyebrow">
             <Compass size={15} />
             {initialProvider !== "all"
               ? `${providerById(initialProvider)?.name} CERTIFICATIONS`
-              : "GLOBAL IT CERTIFICATION FINDER"}
+              : "GLOBAL CERTIFICATIONS · ONE CLEAR NEXT STEP"}
           </div>
           <div className="intro-row">
             <div>
               <h1>
-                Find your next
+                Your next career move.
                 <br />
-                <span>global certification.</span>
+                <span>Start with a certification.</span>
               </h1>
               <p>
                 {providerById(initialProvider)?.description ||
-                  "Choose your role, experience and technology. Compare relevant certifications, check exam details and request pricing for your shortlist."}
+                  "Explore PMP, AWS, Microsoft, AI and more. See what each certification covers, who it suits and how to get started. No role selection or sign-up needed."}
               </p>
             </div>
-            <div className="review-stamp">
-              <CheckCheck size={22} />
-              <div>
-                <strong>Official sources checked</strong>
-                <span>13 September 2026</span>
-              </div>
-            </div>
+            <aside className="finder-welcome-card">
+              <span className="cf-eyebrow">NEW HERE? YOU’RE IN THE RIGHT PLACE.</span>
+              <h2>Explore. Understand.<br/>Take your next step.</h2>
+              <p><Check size={17}/> Read exam & eligibility details</p>
+              <p><Check size={17}/> Compare options at your own pace</p>
+              <p><Check size={17}/> Request certification pricing</p>
+            </aside>
           </div>
+          <div className="finder-start-actions">
+            <button className="finder-primary" onClick={exploreAll}>Explore All Certifications <ArrowRight size={18}/></button>
+            <button className="finder-secondary" onClick={() => { setGuided(true); document.getElementById("finder")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}>Help Me Choose <Compass size={18}/></button>
+          </div>
+          <p className="finder-start-note">Already know your exam? Search below. Not sure yet? We’ll help you narrow the options.</p>
           <div className="finder-tabs">
-            <span>
-              <Compass size={17} /> Explore by role
-            </span>
+            <button onClick={exploreAll} aria-pressed={!guided}><Compass size={17} /> All certifications</button>
             <Link href="/ai-certifications">
               <Sparkles size={17} /> AI career pathways{" "}
               <ArrowUpRight size={15} />
@@ -258,6 +270,8 @@ export default function CertificationFinder({
       </section>
       {registrationGuides[provider as ProviderId] && <section className="cf-shell provider-registration"><details key={provider} open={provider === "anthropic" ? true : undefined}><summary>How to register for {providerById(provider)?.name} certifications <ArrowUpRight size={17}/></summary><RegistrationSteps guide={registrationGuides[provider as ProviderId]!}/></details></section>}
       <section className="cf-shell finder-content" id="finder">
+        <div className="finder-browse-heading"><div><span className="cf-eyebrow">YOUR CERTIFICATION DIRECTORY</span><h2>{guided ? "Let’s find options that suit you." : "Explore at your own pace."}</h2><p>{guided ? "Choose a role, then refine by experience. You can change your choices anytime." : "Search an exam or browse by provider. Open any certification to read the details."}</p></div><button className="finder-secondary" onClick={() => setGuided(!guided)}>{guided ? "Hide role guidance" : "Help me choose by role"}<ChevronDown size={17}/></button></div>
+        {guided && <>
         <div className="step-heading">
           <span className="step-number">01</span>
           <div>
@@ -298,6 +312,7 @@ export default function CertificationFinder({
             <p>Your experience and technology stack make a difference.</p>
           </div>
         </div>
+        </>}
         <div className="filter-panel">
           <div className="filter-fields">
             <label>
@@ -321,7 +336,7 @@ export default function CertificationFinder({
               </div>
             </label>
             <label>
-              <span>YOUR PLATFORM</span>
+              <span>CERTIFICATION PROVIDER</span>
               <div className="select-wrap">
                 <select
                   value={provider}
@@ -331,7 +346,7 @@ export default function CertificationFinder({
                   }}
                   aria-label="Your platform"
                 >
-                  <option value="all">All platforms · help me choose</option>
+                  <option value="all">All certification providers</option>
                   {providers.map((p) => (
                     <option value={p.id} key={p.id}>
                       {p.name}
@@ -342,7 +357,7 @@ export default function CertificationFinder({
               </div>
             </label>
             <label className="search-field">
-              <span>LOOKING FOR SOMETHING?</span>
+              <span>SEARCH BY NAME OR EXAM CODE</span>
               <div>
                 <Search size={17} />
                 <input
@@ -351,7 +366,7 @@ export default function CertificationFinder({
                     setQuery(e.target.value);
                     setLimit(12);
                   }}
-                  placeholder="Try DP-700, RAG, PMP…"
+                  placeholder="Try PMP, AWS, Azure, AI…"
                   aria-label="Search certifications"
                 />
                 {query && (
@@ -406,7 +421,7 @@ export default function CertificationFinder({
             </a>
           </aside>
         )}
-        <div className="results-heading">
+        <div className="results-heading" id="certification-results">
           <div>
             <span className="cf-eyebrow">YOUR OPTIONS</span>
             <h2>

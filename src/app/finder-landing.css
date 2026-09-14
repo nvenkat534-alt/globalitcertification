@@ -1,0 +1,43 @@
+/* Shared homepage typography, with a simpler entry into the full catalogue. */
+.cf.landing-refresh {font-family:"Plus Jakarta Sans",sans-serif}
+.landing-refresh .finder-intro {padding:32px 0 0;background:radial-gradient(ellipse at 88% 15%,#26465c70,transparent 55%),radial-gradient(ellipse at 12% 100%,#24265466,transparent 60%),#0b1020;overflow:hidden}
+.finder-home-link {display:inline-flex;min-height:44px;align-items:center;color:#b9cbe3;font-size:13px;margin-bottom:18px}
+.landing-refresh .intro-row {gap:42px;align-items:center;margin:20px 0 28px}
+.landing-refresh .intro-row>div {flex:1;min-width:0}
+.cf.landing-refresh .intro-row h1 {font-family:"Space Grotesk",sans-serif;font-size:clamp(36px,4.4vw,64px)!important;line-height:1.08;letter-spacing:-.045em;font-weight:600}
+.cf.landing-refresh .intro-row h1>span {color:#a4daec;background:linear-gradient(100deg,#c4bcff,#8adce4);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.cf.landing-refresh .intro-row p {font-size:15px;line-height:1.8;max-width:610px;margin-top:22px;color:#b9c8de}
+.finder-welcome-card {flex:0 0 310px;border:1px solid #49617b60;background:linear-gradient(140deg,#1b2b4055,#101a2c);border-radius:22px;padding:27px;box-shadow:0 18px 60px #0002}
+.finder-welcome-card .cf-eyebrow {font-size:10px;letter-spacing:.09em;color:#9bdadf}
+.cf .finder-welcome-card h2 {font-family:"Space Grotesk",sans-serif;font-size:27px;line-height:1.25;letter-spacing:-.03em;margin:18px 0 24px}
+.cf .intro-row .finder-welcome-card p {display:flex;gap:10px;align-items:center;font-size:12px;margin:13px 0;color:#d2dcec}
+.finder-welcome-card svg {color:#90e7c1;flex-shrink:0}
+.finder-start-actions {display:flex;gap:12px;flex-wrap:wrap}
+.finder-primary,.finder-secondary {display:inline-flex;gap:12px;align-items:center;justify-content:center;min-height:50px;padding:14px 22px;border-radius:11px;font:700 14px "Plus Jakarta Sans",sans-serif;cursor:pointer;text-decoration:none;transition:background .2s,border-color .2s}
+.finder-primary {background:#a9e8ee;color:#0a2432;border:1px solid #bceef2;box-shadow:0 6px 26px #8adce416}
+.finder-primary:hover {background:#d1f5f5}
+.finder-secondary {background:#152237;color:#e2ebfa;border:1px solid #49617b}
+.finder-secondary:hover {background:#24384d;border-color:#89c9d6}
+.landing-refresh :is(button,a,input,select):focus-visible {outline:3px solid #a9e8ee;outline-offset:4px}
+.finder-start-note {font-size:12px;color:#a9bad1;margin:15px 0 22px;line-height:1.75}
+.landing-refresh .finder-tabs {gap:24px;border-top:1px solid #ffffff12;margin-top:25px}
+.landing-refresh .finder-tabs>button {margin-left:0;min-height:48px;font-size:12px}
+.landing-refresh .finder-tabs>button:last-child {margin-left:auto}
+.landing-refresh .finder-tabs>a {font-size:12px;min-height:48px}
+.landing-refresh .finder-tabs>button[aria-pressed=true] {color:#a9e8ee;border-color:#a9e8ee}
+.landing-refresh #finder,.landing-refresh #certification-results {scroll-margin-top:100px}
+.finder-browse-heading {display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:26px}
+.cf .finder-browse-heading h2 {font-family:"Space Grotesk",sans-serif;font-size:30px;letter-spacing:-.03em;line-height:1.2;margin:10px 0}
+.finder-browse-heading p {font-size:14px;line-height:1.7;color:#b4c4da;max-width:600px}
+.finder-browse-heading .finder-secondary {font-size:12px;flex-shrink:0}
+.browse-mode .filter-fields>label:first-child {display:none}
+.browse-mode .filter-fields {grid-template-columns:1fr 1.5fr}
+.landing-refresh .filter-fields select,.landing-refresh .filter-fields input {font-size:14px;min-height:48px}
+.landing-refresh .role-tile strong {font-size:14px}
+.landing-refresh .role-tile small {font-size:11px}
+.landing-refresh .cert-card h3 {font-family:"Space Grotesk",sans-serif;font-size:24px;line-height:1.25}
+.landing-refresh .cert-why {font-size:14px;line-height:1.75}
+.landing-refresh .card-readiness p {font-size:12px}
+@media(max-width:900px){.finder-welcome-card{display:none}.finder-browse-heading{align-items:flex-start;flex-direction:column}.cf.landing-refresh .intro-row h1{max-width:700px}.landing-refresh .finder-intro{padding-top:20px}}
+@media(max-width:600px){.landing-refresh .cf-shell{padding-inline:20px}.finder-home-link{font-size:12px;margin-bottom:12px}.landing-refresh .cf-eyebrow{font-size:9px;letter-spacing:.08em}.cf.landing-refresh .intro-row h1{font-size:38px!important}.cf.landing-refresh .intro-row p{font-size:14px;line-height:1.75;margin-top:18px}.finder-start-actions{flex-direction:column}.finder-start-actions>button{width:100%;min-height:52px}.finder-start-note{font-size:12px}.landing-refresh .finder-tabs{gap:12px;flex-wrap:wrap}.landing-refresh .finder-tabs>a,.landing-refresh .finder-tabs>button{font-size:11px}.landing-refresh .finder-tabs>button:last-child{margin-left:0}.browse-mode .filter-fields{grid-template-columns:1fr}.cf .finder-browse-heading h2{font-size:27px}.finder-browse-heading p{font-size:13px}.landing-refresh .filter-fields input{font-size:16px}.landing-refresh .finder-content{padding-top:30px}}
+@media(prefers-reduced-motion:reduce){.landing-refresh *{scroll-behavior:auto!important;transition:none!important}}

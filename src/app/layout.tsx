@@ -3,6 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import "./career.css";
 import "./experience.css";
+import "./finder-landing.css";
 import "./career-hub.css";
 import "./resume-builder.css";
 import "./enquiry.css";
