@@ -8,6 +8,7 @@ import ProviderMark from "./ProviderMark";
 import { CareerFeature } from "@/components/career/CareerHub";
 import { ProviderDirectory, ClaudeSpotlight, CareerJourneys } from "./CatalogueExpansion";
 import { WhatsAppIcon } from "./WhatsAppConcierge";
+import CertificationUpdatesPreview from "./CertificationUpdatesPreview";
 
 export default function CertificationHome() {
   const available = certifications.filter(c=>isAvailable(c));
@@ -32,6 +33,7 @@ export default function CertificationHome() {
     </section>
     <section className="provider-ribbon" aria-label="Browse certification providers"><div className="ribbon-label">GLOBAL CERTIFICATIONS.<br/><strong>EXCEPTIONAL POSSIBILITIES.</strong></div><div className="ribbon-viewport"><div className="ribbon-track">{[0,1].map(copy=><div className="ribbon-group" key={copy} aria-hidden={copy===1 ? true : undefined}>{brands.map(id=><Link key={id} href={`/certifications/${id}`} tabIndex={copy===1 ? -1 : undefined} aria-label={`Explore ${providers.find(p=>p.id===id)?.name} certifications`}><ProviderMark provider={id}/></Link>)}</div>)}</div></div></section>
     <section id="certifications" className="gc-container gc-section certifications-section"><div className="gc-section-heading"><div><span className="gc-kicker"><BadgeCheck size={15}/> GLOBAL CERTIFICATIONS, FRONT AND CENTRE</span><h2>Big goals.<br/><span>Recognised certifications.</span></h2></div><p>Know your exam? Go straight to the details.<br/>Still deciding? Find the certification that fits you.</p></div><CertificationShowcase items={featured}/></section>
+    <CertificationUpdatesPreview/>
     <ProviderDirectory/>
     <ClaudeSpotlight/>
     <section className="gc-container pmp-section"><div className="pmp-feature-panel"><div className="pmp-feature-copy"><span className="gc-kicker"><BadgeCheck size={15}/> PROJECT MANAGEMENT PROFESSIONAL</span><h2>Experience leads.<br/><span>PMP makes it recognised.</span></h2><p>Turn your project management experience into a clear certification plan. Understand eligibility, the application and your next exam steps.</p><div className="pmp-benefits"><span><Check size={15}/> Eligibility guidance</span><span><Check size={15}/> Application information</span><span><Check size={15}/> Exam & voucher enquiries</span></div><a className="gc-button gc-button-light" href={whatsappUrl("Hi Global Certs IT! I am interested in PMP certification. Please share the price and payment details.")} target="_blank" rel="noopener noreferrer"><WhatsAppIcon/> Get PMP price <ArrowUpRight size={18}/></a><Link href="/certifications/pmi/pmp" className="pmp-details-link">Read PMP certification details <ArrowRight size={15}/></Link></div><div className="pmp-badge-scene" aria-hidden="true"><div className="pmp-halo"/><div className="pmp-credential"><span>PROJECT MANAGEMENT INSTITUTE</span><div className="pmp-laurel"><BadgeCheck size={49} strokeWidth={1.15}/></div><strong>PMP<sup>®</sup></strong><b>PROJECT MANAGEMENT<br/>PROFESSIONAL</b><i/><small>LEAD PROJECTS. BUILD YOUR FUTURE.</small></div><div className="pmp-plinth"/></div></div></section>

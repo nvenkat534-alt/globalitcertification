@@ -13,6 +13,7 @@ const navLinks = [
   { name: "Career switch", path: "/careers" },
   { name: "PMP", path: "/certifications/pmi/pmp" },
   { name: "AI certifications", path: "/ai-certifications" },
+  { name: "Updates", path: "/certification-updates" },
 ];
 export default function Navbar() {
   const [open, setOpen] = useState(false);

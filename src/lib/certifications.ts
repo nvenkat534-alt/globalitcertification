@@ -1336,6 +1336,7 @@ export const certifications: Certification[] = [
     {
       eligibility:
         "ISACA has separate experience and application requirements for certification. Exam success alone is not the complete credential.",
+      note: "CISM exam update: a revised exam applies from 3 November 2026, including enterprise and information-security architecture. Use ISACA’s updated exam outline and materials for tests on or after that date. Announcement checked 16 September 2026.",
     },
   ),
   c(
