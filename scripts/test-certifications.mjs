@@ -28,6 +28,10 @@ assert.ok(filterCatalogue(certifications, {category: "Project Management & Agile
 assert.ok(filterCatalogue(certifications, {category: "Testing & QA"}).every(c => c.provider === "istqb"));
 assert.equal(filterCatalogue(certifications, {query: "no-matching-credential-xyz"}).length, 0);
 assert.equal(filterCatalogue(certifications, {provider: "asq", category: "Testing & QA"}).length, 0);
+const awsFoundation = filterCatalogue(certifications, {provider: "aws", level: "Foundation"});
+assert.ok(awsFoundation.length > 0 && awsFoundation.every(c => c.provider === "aws" && c.level === "Foundation"));
+assert.equal(filterCatalogue(certifications, {provider: "istqb", level: "Expert"}).length, 0);
+assert.ok(filterCatalogue(certifications, {query: "AZ-104", level: "Associate"}).some(c => c.id === "azure-administrator"));
 const alphabetical = filterCatalogue(certifications, {sort: "name"});
 assert.ok(alphabetical.every((c, i) => i === 0 || alphabetical[i - 1].name.localeCompare(c.name) <= 0));
 assert.ok(inCatalogueCategory(certifications.find(c => c.id === "vault-associate"), "DevOps & Linux"));

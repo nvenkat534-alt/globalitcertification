@@ -26,6 +26,7 @@ export const catalogueCategories = [
 ] as const;
 export type CatalogueCategory = typeof catalogueCategories[number];
 export type CatalogueSort = "popular" | "name" | "provider";
+export const catalogueLevels = ["Foundation", "Associate", "Professional", "Specialty", "Expert", "Business"] as const;
 const rank = (list: readonly string[], value: string) => {
   const index = list.indexOf(value);
   return index < 0 ? list.length : index;
@@ -48,12 +49,12 @@ export function inCatalogueCategory(c: Certification, category: string) {
     default: return true;
   }
 }
-export function filterCatalogue(items: Certification[], {query = "", provider = "all", category = "All fields", sort = "popular"}: {query?: string; provider?: string; category?: string; sort?: CatalogueSort} = {}) {
+export function filterCatalogue(items: Certification[], {query = "", provider = "all", category = "All fields", level = "all", sort = "popular"}: {query?: string; provider?: string; category?: string; level?: string; sort?: CatalogueSort} = {}) {
   const words = normalise(query).split(/\s+/).filter(Boolean);
   return items.filter(c => {
     const p = providers.find(p => p.id === c.provider);
     const haystack = normalise([c.name, c.exam, c.provider, p?.name, ...(c.aliases || []), ...c.skills].join(" "));
-    return (provider === "all" || c.provider === provider) && inCatalogueCategory(c, category) && words.every(word => haystack.includes(word));
+    return (provider === "all" || c.provider === provider) && (level === "all" || c.level === level) && inCatalogueCategory(c, category) && words.every(word => haystack.includes(word));
   }).sort((a, b) => {
     if (sort === "name") return a.name.localeCompare(b.name);
     if (sort === "popular") {
