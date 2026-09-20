@@ -1,6 +1,7 @@
 "use client";
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { ArrowRight, ArrowUpRight, ChevronDown, Compass, Home, MessageCircle, Search, X } from "lucide-react";
 import { certKey, certUrl, certificationEnquiry, providers, type Certification } from "@/lib/certifications";
 import { catalogueCategories, filterCatalogue, orderedProviders, popularCertKeys, type CatalogueSort } from "@/lib/catalogue";
@@ -8,8 +9,14 @@ import ProviderMark from "./ProviderMark";
 
 type Filters = { query: string; provider: string; category: string; sort: CatalogueSort };
 const defaults: Filters = {query: "", provider: "all", category: "All fields", sort: "popular"};
-export default function GlobalCatalogue({items, initialFilters = defaults}: {items: Certification[]; initialFilters?: Filters}) {
-  const [filters, setFilters] = useState(initialFilters);
+export default function GlobalCatalogue({items}: {items: Certification[]}) {
+  const searchParams = useSearchParams();
+  const filters = useMemo<Filters>(() => ({
+    query: searchParams.get("q") || "",
+    provider: providers.some(p => p.id === searchParams.get("provider")) ? searchParams.get("provider")! : "all",
+    category: catalogueCategories.find(c => c === searchParams.get("category")) || "All fields",
+    sort: searchParams.get("sort") === "name" ? "name" : searchParams.get("sort") === "provider" ? "provider" : "popular",
+  }), [searchParams]);
   const [showProviders, setShowProviders] = useState(false);
   const {query, provider, category, sort} = filters;
   const matches = useMemo(() => filterCatalogue(items, filters), [items, filters]);
@@ -17,23 +24,20 @@ export default function GlobalCatalogue({items, initialFilters = defaults}: {ite
   const popular = popularCertKeys.slice(0, 6).map(key => items.find(c => certKey(c) === key)).filter((c): c is Certification => Boolean(c));
   const currentProvider = providers.find(p => p.id === provider);
   const isFiltered = Boolean(query || provider !== "all" || category !== "All fields");
-  function update(change: Partial<Filters>) { setFilters(previous => ({...previous, ...change})); }
-  function reset() { setFilters(defaults); }
+  function update(change: Partial<Filters>) {
+    const next = {...filters, ...change};
+    const url = new URL(window.location.href);
+    for (const [key, value, fallback] of [["q",next.query,""],["provider",next.provider,"all"],["category",next.category,"All fields"],["sort",next.sort,"popular"]]) {
+      if (value !== fallback) url.searchParams.set(key,value); else url.searchParams.delete(key);
+    }
+    window.history.replaceState(null, "", url);
+  }
+  function reset() { update(defaults); }
   function chooseProvider(id: string) {
-    setFilters({...defaults, provider: id});
+    update({...defaults, provider: id});
     setShowProviders(false);
     document.getElementById("catalogue-search")?.focus({preventScroll: true});
   }
-  useEffect(() => {
-    const timeout = window.setTimeout(() => {
-      const url = new URL(window.location.href);
-      for (const [key, value, fallback] of [["q",query,""],["provider",provider,"all"],["category",category,"All fields"],["sort",sort,"popular"]]) {
-        if (value !== fallback) url.searchParams.set(key,value); else url.searchParams.delete(key);
-      }
-      window.history.replaceState(window.history.state,"",url);
-    }, 250);
-    return () => window.clearTimeout(timeout);
-  }, [query, provider, category, sort]);
   return <main className="global-catalogue catalogue-hub">
     <section className="catalogue-intro gc-container">
       <nav className="catalogue-breadcrumb" aria-label="Breadcrumb"><Link href="/"><Home size={16}/> Home</Link><span>/</span><span>All certifications</span></nav>
@@ -42,10 +46,11 @@ export default function GlobalCatalogue({items, initialFilters = defaults}: {ite
     </section>
     <section className="catalogue-workspace gc-container" id="all-certifications" aria-label="Certification catalogue">
       <div className="catalogue-controls">
-        <label className="catalogue-search"><Search size={21}/><span className="sr-only">Search all certifications</span><input id="catalogue-search" type="search" value={query} placeholder="Search exam, skill or provider — PMP, Azure, ISTQB…" onChange={e => update({query: e.target.value})}/>{query && <button aria-label="Clear search" onClick={() => update({query: ""})}><X size={19}/></button>}</label>
+        <label className="catalogue-search"><Search size={21}/><span className="sr-only">Search all certifications</span><input id="catalogue-search" aria-label="Search all certifications" type="search" value={query} placeholder="Search exam, skill or provider — PMP, Azure, ISTQB…" onChange={e => update({query: e.target.value})}/>{query && <button aria-label="Clear search" onClick={() => update({query: ""})}><X size={19}/></button>}</label>
         <label className="catalogue-select"><span>Provider</span><select value={provider} onChange={e => update({provider: e.target.value})} aria-label="Filter by provider"><option value="all">All providers</option>{orderedProviders.map(p => <option key={p.id} value={p.id}>{p.name} ({counts.get(p.id) || 0})</option>)}</select></label>
         <label className="catalogue-select catalogue-sort"><span>Sort by</span><select value={sort} onChange={e => update({sort: e.target.value as CatalogueSort})} aria-label="Sort certifications"><option value="popular">Popular first</option><option value="provider">Provider order</option><option value="name">Name A–Z</option></select></label>
       </div>
+      <label className="catalogue-select catalogue-mobile-field"><span>Field</span><select value={category} onChange={e => update({category: e.target.value})} aria-label="Filter by field">{catalogueCategories.map(g => <option key={g} value={g}>{g}</option>)}</select></label>
       <div className="catalogue-fields" role="group" aria-label="Filter by field">{catalogueCategories.map(g => <button key={g} aria-pressed={g === category} onClick={() => update({category: g})}>{g}</button>)}</div>
       <div className="catalogue-provider-toggle"><button aria-expanded={showProviders} aria-controls="catalogue-provider-directory" onClick={() => setShowProviders(value => !value)}>Browse all {providers.length} providers <ChevronDown size={18} className={showProviders ? "is-open" : ""}/></button><span>Choose a provider to see its certifications here.</span></div>
       {showProviders && <div className="catalogue-provider-grid" id="catalogue-provider-directory">{orderedProviders.map(p => <button key={p.id} onClick={() => chooseProvider(p.id)} aria-pressed={provider === p.id}><ProviderMark provider={p.id}/><span>{counts.get(p.id) || 0} certifications <ArrowRight size={14}/></span></button>)}</div>}
