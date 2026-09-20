@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { getRegistrationGuide } from "../src/lib/registration.ts";
+import { filterCatalogue, orderedProviders, inCatalogueCategory } from "../src/lib/catalogue.ts";
 import {
   certifications,
   certKey,
@@ -11,6 +12,25 @@ import {
   roles,
 } from "../src/lib/certifications.ts";
 const keys = certifications.map(certKey);
+const selectedProviders = ["istqb", "peoplecert", "safe", "scrum-alliance", "ec-council", "fortinet", "vmware", "juniper", "uipath", "iiba", "togaf", "splunk", "nvidia", "asq", "salesforce", "oracle", "sap", "linux-foundation", "hashicorp", "scrum-org"];
+for (const provider of selectedProviders) {
+  assert.ok(certifications.filter(c => c.provider === provider).length >= 2, `${provider} must expose actual credential choices`);
+}
+assert.equal(new Set(orderedProviders.map(p => p.id)).size, providers.length, "The provider directory must include every provider exactly once");
+const catalogue = filterCatalogue(certifications);
+assert.deepEqual(catalogue.slice(0, 4).map(certKey), ["pmi/pmp", "aws/solutions-architect-associate", "microsoft/azure-administrator", "google-cloud/associate-cloud-engineer"]);
+assert.equal(filterCatalogue(certifications, {query: "AI testing ISTQB"})[0]?.id, "ct-ai");
+assert.equal(filterCatalogue(certifications, {query: "SAP MM"})[0]?.id, "s4hana-sourcing-procurement");
+assert.equal(filterCatalogue(certifications, {query: "Terraform Professional"})[0]?.id, "terraform-advanced");
+assert.ok(filterCatalogue(certifications, {provider: "iiba"}).every(c => c.provider === "iiba"));
+assert.ok(filterCatalogue(certifications, {category: "Networking"}).some(c => c.provider === "juniper"));
+assert.ok(filterCatalogue(certifications, {category: "Project Management & Agile"}).some(c => c.provider === "scrum-alliance"));
+assert.ok(filterCatalogue(certifications, {category: "Testing & QA"}).every(c => c.provider === "istqb"));
+assert.equal(filterCatalogue(certifications, {query: "no-matching-credential-xyz"}).length, 0);
+assert.equal(filterCatalogue(certifications, {provider: "asq", category: "Testing & QA"}).length, 0);
+const alphabetical = filterCatalogue(certifications, {sort: "name"});
+assert.ok(alphabetical.every((c, i) => i === 0 || alphabetical[i - 1].name.localeCompare(c.name) <= 0));
+assert.ok(inCatalogueCategory(certifications.find(c => c.id === "vault-associate"), "DevOps & Linux"));
 assert.equal(new Set(keys).size, keys.length, "Catalog keys must be unique");
 assert.ok(
   certifications.length >= 55,

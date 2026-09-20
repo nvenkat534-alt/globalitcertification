@@ -5,6 +5,7 @@ import "./career.css";
 import "./experience.css";
 import "./finder-landing.css";
 import "./global-catalogue.css";
+import "./catalogue-hub.css";
 import "./career-hub.css";
 import "./resume-builder.css";
 import "./enquiry.css";

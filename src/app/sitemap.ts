@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: base,
-      lastModified: "2026-09-13",
+      lastModified: "2026-09-20",
       changeFrequency: "weekly",
       priority: 1,
     },
@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/careers/resume-builder",
       ...careerPaths.map(p => `/careers/${p.id}`),
       "/certifications",
+      "/certifications/explore",
       "/ai-certifications",
       "/contact",
       "/training",
@@ -36,13 +37,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/terms",
     ].map((path) => ({
       url: `${base}${path}`,
-      lastModified: "2026-09-13",
+      lastModified: "2026-09-20",
       changeFrequency: "weekly" as const,
       priority: path.includes("certifications") ? 0.9 : 0.5,
     })),
     ...providers.map((p) => ({
       url: `${base}/certifications/${p.id}`,
-      lastModified: "2026-09-13",
+      lastModified: "2026-09-20",
       changeFrequency: "weekly" as const,
       priority: 0.7,
     })),
@@ -50,7 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .filter((c) => isAvailable(c))
       .map((c) => ({
         url: `${base}${certUrl(c)}`,
-        lastModified: "2026-09-13",
+        lastModified: "2026-09-20",
         changeFrequency: "monthly" as const,
         priority: 0.6,
       })),

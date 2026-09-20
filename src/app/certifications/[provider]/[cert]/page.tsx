@@ -61,9 +61,9 @@ export default async function Page({
       <section className="detail-hero">
         <div className="cf-shell">
           <div className="detail-breadcrumb">
-            <Link href="/certifications">Certification finder</Link>
+            <Link href="/certifications/explore">All certifications</Link>
             <span>/</span>
-            <Link href={`/certifications/${p.id}`}>{p.name}</Link>
+            <Link href={`/certifications/explore?provider=${p.id}#all-certifications`}>{p.name}</Link>
             <span>/</span>
             <span>{c.exam}</span>
           </div>
@@ -149,7 +149,7 @@ export default async function Page({
               Compare other options for this role <ArrowUpRight size={16} />
             </Link>
             <p>
-              Official exam source reviewed 13 September 2026. Confirm current
+              Official credential source reviewed {c.reviewedOn || "2026-09-13"}. Confirm current
               details and availability with the provider before booking.
             </p>
           </div>
@@ -169,6 +169,7 @@ export default async function Page({
               <dt>Level</dt>
               <dd>{c.level}</dd>
             </div>
+            {c.examMode && <div><dt>Exam / assessment mode</dt><dd>{c.examMode}</dd></div>}
             <div>
               <dt>Status at last review</dt>
               <dd>

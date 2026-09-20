@@ -1,3 +1,4 @@
+import { providerById } from "@/lib/certifications";
 import { Cloud, Layers3, Snowflake, Network, ShieldCheck } from "lucide-react";
 export default function ProviderMark({ provider, compact = false }: { provider: string; compact?: boolean }) {
   return <span className={`provider-wordmark provider-${provider} ${compact ? "provider-compact" : ""}`}>
@@ -20,6 +21,6 @@ export default function ProviderMark({ provider, compact = false }: { provider: 
       : provider === "salesforce" ? <><Cloud />{!compact && "salesforce"}</>
       : provider === "cisco" ? <><Network />{!compact && "CISCO"}</>
       : provider === "isc2" ? <><ShieldCheck />{!compact && "ISC2"}</>
-      : <span>{provider.toUpperCase()}</span>}
+      : <span>{providerById(provider)?.mark || provider.toUpperCase()}</span>}
   </span>;
 }

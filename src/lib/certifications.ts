@@ -1,4 +1,5 @@
-/** Official exam availability checked 2026-09-13. Career guidance and fit scores are editorial. */
+import { catalogueAdditions } from "./catalogue-additions.ts";
+/** Base catalogue reviewed 2026-09-13; additions carry their own review date. */
 export const REVIEWED_ON = "2026-09-13";
 export type Experience = "all" | "beginner" | "working" | "senior";
 export const experiences: { id: Experience; label: string; detail: string }[] =
@@ -152,11 +153,28 @@ export const roles = [
       "Deliver a business workflow with permissions, clean data, an agent escalation path and user acceptance tests.",
   },
   { id: "sap-consultant", name: "SAP Consultant", icon: "layers", description: "S/4HANA processes & enterprise integration", advice: "Choose the business process and deployment edition used in your target role. Pair official SAP learning with authorised practice.", project: "Document a business process or integration with configuration rationale, test cases and failure recovery." },
+  { id: "software-tester", name: "Software Tester / QA", icon: "code", description: "Software quality, test design & AI testing", advice: "Build a foundation in test design, then specialise in the systems your team tests.", project: "Create a risk-based test plan with automated checks, defect reports and release criteria." },
+  { id: "business-analyst", name: "Business Analyst", icon: "chart", description: "Requirements, processes & business decisions", advice: "Match the credential to your experience in requirements, stakeholders and analysis.", project: "Map a business process, prioritise requirements and define measurable acceptance criteria." },
+  { id: "quality-manager", name: "Quality & Process Improvement", icon: "briefcase", description: "Six Sigma, quality & continuous improvement", advice: "Check work-experience and project requirements before choosing a Six Sigma belt.", project: "Document an improvement project with a baseline, root-cause analysis and measured results." },
 ] as const;
 export type RoleId = (typeof roles)[number]["id"];
 export const providers = [
+  { id: "istqb", name: "ISTQB", mark: "ISTQB", color: "#3984be", description: "Software testing foundations and AI testing. Choose the syllabus and authorised exam provider that match your goal." },
+  { id: "peoplecert", name: "PeopleCert", mark: "PeopleCert", color: "#cf4d58", description: "ITIL service management, PRINCE2 project management and PRINCE2 Agile. Check the version and prerequisites before booking." },
+  { id: "safe", name: "SAFe / Scaled Agile", mark: "SAFe", color: "#3f83ba", description: "Agile delivery at scale, Scrum Master and Product Owner / Product Manager credentials from Scaled Agile." },
+  { id: "scrum-alliance", name: "Scrum Alliance", mark: "Scrum Alliance", color: "#d18435", description: "Certified ScrumMaster and Product Owner learning paths, including advanced credentials with experience requirements." },
+  { id: "ec-council", name: "EC-Council", mark: "EC-Council", color: "#d34c60", description: "Ethical hacking, digital forensics, network defence and practical penetration testing." },
+  { id: "fortinet", name: "Fortinet", mark: "Fortinet", color: "#ca4852", description: "NSE certifications for network security, SASE, cloud security and security operations. Match the current track and prerequisite certifications." },
+  { id: "vmware", name: "VMware / Broadcom", mark: "VMware", color: "#59978c", description: "VMware Cloud Foundation and vSphere Foundation administration credentials from Broadcom." },
+  { id: "juniper", name: "Juniper Networks", mark: "Juniper", color: "#47877c", description: "Junos networking and security credentials, from associate fundamentals to specialist configuration and troubleshooting." },
+  { id: "uipath", name: "UiPath", mark: "UiPath", color: "#dc6942", description: "Automation Developer Associate and Professional certifications for building reliable business automations." },
+  { id: "iiba", name: "IIBA", mark: "IIBA", color: "#5868b1", description: "Business analysis credentials for early-career analysts, experienced practitioners and business data analytics specialists." },
+  { id: "togaf", name: "The Open Group / TOGAF", mark: "TOGAF", color: "#478da6", description: "TOGAF Enterprise Architecture Foundation and Practitioner credentials for enterprise architecture methods and application." },
+  { id: "splunk", name: "Splunk", mark: "Splunk", color: "#b069a1", description: "Search, reporting and Splunk Enterprise administration credentials for data and security operations." },
+  { id: "nvidia", name: "NVIDIA", mark: "NVIDIA", color: "#6d9138", description: "Associate and Professional certifications in generative AI and large language models." },
+  { id: "asq", name: "ASQ", mark: "ASQ", color: "#3e8096", description: "Six Sigma Green Belt and Black Belt certifications for quality and process improvement professionals." },
   { id: "servicenow", name: "ServiceNow", mark: "ServiceNow", color: "#4b8b50", description: "Explore ServiceNow administration, application development and implementation certifications. Choose CSA, CAD or the specialist credential matching your ServiceNow product and role." },
-  { id: "sap", name: "SAP", mark: "SAP", color: "#218aba", description: "SAP S/4HANA Sales and Integration Suite credentials. Match the deployment edition, practise in the official learning system and check current assessment access." },
+  { id: "sap", name: "SAP", mark: "SAP", color: "#218aba", description: "SAP S/4HANA Sales, Sourcing and Procurement, Production Planning and Integration Suite credentials. Match the deployment edition, practise in the official learning system and check current assessment access." },
   { id: "anthropic", name: "Anthropic / Claude", mark: "✳", color: "#c27d62", description: "Explore Claude credentials for business users, developers and architects. Proctored exams currently require Claude Partner Network access; public Claude Academy learning is a separate route." },
   { id: "comptia", name: "CompTIA", mark: "CompTIA", color: "#ce405c", description: "Vendor-neutral IT support, networking, cybersecurity, Linux, cloud and data credentials. Check the live exam version and regional booking options through CompTIA Central." },
   {
@@ -213,7 +231,7 @@ export const providers = [
     mark: "sf",
     color: "#1c89c9",
     description:
-      "Choose Salesforce for administration, development, Agentforce, Data 360, business analysis and Tableau.",
+      "Choose Salesforce for administration, development, Agentforce, Data 360, Tableau and MuleSoft integration.",
   },
   {
     id: "cisco",
@@ -236,7 +254,7 @@ export const providers = [
     mark: "LF",
     color: "#346395",
     description:
-      "Choose Kubernetes credentials for hands-on, cloud-independent container operations.",
+      "Choose Linux and Kubernetes credentials for system administration, application development, container operations and cloud-native security.",
   },
   {
     id: "hashicorp",
@@ -244,7 +262,7 @@ export const providers = [
     mark: "H",
     color: "#6654b7",
     description:
-      "Choose Terraform for infrastructure-as-code skills across cloud environments.",
+      "Choose Terraform for infrastructure as code and Vault for secrets management across cloud environments.",
   },
   {
     id: "isc2",
@@ -275,7 +293,7 @@ export const providers = [
     mark: "O",
     color: "#b84338",
     description:
-      "Choose Oracle for agentic AI fundamentals and Oracle ecosystem knowledge.",
+      "Choose Oracle for OCI cloud architecture, database administration, Java development and agentic AI fundamentals.",
   },
   {
     id: "scrum-org",
@@ -283,7 +301,7 @@ export const providers = [
     mark: "S",
     color: "#457fa6",
     description:
-      "Choose Scrum.org for Scrum knowledge and effective team facilitation.",
+      "Choose Scrum.org for Scrum Master and Product Owner assessments, from foundations to advanced application.",
   },
 ] as const;
 export type ProviderId = (typeof providers)[number]["id"];
@@ -315,6 +333,8 @@ export type Certification = {
   note?: string;
   retireOn?: string;
   availableFrom?: string;
+  reviewedOn?: string;
+  examMode?: string;
 };
 const aws = (slug: string) =>
   `https://aws.amazon.com/certification/certified-${slug}/`;
@@ -358,6 +378,7 @@ function c(
   };
 }
 export const certifications: Certification[] = [
+  ...catalogueAdditions,
   c(
     "certified-system-administrator", "ServiceNow Certified System Administrator", "CSA", "servicenow", "Foundation", 0,
     { "crm-consultant": 5, "software-developer": 4 },

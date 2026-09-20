@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check, Layers3, ShieldCheck, Sparkles } from "lucide-react";
 import { certifications, providers, isAvailable, whatsappUrl } from "@/lib/certifications";
+import { orderedProviders } from "@/lib/catalogue";
 import ProviderMark from "./ProviderMark";
 import { WhatsAppIcon } from "./WhatsAppConcierge";
 
 const highlights: Record<string, string> = {
   servicenow: "CSA · CAD · ITSM · CSM · HR Service Delivery",
-  sap: "S/4HANA Sales · Integration Suite",
+  sap: "S/4HANA Sales · MM · PP · Integration Suite",
   anthropic: "Claude · Associate · Developer · Architect",
-  salesforce: "Administrator · Agentforce · Data 360 · Developer",
+  salesforce: "Administrator · Agentforce · Developer · MuleSoft",
   databricks: "Data engineering · GenAI · ML · Context engineering",
   cisco: "CCST · CCNA · CCNP · CCIE · Automation",
   pmi: "PMP · CAPM · PgMP · PMI-CPMAI · Risk · PMO",
@@ -20,23 +21,23 @@ const highlights: Record<string, string> = {
   "google-cloud": "Cloud · Data · ML · Generative AI",
   snowflake: "SnowPro Core · Engineering · Analytics · GenAI",
   "red-hat": "Linux administration · RHCSA",
-  "linux-foundation": "Kubernetes administration · CKA",
-  hashicorp: "Infrastructure as code · Terraform",
+  "linux-foundation": "CKA · CKAD · CKS · KCNA · KCSA · LFCS",
+  hashicorp: "Terraform · Vault · Advanced",
   isc2: "Security leadership · CISSP",
-  oracle: "Agentic AI foundations",
-  "scrum-org": "Scrum · PSM I",
+  oracle: "OCI · Database · Java · Agentic AI",
+  "scrum-org": "PSM I / II / III · PSPO I / II",
 };
 
 export function ProviderDirectory() {
-  const order = ["servicenow", "sap", "anthropic", "salesforce", "databricks", "cisco", "pmi", "iapp", "isaca", "comptia", "aws", "microsoft", "google-cloud", "snowflake", "isc2", "red-hat", "linux-foundation", "hashicorp", "oracle", "scrum-org"];
+
   return <section className="gc-container gc-section provider-directory" id="providers">
     <div className="gc-section-heading"><div><span className="gc-kicker">FIND YOUR PLATFORM. SEE YOUR OPTIONS.</span><h2>Global names.<br/><span>Your next credential.</span></h2></div><p>Explore {providers.length} providers. Every credential includes<br/>career relevance, eligibility and registration guidance.</p></div>
-    <div className="provider-directory-grid">{order.map(id => {
-      const provider = providers.find(p => p.id === id)!;
+    <div className="provider-directory-grid">{orderedProviders.map(provider => {
+      const id = provider.id;
       const count = certifications.filter(c => c.provider === id && isAvailable(c)).length;
-      return <Link key={id} href={`/certifications/${id}`} className={`provider-directory-card directory-${id}`}>
+      return <Link key={id} href={`/certifications/explore?provider=${id}#all-certifications`} className={`provider-directory-card directory-${id}`}>
         <div><ProviderMark provider={id} /><ArrowUpRight size={17}/></div>
-        <p>{highlights[id]}</p><span>{count} {count === 1 ? "credential" : "credentials"}{id === "anthropic" && " · Partner access"}</span>
+        <p>{highlights[id] || certifications.filter(c => c.provider === id && isAvailable(c)).slice(0, 3).map(c => c.exam).join(" · ")}</p><span>{count} {count === 1 ? "credential" : "credentials"}{id === "anthropic" && " · Partner access"}</span>
         <span className="sr-only">Explore {provider.name} certifications</span>
       </Link>;
     })}</div>

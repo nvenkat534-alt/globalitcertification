@@ -111,6 +111,28 @@ export const registrationGuides: Partial<Record<ProviderId, RegistrationGuide>> 
 };
 
 export function getRegistrationGuide(cert: Certification): RegistrationGuide {
+  if (cert.provider === "scrum-alliance") return {
+    title: "Choose an approved Scrum Alliance course",
+    url: cert.source,
+    steps: [
+      "Open the official credential page and check its course and experience requirements.",
+      "Choose an approved trainer and a live online or in-person course. Confirm the credential, schedule and total fee with the training provider.",
+      "Complete the required training. For advanced credentials, validate the prerequisite credential and the required work experience.",
+      cert.id === "csm" ? "After the CSM course, follow Scrum Alliance’s email to access and pass the online test." : "Complete the credential award process in your Scrum Alliance account and satisfy the requirements of your chosen credential.",
+    ],
+    note: "Scrum Alliance and Scrum.org are different certification providers. An exam-only voucher does not replace required Scrum Alliance training.",
+  };
+  if (cert.provider === "istqb") return {
+    title: "Book through an authorised ISTQB exam provider",
+    url: "https://istqb.org/exam-providers/",
+    steps: [
+      "Choose CTFL or CT-AI and review the current syllabus and prerequisites on the official credential page.",
+      "Select an ISTQB member board or authorised exam provider serving your country.",
+      "Confirm the exact exam, syllabus version, language and delivery mode. Ask specifically for remote proctoring if you want to test from home.",
+      "Purchase the correct regional voucher or appointment, then complete the provider’s identification and system checks.",
+    ],
+    note: "An ISTQB exam listed at a Pearson test centre is not automatically available through OnVUE. Confirm online availability with the selected exam provider before paying.",
+  };
   if (cert.provider === "microsoft" && cert.id === "azure-administrator") return {
     title: "Book AZ-104 through Microsoft Learn",
     url: cert.source,

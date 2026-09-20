@@ -24,6 +24,9 @@ export default async function Page({
   params: Promise<{ provider: string }>;
 }) {
   const { provider } = await params;
+  if (provider === "itil" || provider === "prince2") redirect("/certifications/peoplecert");
+  if (provider === "scrum") redirect("/certifications/explore?q=scrum");
+  if (provider === "linux") redirect("/certifications/linux-foundation");
   if (provider === "claude") redirect("/certifications/anthropic");
   if (provider === "aigp") redirect("/certifications/iapp");
   if (!providerById(provider)) {
