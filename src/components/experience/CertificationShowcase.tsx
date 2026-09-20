@@ -1,30 +1,20 @@
 "use client";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight, ArrowRight, Check, X, ExternalLink, Eye } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { certUrl, certificationEnquiry, type Certification } from "@/lib/certifications";
 import ProviderMark from "./ProviderMark";
 import { WhatsAppIcon } from "./WhatsAppConcierge";
-const categories = ["Featured", "PMP & Agile", "Claude", "Cloud", "AI", "Data", "Salesforce", "Cisco", "Security"];
-const shortName = (c: Certification) => c.name.replace(/^AWS Certified |^Microsoft Certified: |^Google Cloud |^Databricks Certified /, "");
-export default function CertificationShowcase({ items }: { items: Certification[] }) {
-  const [category, setCategory] = useState("Featured");
-  const [selected, setSelected] = useState<Certification | null>(null);
-  const dialog = useRef<HTMLDialogElement>(null);
-  const matches = items.filter(c => category === "Featured" ? ["pmp", "solutions-architect-associate", "azure-administrator", "ai-practitioner", "fabric-data-engineer", "professional-data-engineer"].includes(c.id) : category === "PMP & Agile" ? c.provider === "pmi" : category === "Claude" ? c.provider === "anthropic" : category === "Salesforce" ? c.provider === "salesforce" : category === "Cisco" ? c.provider === "cisco" : category === "AI" ? c.ai : category === "Data" ? Boolean(c.roles["data-engineer"] && !c.ai) : category === "Security" ? Boolean(c.roles.cybersecurity) : ["solutions-architect-associate", "cloud-practitioner", "azure-administrator", "professional-cloud-architect"].includes(c.id));
+export type HomeCert = Pick<Certification, "id" | "provider" | "name" | "exam" | "level" | "why" | "skills" | "access" | "status">;
+type HomeGroup = { label: string; category: string; href: string; items: HomeCert[] };
+const shortName = (c: HomeCert) => c.name.replace(/^AWS Certified |^Microsoft Certified: |^Google Cloud |^Databricks Certified |^Salesforce Certified |^ServiceNow Certified /, "");
+export default function CertificationShowcase({ groups }: { groups: HomeGroup[] }) {
+  const [active, setActive] = useState(0);
+  const group = groups[active];
   return <>
-    <div className="showcase-filters" role="group" aria-label="Filter featured certifications">{categories.map(name => <button key={name} onClick={() => setCategory(name)} aria-pressed={category === name}>{name}{name === "AI" && <span>✦</span>}</button>)}</div>
-    <p className="sr-only" role="status">{matches.length} {category.toLowerCase()} certifications shown</p>
-    <div className="showcase-grid">{matches.map((cert, i) => <article key={`${cert.provider}/${cert.id}`} className={`showcase-card ${cert.id === "pmp" ? "showcase-pmp" : ""}`}>
-      <div className="showcase-card-top"><ProviderMark provider={cert.provider} /><span className="exam-level">{cert.access || (cert.status === "Beta" ? "Bookable beta" : cert.level)}</span></div>
-      <div className="showcase-card-body"><span className="showcase-number">{String(i + 1).padStart(2, "0")} / CERTIFICATION</span><h3>{shortName(cert)}</h3><p>{cert.id === "pmp" ? "For professionals ready to validate their project leadership experience." : cert.skills.slice(0, 3).join(" · ")}</p></div>
-      <div className="showcase-meta"><span>{cert.exam}</span><button onClick={() => { setSelected(cert); dialog.current?.showModal(); }} aria-label={`Quick view ${cert.name}`}><Eye size={14}/> Quick view</button></div>
-      <a className="showcase-chat" href={certificationEnquiry([cert])}><WhatsAppIcon size={17}/> Request certification pricing <ArrowUpRight size={15}/></a>
-    </article>)}</div>
-    <div className="catalog-action"><p>Your certification. Your experience. Your next step.</p><Link className="gc-button gc-button-outline" href="/certifications/explore">Browse all certifications <ArrowRight size={17}/></Link></div>
-    <dialog className="gc-dialog cert-preview" ref={dialog} onClick={e => {if(e.target === e.currentTarget) dialog.current?.close();}} onClose={() => setSelected(null)} aria-labelledby="preview-title">
-      <button className="dialog-close" aria-label="Close certification details" onClick={() => dialog.current?.close()}><X size={22}/></button>
-      {selected && <><ProviderMark provider={selected.provider}/><span className="gc-kicker">CERTIFICATION AT A GLANCE</span><h2 id="preview-title">{selected.name}</h2><div className="preview-labels"><span>{selected.exam}</span><span>{selected.level}</span>{selected.status && <span>{selected.status}</span>}{selected.access && <span>{selected.access}</span>}</div><p>{selected.why}</p>{selected.access && <p className="preview-access">{selected.eligibility}</p>}<h3>Is this right for you?</h3><p>{selected.readiness}</p><ul>{selected.skills.map(s => <li key={s}><Check size={14}/>{s}</li>)}</ul><a className="gc-button gc-button-whatsapp" href={certificationEnquiry([selected])}><WhatsAppIcon/> Get price & payment details <ArrowUpRight size={18}/></a><div className="preview-links"><Link href={certUrl(selected)} onClick={() => dialog.current?.close()}>Full certification details <ArrowRight size={14}/></Link><a href={selected.source} target="_blank" rel="noopener noreferrer">Official exam source <ExternalLink size={13}/></a></div></>}
-    </dialog>
+    <div className="hp-cert-tabs" role="group" aria-label="Browse featured certifications">{groups.map((g, index) => <button key={g.label} aria-pressed={active === index} onClick={() => setActive(index)}>{g.label}</button>)}</div>
+    <p className="sr-only" role="status">Showing {group.items.length} {group.label.toLowerCase()} certifications</p>
+    <div className="hp-cert-grid">{group.items.map(cert => <article className={`hp-cert hp-cert-${cert.provider}`} key={`${cert.provider}/${cert.id}`}><div className="hp-cert-top"><ProviderMark provider={cert.provider}/><span>{cert.access || cert.status || cert.level}</span></div><div className="hp-cert-body"><p className="hp-cert-exam">{cert.exam}</p><h3><Link href={certUrl(cert)}>{shortName(cert)}</Link></h3><p className="hp-cert-description">{cert.why}</p><div className="hp-cert-skills">{cert.skills.map(skill => <span key={skill}>{skill}</span>)}</div></div><div className="hp-cert-actions"><Link href={certUrl(cert)} aria-label={`View ${cert.name} details`}>View details <ArrowUpRight size={17}/></Link><a href={certificationEnquiry([cert])} aria-label={`Enquire about ${cert.name} on WhatsApp`} target="_blank" rel="noopener noreferrer"><WhatsAppIcon size={17}/> Enquire</a></div></article>)}</div>
+    <div className="hp-cert-more"><p>See the full range. Compare up to 3 certifications.</p><Link className="hp-button hp-button-outline" href={group.href}>{active === 0 ? "View all certifications" : `Explore all ${group.label.toLowerCase()} certifications`}<ArrowRight size={18}/></Link></div>
   </>;
 }

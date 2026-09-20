@@ -1493,8 +1493,8 @@ export const certifications: Certification[] = [
   c("cipp-e", "Certified Information Privacy Professional / Europe (CIPP/E)", "CIPP/E", "iapp", "Professional", 1, {"cybersecurity": 5, "business-leader": 5}, ["European privacy", "Data protection", "Privacy frameworks"], "For practitioners working with European privacy requirements.", "Choose the credential matching your privacy responsibilities and the jurisdictions your organisation serves.", "https://iapp.org/certify/cipp", {"eligibility": "Read IAPP’s candidate handbook, the current body of knowledge and the credential maintenance requirements before purchasing the exam."}),
   c("cipp-us", "Certified Information Privacy Professional / United States (CIPP/US)", "CIPP/US", "iapp", "Professional", 1, {"cybersecurity": 5, "business-leader": 5}, ["US privacy", "Sectoral requirements", "Privacy frameworks"], "For practitioners working with United States privacy requirements.", "Choose the credential matching your privacy responsibilities and the jurisdictions your organisation serves.", "https://iapp.org/certify/cipp", {"eligibility": "Read IAPP’s candidate handbook, the current body of knowledge and the credential maintenance requirements before purchasing the exam."}),
 ];
-export const certKey = (cert: Certification) => `${cert.provider}/${cert.id}`;
-export const certUrl = (cert: Certification) =>
+export const certKey = (cert: Pick<Certification, "provider" | "id">) => `${cert.provider}/${cert.id}`;
+export const certUrl = (cert: Pick<Certification, "provider" | "id">) =>
   `/certifications/${certKey(cert)}`;
 export const isAvailable = (
   cert: Certification,
