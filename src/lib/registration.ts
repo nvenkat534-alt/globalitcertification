@@ -8,6 +8,17 @@ export type RegistrationGuide = {
 };
 
 export const registrationGuides: Partial<Record<ProviderId, RegistrationGuide>> = {
+  servicenow: {
+    title: "ServiceNow University exam registration",
+    url: "https://www.servicenow.com/in/university/training-and-certification.html",
+    steps: [
+      "Sign in to ServiceNow University and open the exact CSA, CAD or implementation-specialist credential.",
+      "Read its current exam blueprint, learning path and any prerequisites. Prepare using official training and authorised practice.",
+      "Follow the credential’s registration instructions, review the fee and eligibility window, then use My Exams to schedule with the authorised exam provider.",
+      "Confirm the available delivery method, identification rules and appointment. After passing, follow the applicable delta-exam and certification-maintenance requirements.",
+    ],
+    note: "Each credential has its own requirements. The current CSA blueprint directs candidates to Pearson test centres or OnVUE and requires completing the exam within 90 days of registration; check the selected exam’s instructions before paying.",
+  },
   sap: { title: "SAP assessment registration", url: "https://learning.sap.com/certifications", steps: ["Select the exact SAP credential and deployment edition; open its current assessment page.", "Set up SAP Universal ID, including a secondary email, and confirm a Learning Hub subscription that includes certification attempts.", "Complete the linked learning journey and authorised practice; check system readiness and available attempts.", "Use Go to exam on the official page and follow the current assessment instructions. Review requirements for keeping the credential current."], note: "The SAP Sales and Integration Developer pages currently list system-based assessments. Follow the selected credential’s live instructions." },
   anthropic: {
     title: "Claude Partner Network",

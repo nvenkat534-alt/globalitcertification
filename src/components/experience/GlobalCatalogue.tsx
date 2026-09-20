@@ -16,7 +16,7 @@ export default function GlobalCatalogue({items}:{items:Certification[]}) {
   const [query,setQuery] = useState("");
   const [limit,setLimit] = useState(18);
   const matches = useMemo(() => items.filter(c => {
-    const category = group === "All certifications" || (group === "PMP & Agile" && ["pmi","scrum-org"].includes(c.provider)) || (group === "Cloud" && Boolean(c.roles["cloud-engineer"] || c.roles["cloud-architect"])) || (group === "AI" && c.ai) || (group === "Data & Analytics" && Boolean(c.roles["data-engineer"] || c.roles["data-analyst"])) || (group === "Security" && Boolean(c.roles.cybersecurity)) || (group === "Business Apps" && ["sap","salesforce"].includes(c.provider)) || (group === "Networking" && c.provider === "cisco");
+    const category = group === "All certifications" || (group === "PMP & Agile" && ["pmi","scrum-org"].includes(c.provider)) || (group === "Cloud" && Boolean(c.roles["cloud-engineer"] || c.roles["cloud-architect"])) || (group === "AI" && c.ai) || (group === "Data & Analytics" && Boolean(c.roles["data-engineer"] || c.roles["data-analyst"])) || (group === "Security" && Boolean(c.roles.cybersecurity)) || (group === "Business Apps" && ["sap","salesforce","servicenow"].includes(c.provider)) || (group === "Networking" && c.provider === "cisco");
     return category && (provider === "all" || c.provider === provider) && `${c.name} ${c.exam} ${c.provider} ${c.skills.join(" ")}`.toLowerCase().includes(query.trim().toLowerCase());
   }).sort((a,b) => Number(b.id === "pmp") - Number(a.id === "pmp") || a.name.localeCompare(b.name)),[items,group,provider,query]);
   function reset(){setGroup("All certifications");setProvider("all");setQuery("");setLimit(18);}
