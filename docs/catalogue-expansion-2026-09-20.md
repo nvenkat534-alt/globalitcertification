@@ -39,3 +39,5 @@ Important distinctions:
 - Production build and TypeScript checks.
 - ESLint on changed application logic and catalogue components.
 - HTTP route checks and browser interaction checks are recorded in the delivery PR.
+
+Deployed preview QA passed at desktop, 390px phone and 768px tablet widths. Confirmed no phone document overflow, field filtering on mobile, provider selection, A–Z sorting, empty-state reset, correct WhatsApp messages, and search restoration after navigating to details and using Back. Filters use Next.js native-history integration as the single source of truth. The temporary responsive preview harness is removed before production publication.
