@@ -7,7 +7,7 @@ import ProviderMark from "./ProviderMark";
 import { WhatsAppIcon } from "./WhatsAppConcierge";
 export type HomeCert = Pick<Certification, "id" | "provider" | "name" | "exam" | "level" | "why" | "skills" | "access" | "status">;
 type HomeGroup = { label: string; category: string; href: string; items: HomeCert[] };
-const shortName = (c: HomeCert) => c.name.replace(/^AWS Certified |^Microsoft Certified: |^Google Cloud |^Databricks Certified |^Salesforce Certified |^ServiceNow Certified /, "");
+const shortName = (c: HomeCert) => c.name.replace(/^AWS Certified |^Microsoft Certified: |^Google Cloud |^Databricks Certified |^Salesforce Certified |^ServiceNow Certified |^SAP Certified - Implementation Consultant for /, "");
 export default function CertificationShowcase({ groups }: { groups: HomeGroup[] }) {
   const [active, setActive] = useState(0);
   const group = groups[active];
