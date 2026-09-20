@@ -155,6 +155,7 @@ export const roles = [
 ] as const;
 export type RoleId = (typeof roles)[number]["id"];
 export const providers = [
+  { id: "servicenow", name: "ServiceNow", mark: "ServiceNow", color: "#4b8b50", description: "Explore ServiceNow administration, application development and implementation certifications. Choose CSA, CAD or the specialist credential matching your ServiceNow product and role." },
   { id: "sap", name: "SAP", mark: "SAP", color: "#218aba", description: "SAP S/4HANA Sales and Integration Suite credentials. Match the deployment edition, practise in the official learning system and check current assessment access." },
   { id: "anthropic", name: "Anthropic / Claude", mark: "✳", color: "#c27d62", description: "Explore Claude credentials for business users, developers and architects. Proctored exams currently require Claude Partner Network access; public Claude Academy learning is a separate route." },
   { id: "comptia", name: "CompTIA", mark: "CompTIA", color: "#ce405c", description: "Vendor-neutral IT support, networking, cybersecurity, Linux, cloud and data credentials. Check the live exam version and regional booking options through CompTIA Central." },
@@ -357,6 +358,51 @@ function c(
   };
 }
 export const certifications: Certification[] = [
+  c(
+    "certified-system-administrator", "ServiceNow Certified System Administrator", "CSA", "servicenow", "Foundation", 0,
+    { "crm-consultant": 5, "software-developer": 4 },
+    ["Platform administration", "Service catalog", "Data management", "Access controls", "Workflow automation"],
+    "A starting credential for professionals configuring and maintaining the ServiceNow platform and its business workflows.",
+    "Practise administration in an authorised instance. ServiceNow recommends three to six months of platform experience.",
+    "https://learning.servicenow.com/kb?id=kb_article_view&sysparm_article=KB0011554",
+    { aliases: ["Service Now", "ServiceNow Administrator", "CSA"], eligibility: "Review the current CSA blueprint and recommended preparation, then register through ServiceNow University. Check identification and scheduling requirements before paying.", note: "Official CSA blueprint checked 20 September 2026. Schedule and complete the exam within 90 days of registration. Maintaining the credential requires annual delta exams and the applicable maintenance fee." },
+  ),
+  c(
+    "certified-application-developer", "ServiceNow Certified Application Developer", "CAD", "servicenow", "Associate", 1,
+    { "software-developer": 5, "crm-consultant": 5 },
+    ["Application development", "Scripting", "Data modelling", "Application security"],
+    "For developers building and deploying applications on the ServiceNow platform.",
+    "Build a scoped application and practise scripting, permissions, testing and deployment using official learning resources.",
+    "https://learning.servicenow.com/lxp/en/credentials/certified-application-developer-mainline-exam-blueprint?id=kb_article_view&sysparm_article=KB0011498",
+    { aliases: ["Service Now Developer", "ServiceNow Developer", "CAD"], eligibility: "Check the current CAD blueprint and learning path for preparation, prerequisites and exam access before registration." },
+  ),
+  c(
+    "cis-itsm", "ServiceNow Certified Implementation Specialist – IT Service Management", "CIS-ITSM", "servicenow", "Professional", 1,
+    { "crm-consultant": 5 },
+    ["IT service management", "Incident management", "Problem management", "Change management"],
+    "For consultants implementing ServiceNow IT Service Management processes and workflows.",
+    "Practise configuring service-management workflows and validate them against realistic business requirements.",
+    "https://learning.servicenow.com/lxp/en/certified-implementation-specialist-it-service-management-mainline?id=kb_article_view&sysparm_article=KB0011560",
+    { aliases: ["ServiceNow ITSM", "CIS ITSM", "Service Now ITSM"], eligibility: "Review the current CIS-ITSM blueprint and implementation learning path for prerequisites, preparation and exam access." },
+  ),
+  c(
+    "cis-csm", "ServiceNow Certified Implementation Specialist – Customer Service Management", "CIS-CSM", "servicenow", "Professional", 1,
+    { "crm-consultant": 5 },
+    ["Customer service", "Case management", "Customer workflows", "Implementation"],
+    "For consultants configuring ServiceNow Customer Service Management to support customer-service operations.",
+    "Work through the official CSM implementation learning path and practise customer-service workflows in an authorised instance.",
+    "https://learning.servicenow.com/lxp/en/pages/now-learning-get-certified?achievement_id=548ed977dbc27f40de3cdb85ca9619d2&id=amap_detail",
+    { aliases: ["ServiceNow CSM", "CIS CSM", "Service Now CSM"], eligibility: "Check the current CSM credential page for its implementation learning path, prerequisites and exam access." },
+  ),
+  c(
+    "cis-hr", "ServiceNow Certified Implementation Specialist – Human Resources", "CIS-HR", "servicenow", "Professional", 1,
+    { "crm-consultant": 5 },
+    ["HR Service Delivery", "Employee workflows", "HR case management", "Implementation"],
+    "For consultants implementing ServiceNow HR Service Delivery and employee-service workflows.",
+    "Practise HR service configuration and employee workflows alongside the official implementation learning path.",
+    "https://learning.servicenow.com/lxp/en/pages/now-learning-get-certified?achievement_id=1c8e1d77dbc27f40de3cdb85ca96194b&id=amap_detail&summary_id=79d64e311bfcf01002ed2f89bd4bcb51%2F1000",
+    { aliases: ["ServiceNow HRSD", "CIS HR", "CIS-HRSD", "Service Now HR"], eligibility: "Check the current Human Resources credential page for preparation, prerequisites and exam access. The credential code is CIS-HR; HRSD refers to the product area." },
+  ),
 {"id": "s4hana-sales", "name": "SAP Certified - Implementation Consultant for SAP S/4HANA Cloud Private Edition, Sales", "exam": "C_TS462", "provider": "sap", "level": "Associate", "stage": 1, "roles": {"sap-consultant": 5}, "skills": ["SAP SD", "Order to cash", "Pricing", "Billing", "S/4HANA"], "why": "Validates sales process and configuration skills for mentored SAP S/4HANA private-edition or on-premise project work.", "readiness": "Practise sales processes, pricing, delivery and billing in an authorised SAP learning system.", "source": "https://learning.sap.com/certifications/sap-certified-associate-sap-s-4hana-sales", "eligibility": "Check the SAP Universal ID setup, Learning Hub subscription with certification attempts, available attempts and technical readiness on the official assessment page.", "note": "SAP currently lists this as a system-based assessment. Confirm the live format and subscription before purchase.", "fresh": true},
 {"id": "integration-developer", "name": "SAP Certified - Integration Developer", "exam": "C_CPI", "provider": "sap", "level": "Associate", "stage": 1, "roles": {"sap-consultant": 5}, "skills": ["SAP Integration Suite", "SAP CPI", "APIs", "iFlows"], "why": "Validates core integration development knowledge for mentored enterprise integration work.", "readiness": "Build, test and monitor integration flows, including authentication, mapping and failure handling.", "source": "https://learning.sap.com/certifications/sap-certified-associate-integration-developer", "eligibility": "Check the SAP Universal ID setup, Learning Hub subscription with certification attempts, available attempts and technical readiness on the official assessment page.", "note": "SAP currently lists this as a system-based assessment. Confirm the live format and subscription before purchase.", "fresh": true},
   c(

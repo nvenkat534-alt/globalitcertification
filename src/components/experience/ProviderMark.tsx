@@ -2,6 +2,7 @@ import { Cloud, Layers3, Snowflake, Network, ShieldCheck } from "lucide-react";
 export default function ProviderMark({ provider, compact = false }: { provider: string; compact?: boolean }) {
   return <span className={`provider-wordmark provider-${provider} ${compact ? "provider-compact" : ""}`}>
     {provider === "anthropic" ? <><span className="claude-mark" aria-hidden="true">✳</span>{!compact && "Claude"}</>
+      : provider === "servicenow" ? <span>ServiceNow</span>
       : provider === "comptia" ? <span className="comptia-mark">CompTIA</span>
       : provider === "iapp" ? <span>IAPP <small>AIGP</small></span>
       : provider === "isaca" ? <span>ISACA</span>
