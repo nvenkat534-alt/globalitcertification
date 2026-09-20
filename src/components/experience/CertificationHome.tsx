@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, BriefcaseBusiness, CalendarDays, Check, Cloud, Compass, FileCheck2, FilePenLine, FileSearch, GraduationCap, Layers3, Search, ShieldCheck, Sparkles, Ticket, Workflow } from "lucide-react";
-import { certifications, providers, roles, isAvailable, whatsappUrl, type Certification } from "@/lib/certifications";
+import { certifications, providers, roles, isAvailable, certKey, whatsappUrl, type Certification } from "@/lib/certifications";
 import { filterCatalogue, orderedProviders } from "@/lib/catalogue";
 import { certificationUpdates } from "@/lib/certification-updates";
 import CertificationShowcase, { type HomeCert } from "./CertificationShowcase";
@@ -16,10 +16,22 @@ const homeFields = [
   { label: "Business apps", category: "Business Apps & Automation" },
 ];
 const toCard = (c: Certification): HomeCert => ({ id: c.id, provider: c.provider, name: c.name, exam: c.exam, level: c.level, why: c.why, skills: c.skills.slice(0, 2), access: c.access, status: c.status });
+// Representative featured exams; the full catalogue retains every relevant pathway.
+const fieldHighlights: Record<string, string[]> = {
+  Cloud: ["aws/solutions-architect-associate", "microsoft/azure-administrator", "google-cloud/associate-cloud-engineer", "aws/cloud-practitioner", "microsoft/azure-fundamentals", "oracle/oci-architect-associate"],
+  AI: ["pmi/pmi-cpmai", "aws/ai-practitioner", "microsoft/azure-ai-fundamentals", "google-cloud/generative-ai-leader", "salesforce/agentforce-specialist", "databricks/generative-ai-engineer"],
+  Cybersecurity: ["comptia/security-plus", "ec-council/ceh", "isc2/cissp", "isaca/cisa", "fortinet/nse-4", "microsoft/security-operations-analyst"],
+  "Business Apps & Automation": ["salesforce/platform-administrator", "servicenow/certified-system-administrator", "sap/s4hana-sales", "uipath/automation-developer-associate", "salesforce/agentforce-specialist", "servicenow/certified-application-developer"],
+};
 
 export default function CertificationHome() {
   const available = certifications.filter(c => isAvailable(c));
-  const groups = homeFields.map(field => ({ ...field, items: filterCatalogue(available, { category: field.category }).slice(0, 6).map(toCard), href: field.category === "All fields" ? "/certifications/explore" : `/certifications/explore?category=${encodeURIComponent(field.category)}#all-certifications` }));
+  const groups = homeFields.map(field => {
+    const matches = filterCatalogue(available, { category: field.category });
+    const highlights = fieldHighlights[field.category] || [];
+    const rank = (c: Certification) => { const index = highlights.indexOf(certKey(c)); return index < 0 ? highlights.length : index; };
+    return { ...field, items: matches.sort((a, b) => rank(a) - rank(b)).slice(0, 6).map(toCard), href: field.category === "All fields" ? "/certifications/explore" : `/certifications/explore?category=${encodeURIComponent(field.category)}#all-certifications` };
+  });
   const brands = ["aws", "microsoft", "google-cloud", "salesforce", "servicenow", "cisco"];
   const paths = [
     { id: "project-manager", title: "Lead projects", detail: "PMP, agile delivery & programme management", Icon: BriefcaseBusiness, color: "violet" },
