@@ -24,4 +24,4 @@ Reviewed these primary sources on 20 September 2026:
 - Responsive layouts, focus indicators and reduced-motion support. No additional dependencies, images or external asset requests.
 
 ## Verification
-Pending production build and deployed browser checks. The temporary preview layout harness must be deleted before the pull request is merged.
+Production build, TypeScript, targeted ESLint and catalogue regression tests passed. Deployed browser checks covered desktop, 768px tablet, 390px phone and 360px phone layouts; all measured page widths had no horizontal overflow. Search, level filtering, removable active filters, empty results, Back navigation, 12-to-24 expansion, Show all 192, all 34 providers and direct exam-specific WhatsApp URLs passed. The maximum-three comparison limit, clear selection, keyboard controls, Escape dismissal and horizontally scrollable mobile comparison were verified. Visual QA improved AWS wordmark contrast, comparison column widths and the mobile career-path entry, and suppressed the automatic WhatsApp nudge on this page. The temporary preview harness was removed before release.
