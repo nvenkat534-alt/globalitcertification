@@ -9,7 +9,7 @@ import MotionSettings from "./experience/MotionSettings";
 import { WhatsAppIcon } from "./experience/WhatsAppConcierge";
 const navLinks = [
   { name: "Home", path: "/" },
-  { name: "Certifications", path: "/certifications/explore" },
+  { name: "All Certifications", path: "/certifications/explore" },
   { name: "Career switch", path: "/careers" },
   { name: "PMP", path: "/certifications/pmi/pmp" },
   { name: "AI certifications", path: "/ai-certifications" },
