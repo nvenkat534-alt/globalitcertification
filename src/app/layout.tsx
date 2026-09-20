@@ -10,6 +10,7 @@ import "./career-hub.css";
 import "./resume-builder.css";
 import "./enquiry.css";
 import "./certification-updates.css";
+import "./homepage.css";
 import CampaignTracking from "@/components/CampaignTracking";
 import WhatsAppConcierge from "@/components/experience/WhatsAppConcierge";
 import Navbar from "@/components/Navbar";
