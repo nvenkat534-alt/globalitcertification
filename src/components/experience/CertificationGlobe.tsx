@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { ArrowUpRight, BadgeCheck } from "lucide-react";
-import { usePausedMotion } from "./MotionSettings";
+import { ArrowUpRight, BadgeCheck, Play } from "lucide-react";
+import { setPausedMotion, usePausedMotion } from "./MotionSettings";
 import ProviderMark from "./ProviderMark";
 
 // Stylised continent outlines for a decorative globe; not a geographic map.
@@ -84,6 +84,7 @@ export default function CertificationGlobe() {
     stage.current?.style.setProperty("--tilt-x", `${pointer.current.y * -5}deg`);
     stage.current?.style.setProperty("--tilt-y", `${pointer.current.x * 5}deg`);
   }} onPointerLeave={()=>{pointer.current={x:0,y:0};stage.current?.style.setProperty("--tilt-x","0deg");stage.current?.style.setProperty("--tilt-y","0deg");}}>
+    {paused && <button className="globe-play-control" onClick={() => setPausedMotion(false)}><Play size={14} fill="currentColor"/> Play globe & logos</button>}
     <div className="universe-grid" aria-hidden="true" />
     <div className="universe-backlight" aria-hidden="true" />
     <div className="universe-inner">
