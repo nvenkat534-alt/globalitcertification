@@ -13,6 +13,13 @@ export function setPausedMotion(paused: boolean) {
   } catch {
     // The control must still work when a browser blocks local storage.
   }
+  if (paused) {
+    const url = new URL(window.location.href);
+    if (url.searchParams.get("motion") === "on") {
+      url.searchParams.delete("motion");
+      window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
+    }
+  }
   document.documentElement.dataset.motion = paused ? "paused" : "on";
   window.dispatchEvent(new Event("gcit-motion"));
 }
@@ -45,9 +52,6 @@ export default function MotionSettings() {
     const url = new URL(window.location.href);
     if (url.searchParams.get("motion") !== "on") return;
     setPausedMotion(false);
-    // Consume the explicit play link so later pause choices remain persistent.
-    url.searchParams.delete("motion");
-    window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
   }, []);
   useEffect(() => {
     document.documentElement.dataset.motion = paused ? "paused" : "on";
