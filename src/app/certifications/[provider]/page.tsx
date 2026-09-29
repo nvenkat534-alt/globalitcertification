@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import CertificationFinder from "@/components/career/CertificationFinder";
 import { providerById } from "@/lib/certifications";
-export const revalidate = 3600;
+import { googleExamRoute } from "@/lib/google-exam-route";
+// Purchased keyword routing depends on the incoming query string.
+export const dynamic = "force-dynamic";
 export async function generateMetadata({
   params,
 }: {
@@ -20,10 +22,14 @@ export async function generateMetadata({
 }
 export default async function Page({
   params,
+  searchParams,
 }: {
   params: Promise<{ provider: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const { provider } = await params;
+  const examRoute = googleExamRoute(provider, await searchParams);
+  if (examRoute) redirect(examRoute);
   if (provider === "itil" || provider === "prince2") redirect("/certifications/peoplecert");
   if (provider === "scrum") redirect("/certifications/explore?q=scrum");
   if (provider === "linux") redirect("/certifications/linux-foundation");
@@ -53,6 +59,3 @@ export default async function Page({
     />
   );
 }
-
-// Render requested certification routes once, then reuse the cached page.
-export function generateStaticParams() { return []; }

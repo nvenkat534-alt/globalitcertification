@@ -42,6 +42,7 @@ import {
 import { registrationGuides } from "@/lib/registration";
 import type { ProviderId } from "@/lib/certifications";
 import RegistrationSteps from "./RegistrationSteps";
+import PaidEnquiryNote from "./PaidEnquiryNote";
 
 type Props = {
   initialRole?: string;
@@ -250,6 +251,7 @@ export default function CertificationFinder({
             <button className="finder-secondary" onClick={() => { setGuided(true); document.getElementById("finder")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}>Help Me Choose <Compass size={18}/></button>
           </div>
           <p className="finder-start-note">Already know your exam? Search below. Not sure yet? We’ll help you narrow the options.</p>
+          {initialProvider !== "all" && <PaidEnquiryNote />}
           <div className="finder-tabs">
             <Link href="/certifications/explore"><Compass size={17} /> All certifications</Link>
             <Link href="/ai-certifications">

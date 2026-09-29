@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import RegistrationSteps from "@/components/career/RegistrationSteps";
+import PaidEnquiryNote from "@/components/career/PaidEnquiryNote";
 import { getRegistrationGuide } from "@/lib/registration";
 import { notFound, permanentRedirect } from "next/navigation";
 import { ArrowUpRight, Check, ExternalLink, MessageCircle } from "lucide-react";
@@ -77,6 +78,7 @@ export default async function Page({
           </div>
           <h1>{c.name}</h1>
           <p>{c.why}</p>
+          <PaidEnquiryNote />
           <div className="detail-actions">
             <a
               className="cf-btn cf-btn-dark"

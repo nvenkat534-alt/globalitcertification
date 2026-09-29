@@ -1,5 +1,7 @@
+import { cleanAttribution, isGoogleAttribution, whatsappReferenceUrl } from "./enquiry-attribution";
 export const META_PIXEL_ID = "1103233019317006";
-export const ADS_CONSENT_KEY = "gcit-ad-measurement-v1";
+// Ask again because v2 adds consented Google-to-WhatsApp reference matching.
+export const ADS_CONSENT_KEY = "gcit-ad-measurement-v2";
 type Pixel = ((...args: unknown[]) => void) & { queue: unknown[][]; loaded: boolean; version: string; callMethod?: (...args: unknown[]) => void; push?: Pixel };
 declare global { interface Window { fbq?: Pixel; _fbq?: Pixel } }
 export function measurementAllowed() {
@@ -33,13 +35,37 @@ export function trackReceivedEnquiry(receiptId: string) {
 }
 export function captureAttribution() {
   try {
-    const p = new URLSearchParams(location.search), values: Record<string, string> = {};
-    for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]) {
-      const value = p.get(key); if (value && /^[a-zA-Z0-9_./ -]{1,150}$/.test(value)) values[key] = value;
-    }
+    if (!measurementAllowed()) return;
+    const values = cleanAttribution(Object.fromEntries(new URLSearchParams(location.search)));
     if (Object.keys(values).length) localStorage.setItem("gcit-campaign-v1", JSON.stringify({ values, expires: Date.now() + 7 * 86400000 }));
   } catch {}
 }
 export function readAttribution(): Record<string, string> {
-  try { const stored = JSON.parse(localStorage.getItem("gcit-campaign-v1") || "null"); return stored?.expires > Date.now() ? stored.values : {}; } catch { return {}; }
+  if (!measurementAllowed()) return {};
+  try { const stored = JSON.parse(localStorage.getItem("gcit-campaign-v1") || "null"); return stored?.expires > Date.now() ? cleanAttribution(stored.values) : {}; } catch { return {}; }
+}
+
+export function clearAttribution() {
+  try { localStorage.removeItem("gcit-campaign-v1"); } catch {}
+}
+
+// A click is only an unconfirmed intent. No Lead, qualified-lead or purchase event fires here.
+// Keep navigation synchronous; a failed measurement request must never block WhatsApp.
+export function trackWhatsAppClick(event: MouseEvent) {
+  if (!event.isTrusted || (event.type === "auxclick" && event.button !== 1) || !measurementAllowed()) return;
+  if (!["www.globalcertsit.com", "globalcertsit.com"].includes(location.hostname)) return;
+  const anchor = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>("a[href]") : null;
+  if (!anchor) return;
+  try {
+    const attribution = readAttribution();
+    if (!isGoogleAttribution(attribution)) return;
+    const reference = `GC-${crypto.randomUUID().replaceAll("-", "").slice(0, 16)}`;
+    const href = whatsappReferenceUrl(anchor.href, reference);
+    if (!href) return;
+    anchor.href = href;
+    void fetch("/api/enquiry-intents", {
+      method: "POST", headers: { "Content-Type": "application/json" }, keepalive: true,
+      body: JSON.stringify({ reference, consent: true, attribution, landingPath: location.pathname }),
+    }).catch(() => {});
+  } catch { /* Keep the original WhatsApp link usable. */ }
 }
