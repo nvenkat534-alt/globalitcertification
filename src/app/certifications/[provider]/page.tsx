@@ -3,7 +3,8 @@ import { notFound, redirect } from "next/navigation";
 import CertificationFinder from "@/components/career/CertificationFinder";
 import { providerById } from "@/lib/certifications";
 import { googleExamRoute } from "@/lib/google-exam-route";
-export const revalidate = 3600;
+// Purchased keyword routing depends on the incoming query string.
+export const dynamic = "force-dynamic";
 export async function generateMetadata({
   params,
 }: {
@@ -58,6 +59,3 @@ export default async function Page({
     />
   );
 }
-
-// No provider paths need to be generated ahead of deployment.
-export function generateStaticParams() { return []; }
