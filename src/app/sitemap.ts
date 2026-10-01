@@ -5,19 +5,18 @@ import {
   isAvailable,
   providers,
 } from "@/lib/certifications";
+import { routeLastModified, SITE_ORIGIN } from "@/lib/certification-discovery";
 import { careerPaths } from "@/lib/career-paths";
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://www.globalcertsit.com";
+  const base = SITE_ORIGIN;
   return [
     {
       url: base,
-      lastModified: "2026-09-20",
       changeFrequency: "weekly",
       priority: 1,
     },
     {
       url: `${base}/certification-updates`,
-      lastModified: "2026-09-16",
       changeFrequency: "weekly",
       priority: 0.7,
     },
@@ -37,13 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/terms",
     ].map((path) => ({
       url: `${base}${path}`,
-      lastModified: "2026-09-20",
+      ...(routeLastModified(path) ? { lastModified: routeLastModified(path) } : {}),
       changeFrequency: "weekly" as const,
       priority: path.includes("certifications") ? 0.9 : 0.5,
     })),
     ...providers.map((p) => ({
       url: `${base}/certifications/${p.id}`,
-      lastModified: "2026-09-20",
       changeFrequency: "weekly" as const,
       priority: 0.7,
     })),
@@ -51,7 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .filter((c) => isAvailable(c))
       .map((c) => ({
         url: `${base}${certUrl(c)}`,
-        lastModified: "2026-09-20",
+        ...(routeLastModified(certUrl(c)) ? { lastModified: routeLastModified(certUrl(c)) } : {}),
         changeFrequency: "monthly" as const,
         priority: 0.6,
       })),
