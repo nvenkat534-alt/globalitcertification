@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import RegistrationSteps from "@/components/career/RegistrationSteps";
+import { certificationBreadcrumbs, getDiscoveryGuide, SITE_ORIGIN } from "@/lib/certification-discovery";
 import PaidEnquiryNote from "@/components/career/PaidEnquiryNote";
 import { getRegistrationGuide } from "@/lib/registration";
 import { notFound, permanentRedirect } from "next/navigation";
@@ -35,13 +36,18 @@ export async function generateMetadata({
   params: Promise<{ provider: string; cert: string }>;
 }): Promise<Metadata> {
   const c = await getCert(params);
-  return c
-    ? {
-        title: c.name,
-        description: c.why,
-        alternates: { canonical: `https://www.globalcertsit.com${certUrl(c)}` },
-      }
-    : { title: "Certification not found" };
+  if (!c || !isAvailable(c)) return { title: "Certification not found" };
+  const guide = getDiscoveryGuide(c.provider, c.id);
+  const title = guide?.title || c.name;
+  const description = guide?.description || c.why;
+  const url = `${SITE_ORIGIN}${certUrl(c)}`;
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { type: "website", siteName: "Global Certs IT", title, description, url, images: [] },
+    twitter: { card: "summary", title, description, images: [] },
+  };
 }
 export default async function Page({
   params,
@@ -57,14 +63,17 @@ export default async function Page({
   const registration = getRegistrationGuide(c);
   const roleList = roles.filter((r) => c.roles[r.id]);
   const chat = certificationEnquiry([c]);
+  const guide = getDiscoveryGuide(c.provider, c.id);
+  const breadcrumbs = certificationBreadcrumbs(p, { name: c.name, path: certUrl(c) });
   return (
     <main className="cf">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs).replace(/</g, "\\u003c") }} />
       <section className="detail-hero">
         <div className="cf-shell">
           <div className="detail-breadcrumb">
             <Link href="/certifications/explore">All certifications</Link>
             <span>/</span>
-            <Link href={`/certifications/explore?provider=${p.id}#all-certifications`}>{p.name}</Link>
+            <Link href={`/certifications/${p.id}`}>{p.name}</Link>
             <span>/</span>
             <span>{c.exam}</span>
           </div>
@@ -100,6 +109,18 @@ export default async function Page({
       <div className="cf-shell detail-grid">
         <div>
           {c.note && <p className="detail-note detail-section">{c.note}</p>}
+          {guide && <>
+            {guide.sections.map(section => <section className="detail-section" key={section.heading}>
+              <h2>{section.heading}</h2><p>{section.text}</p>
+            </section>)}
+            <section className="detail-section">
+              <h2>Independent support for professionals in India</h2>
+              <p>Global Certs IT offers paid certification guidance, application information and exam-booking support in Telugu and English. You can also use the official provider’s website to apply or book directly.</p>
+              <p style={{ marginTop: 14 }}>Ask for a written quote that separates the provider’s exam charge from our service charge and explains the support included. Confirm any voucher’s restrictions before paying. The certification provider sets eligibility, exam rules and certification outcomes.</p>
+              <a className="all-paths" href={guide.source.url} target="_blank" rel="noopener noreferrer">{guide.source.title} <ExternalLink size={15}/></a>
+              <p style={{ marginTop: 14 }}>This guidance was checked on {guide.updatedOn}. Recheck the linked official source before applying or paying.</p>
+            </section>
+          </>}
           {c.provider === "microsoft" && c.id === "azure-administrator" && <section className="detail-section"><h2>AZ-104 preparation checklist</h2><p>Manage Azure identities and governance (20–25%), storage (15–20%), compute resources (20–25%), virtual networking (15–20%), and monitoring and maintenance (10–15%). Practise these tasks in Azure before booking.</p><a className="all-paths" href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-104" target="_blank" rel="noopener noreferrer">Read Microsoft’s current AZ-104 study guide <ExternalLink size={15}/></a></section>}
           <section className="detail-section">
             <h2>What this credential focuses on</h2>
