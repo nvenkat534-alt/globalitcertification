@@ -8,8 +8,6 @@ export function WhatsAppIcon({ size = 21 }: { size?: number }) {
 export default function WhatsAppConcierge() {
   const dialog = useRef<HTMLDialogElement>(null);
   const [certification, setCertification] = useState("PMP / PMI Project Management");
-  const [goal, setGoal] = useState("Price & payment details");
-  const [timeline, setTimeline] = useState("Not sure yet");
   const [nudge, setNudge] = useState(false);
   useEffect(() => {
     let dismissed = false;
@@ -20,7 +18,7 @@ export default function WhatsAppConcierge() {
   }, []);
   const dismiss = () => {setNudge(false); try {sessionStorage.setItem("gcit-enquiry-dismissed", "true");} catch {}};
   const show = () => {dismiss(); dialog.current?.showModal();};
-  const general = whatsappUrl("Hi Global Certs IT! I am interested in a global certification.\nCertification: \nTarget exam month: \nPlease share pricing and support options by text first.");
+  const general = whatsappUrl("Hi Global Certs IT! I am interested in a global certification.");
   return <>
     <div className="whatsapp-dock">
       {nudge && <div className="whatsapp-nudge"><button aria-label="Dismiss certification help" onClick={dismiss}><X size={14}/></button><strong>Which certification is next for you?</strong><p>Ready to book? Get pricing and payment details.</p><button className="nudge-action" onClick={show}>Choose a certification <ArrowUpRight size={14}/></button></div>}
@@ -29,12 +27,10 @@ export default function WhatsAppConcierge() {
     <div className="mobile-enquiry-bar"><a href={general} target="_blank" rel="noopener noreferrer"><WhatsAppIcon size={22}/><span>WhatsApp us<small>Get pricing & booking</small></span><ArrowUpRight size={20}/></a><button onClick={show} aria-label="Choose a certification to enquire about"><MessageCircle size={21}/></button></div>
     <dialog className="gc-dialog enquiry-dialog" ref={dialog} aria-labelledby="enquiry-title" onClick={e=>{if(e.target===e.currentTarget)dialog.current?.close();}}>
       <button className="dialog-close" aria-label="Close enquiry options" onClick={()=>dialog.current?.close()}><X size={22}/></button>
-      <span className="enquiry-icon"><WhatsAppIcon size={30}/></span><span className="gc-kicker">LET’S TALK CERTIFICATIONS</span><h2 id="enquiry-title">Your next certification<br/>starts with a message.</h2><p>Choose what you need. We’ll put the details into your WhatsApp message.</p>
+      <span className="enquiry-icon"><WhatsAppIcon size={30}/></span><span className="gc-kicker">LET’S TALK CERTIFICATIONS</span><h2 id="enquiry-title">Your next certification<br/>starts with a message.</h2><p>Choose a certification. We’ll include its name in your WhatsApp message.</p>
       <label>Which certification are you considering?<select value={certification} onChange={e=>setCertification(e.target.value)}>{["PMP / PMI Project Management", "SAP S/4HANA / Integration", "Claude / Anthropic", "Salesforce / Agentforce", "Databricks", "Cisco", "ISACA", "CompTIA", "AIGP / IAPP Privacy", "AWS", "Microsoft Azure / Fabric", "Google Cloud", "AI & Generative AI", "Data Engineering / Analytics", "Other global certification"].map(v=><option key={v}>{v}</option>)}</select></label>
-      <label>How can we help?<select value={goal} onChange={e=>setGoal(e.target.value)}>{["Price & payment details", "Training options", "Eligibility & application guidance", "Book an exam voucher", "Existing order support"].map(v=><option key={v}>{v}</option>)}</select></label>
-      <label>When are you planning your exam?<select value={timeline} onChange={e=>setTimeline(e.target.value)}>{["Not sure yet", "Within 30 days", "Within 60 days", "Within 90 days", "Later"].map(v=><option key={v}>{v}</option>)}</select></label>
       <p className="enquiry-note">Independent paid support. Ask for a quote before booking. Message first; calls by appointment.</p>
-      <a className="gc-button gc-button-whatsapp" target="_blank" rel="noopener noreferrer" href={whatsappUrl(`Hi Global Certs IT! I am interested in ${certification}.\nI need: ${goal}.\nExam timing: ${timeline}.\nPlease reply by text first. We can arrange a call if needed.`)}><WhatsAppIcon/> Continue to WhatsApp <ArrowUpRight size={18}/></a><small className="enquiry-note">WhatsApp opens with your message. Tap Send to contact us.</small><span className="enquiry-number">+91 93928 28155 · Telugu & English</span>
+      <a className="gc-button gc-button-whatsapp" target="_blank" rel="noopener noreferrer" href={whatsappUrl(`Hi Global Certs IT! I am interested in ${certification}.`)}><WhatsAppIcon/> Continue to WhatsApp <ArrowUpRight size={18}/></a><small className="enquiry-note">WhatsApp opens with your message. Tap Send to contact us.</small><span className="enquiry-number">+91 93928 28155 · Telugu & English</span>
     </dialog>
   </>;
 }

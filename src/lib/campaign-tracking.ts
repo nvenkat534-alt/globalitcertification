@@ -1,4 +1,4 @@
-import { cleanAttribution, isGoogleAttribution, whatsappReferenceUrl } from "./enquiry-attribution";
+import { cleanAttribution, isGoogleAttribution } from "./enquiry-attribution";
 export const META_PIXEL_ID = "1103233019317006";
 // Ask again because v2 adds consented Google-to-WhatsApp reference matching.
 export const ADS_CONSENT_KEY = "gcit-ad-measurement-v2";
@@ -59,10 +59,10 @@ export function trackWhatsAppClick(event: MouseEvent) {
   try {
     const attribution = readAttribution();
     if (!isGoogleAttribution(attribution)) return;
+    const href = new URL(anchor.href);
+    if (href.protocol !== "https:" || href.hostname !== "wa.me" || href.pathname !== "/919392828155") return;
+    // Keep the click reference internal so the customer's message stays one line.
     const reference = `GC-${crypto.randomUUID().replaceAll("-", "").slice(0, 16)}`;
-    const href = whatsappReferenceUrl(anchor.href, reference);
-    if (!href) return;
-    anchor.href = href;
     void fetch("/api/enquiry-intents", {
       method: "POST", headers: { "Content-Type": "application/json" }, keepalive: true,
       body: JSON.stringify({ reference, consent: true, attribution, landingPath: location.pathname }),
