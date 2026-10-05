@@ -82,6 +82,7 @@ export default function AiPathways() {
         "aws/generative-ai-developer",
         "google-cloud/professional-ml-engineer",
         "microsoft/ml-operations-engineer",
+        "microsoft/multi-agent-ai-solutions-expert",
         "aws/machine-learning-engineer",
         "databricks/machine-learning-professional",
         "anthropic/claude-architect-professional",
@@ -208,7 +209,9 @@ export default function AiPathways() {
               <p>
                 For Azure and Foundry builders, Fabric teams or organisations
                 using Copilot. AB-730 and AB-731 focus on business work; AI-103
-                and AI-200 focus on development.
+                and AI-200 focus on development. For experienced multi-agent
+                developers, the AI-500 expert route also requires the AI-103
+                associate credential.
               </p>
             </article>
             <article>

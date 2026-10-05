@@ -127,6 +127,20 @@ export default async function Page({
             <h2>Eligibility comes first.</h2>
             <p>{c.eligibility}</p>
           </section>
+          {c.provider === "pmi" && c.id === "pmp" && <section className="detail-section">
+            <h2>PMP training: what should you check?</h2>
+            <h3>Do you need another 35-hour course?</h3>
+            <p>An active CAPM or qualifying prior training can meet the training requirement. You still need to satisfy PMI’s education and project-experience criteria. Keep supporting records and review the current exam outline.</p>
+            <a className="all-paths" href="https://www.pmi.org/blog/pmp-exam-preparation-resources" target="_blank" rel="noopener noreferrer">Read PMI’s preparation guidance <ExternalLink size={15} /></a>
+            <h3 style={{ marginTop: 24 }}>What changes on 1 December 2026?</h3>
+            <p>From that date, eligible live training must come from a PMI Authorized Training Partner, China Registered Education Provider or an eligible accredited academic programme. Self-paced training can still come from any organisation. Training completed before 1 December remains subject to the current eligibility rules.</p>
+            <a className="all-paths" href="https://www.pmi.org/certifications/project-management-pmp/new-exam" target="_blank" rel="noopener noreferrer">Check PMI’s training policy <ExternalLink size={15} /></a>
+          </section>}
+          {c.provider === "microsoft" && c.id === "multi-agent-ai-solutions-expert" && <section className="detail-section">
+            <h2>Your route to the expert credential</h2>
+            <p>Earn Azure AI Apps and Agents Developer Associate, then complete the AI-500 requirement for the expert credential. Select the route that matches your existing credentials and hands-on experience.</p>
+            <Link className="all-paths" href="/certifications/microsoft/azure-ai-apps-agents">Explore the AI-103 associate credential <ArrowUpRight size={15} /></Link>
+          </section>}
           <section className="detail-section" id="registration">
             <h2>How to register</h2>
             <RegistrationSteps guide={registration} />
