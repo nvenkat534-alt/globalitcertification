@@ -6,18 +6,19 @@ import {
   providers,
 } from "@/lib/certifications";
 import { careerPaths } from "@/lib/career-paths";
+import { UPDATES_REVIEWED_ON } from "@/lib/certification-updates";
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.globalcertsit.com";
   return [
     {
       url: base,
-      lastModified: "2026-09-20",
+      lastModified: UPDATES_REVIEWED_ON,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
       url: `${base}/certification-updates`,
-      lastModified: "2026-09-16",
+      lastModified: UPDATES_REVIEWED_ON,
       changeFrequency: "weekly",
       priority: 0.7,
     },
@@ -51,7 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .filter((c) => isAvailable(c))
       .map((c) => ({
         url: `${base}${certUrl(c)}`,
-        lastModified: "2026-09-20",
+        lastModified: c.reviewedOn || "2026-09-20",
         changeFrequency: "monthly" as const,
         priority: 0.6,
       })),

@@ -500,19 +500,21 @@ export const certifications: Certification[] = [
   c(
     "machine-learning-engineer",
     "AWS Certified Machine Learning Engineer – Associate",
-    "MLA-C01 / MLA-C02 beta",
+    "MLA-C02 beta (English)",
     "aws",
     "Associate",
     1,
     { "ml-engineer": 5, "ai-engineer": 4, "data-engineer": 4, devops: 4 },
-    ["SageMaker", "Model deployment", "MLOps", "Monitoring"],
+    ["SageMaker", "Amazon Bedrock", "MLOps", "Generative & agentic AI"],
     "Fits engineers putting models into production and maintaining reliable ML systems on AWS. Adds operational depth beyond an AI foundation credential.",
     "AWS targets about one year using SageMaker and other AWS ML engineering services.",
     aws("machine-learning-engineer-associate"),
     {
       ai: true,
       fresh: true,
-      note: "MLA-C02 beta registration is open. MLA-C01 in English is available through 28 September 2026; check language and version before booking.",
+      status: "Beta",
+      reviewedOn: "2026-10-05",
+      note: "English MLA-C02 beta testing began 29 September 2026. English MLA-C01 testing has ended; MLA-C01 continues in Japanese, Korean and Simplified Chinese during the beta period. Check language, beta results timing and regional voucher terms before booking.",
     },
   ),
   c(
@@ -680,7 +682,46 @@ export const certifications: Certification[] = [
     "A direct fit for developers creating and deploying AI apps and agents in Microsoft Foundry.",
     "Be comfortable developing Python applications and working with Azure and generative AI.",
     ms("azure-ai-apps-and-agents-developer-associate"),
-    { ai: true, fresh: true },
+    { ai: true, fresh: true, reviewedOn: "2026-10-05", note: "This associate credential is also the prerequisite for earning Multi-Agent AI Solutions Expert with AI-500." },
+  ),
+  c(
+    "multi-agent-ai-solutions-expert",
+    "Microsoft Certified: Multi-Agent AI Solutions Expert",
+    "AI-500",
+    "microsoft",
+    "Expert",
+    2,
+    { "ai-engineer": 5, "software-developer": 5, "cloud-architect": 4, "ml-engineer": 4 },
+    ["Multi-agent architecture", "Microsoft Foundry", "Evaluation & monitoring", "Security & governance"],
+    "For experienced practitioners designing, developing and operating production multi-agent AI systems on Azure.",
+    "Bring Python, Azure and production agent-development experience, including retrieval, orchestration and evaluation.",
+    ms("multi-agent-ai-solutions-expert"),
+    {
+      ai: true,
+      fresh: true,
+      reviewedOn: "2026-10-05",
+      eligibility: "To earn this expert credential, hold Microsoft Certified: Azure AI Apps and Agents Developer Associate (AI-103) and pass AI-500.",
+      note: "Microsoft’s AI-500 listing is no longer labelled beta as checked on 5 October 2026. Passing AI-500 alone does not meet the complete expert-credential requirements. Check India pricing and appointment availability before payment.",
+    },
+  ),
+  c(
+    "windows-server-administrator",
+    "Microsoft Certified: Windows Server Hybrid Administrator Associate",
+    "AZ-802",
+    "microsoft",
+    "Associate",
+    1,
+    { "cloud-engineer": 5, "cloud-architect": 4, cybersecurity: 4 },
+    ["Active Directory", "Windows Server", "Hybrid networking", "Storage & security", "Monitoring"],
+    "For administrators managing Windows Server workloads across on-premises, cloud and hybrid environments.",
+    "Build hands-on Windows Server administration experience with PowerShell, Hyper-V, Azure Arc and Active Directory.",
+    ms("windows-server-hybrid-administrator"),
+    {
+      fresh: true,
+      reviewedOn: "2026-10-05",
+      note: "AZ-800 and AZ-801 retired on 30 September 2026. The current credential page directs candidates to AZ-802. If you passed an older exam, ask Microsoft to confirm your transition requirements.",
+      eligibility: "Review the current AZ-802 exam and credential requirements. Confirm India fees, language and appointment availability in Microsoft’s official scheduling flow.",
+    },
   ),
   c(
     "azure-ai-cloud-developer",
@@ -1211,7 +1252,9 @@ export const certifications: Certification[] = [
     "https://www.pmi.org/certifications/project-management-pmp",
     {
       eligibility:
-        "A PMI-approved application is required. Verify the current education, project-leadership experience and training requirements with PMI before booking.",
+        "A PMI-approved application is required. Meet PMI’s education and project-leadership experience requirements, plus 35 hours of qualifying project-management training or an active CAPM certification.",
+      reviewedOn: "2026-10-05",
+      note: "An active CAPM or qualifying previous training can satisfy the PMP training requirement. Check your existing records before paying for another 35-hour course; training completion alone does not establish exam readiness.",
     },
   ),
   c(
@@ -1570,6 +1613,21 @@ export function whatsappUrl(message: string) {
 }
 export const providerById = (id: string) => providers.find((p) => p.id === id);
 export const retiredAlternatives = [
+  {
+    exam: "AZ-800",
+    current: "Retired 30 September 2026. Review AZ-802 for the current Windows Server administration route.",
+    source: ms("exams/az-802"),
+  },
+  {
+    exam: "AZ-801",
+    current: "Retired 30 September 2026. Review AZ-802 and confirm any credit for previous exams with Microsoft.",
+    source: ms("exams/az-802"),
+  },
+  {
+    exam: "MLA-C01 (English)",
+    current: "English testing ended 28 September 2026. Review MLA-C02 beta; MLA-C01 continues in Japanese, Korean and Simplified Chinese during the beta period.",
+    source: aws("machine-learning-engineer-associate"),
+  },
   {
     exam: "AI-900",
     current: "Azure AI Fundamentals now uses AI-901.",

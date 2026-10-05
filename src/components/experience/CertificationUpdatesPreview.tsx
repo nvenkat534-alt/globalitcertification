@@ -10,7 +10,7 @@ export default function CertificationUpdatesPreview() {
     </div>
     <div className="updates-preview-grid">{certificationUpdates.filter(update => !update.endsAt).slice(0, 3).map(update =>
       <Link key={update.id} href={`/certification-updates#${update.id}`} className="updates-preview-card">
-        <span>{update.provider}</span><h3>{update.title}</h3><p>{update.dateLabel}</p><b>Read the official changes <ArrowUpRight size={17} /></b>
+        <span>{update.provider}</span><h3>{update.title}</h3><p>{update.dateLabel}</p><b>Read update & sources <ArrowUpRight size={17} /></b>
       </Link>
     )}</div>
   </section>;
