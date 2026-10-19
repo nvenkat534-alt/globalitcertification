@@ -8,7 +8,7 @@ import { certificationEnquiry } from "@/lib/certifications";
 export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Certification Updates & Exam Changes",
-  description: "PMP training guidance, AWS MLA-C02 beta, Microsoft AI-500 and AZ-802, plus upcoming exam dates and India skills-market context. Sources and candidate guidance included.",
+  description: "PMP guidance, AWS exam transitions, AZ-401 and AB-330 beta notices, India discount exclusions and booking support. Reviewed 19 October 2026 with provider sources.",
   alternates: { canonical: "https://www.globalcertsit.com/certification-updates" },
   openGraph: { title: "Certification updates | Global Certs IT", description: "Exam changes, key dates and candidate guidance, with official sources.", url: "https://www.globalcertsit.com/certification-updates" },
 };
