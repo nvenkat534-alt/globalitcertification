@@ -914,7 +914,7 @@ export const certifications: Certification[] = [
     ms("devops-engineer"),
     {
       eligibility:
-        "AZ-400 also requires a qualifying associate certification. Check the official page for the current accepted prerequisite options.",
+        "AZ-400 also requires a qualifying associate certification. Check the official page for the current accepted prerequisite options. Microsoft announced retirement of AZ-400 and this credential on 1 February 2027; review the new AZ-401 beta route before choosing an exam date.",
     },
   ),
   c(
